@@ -20,9 +20,11 @@
   });
 </script> <nav class="breadcrumbs" aria-label="Breadcrumb"> <div class="container"> <ol class="breadcrumb-list"> <li class="breadcrumb-item"> <a href="index.html">首页</a> <span class="breadcrumb-separator">/</span> </li><li class="breadcrumb-item"> <span aria-current="page">机场横向对比工具</span>  </li> </ol> </div> </nav> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://vpnjichang.wiki/"},{"@type":"ListItem","position":2,"name":"机场横向对比工具"}]}</script>  <main class="container" style="padding-bottom: 60px;"> <div class="section-header" style="margin-top: 20px;"> <span class="section-tag">Comparison Engine</span> <h1 class="section-title">机场全维度多维度横向对比工具</h1> <p class="section-desc">
 在多家意向机场之间犹豫不决？在下方选择 2 至 4 家品牌，即可实时并排比较起步价格、每 GB 真实单价、物理专线架构与流媒体解锁能力。
-</p> </div> <!-- 交互选择器 --> <div style="background: var(--bg-alt); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 30px;"> <label style="font-weight: 600; font-size: 0.95rem; display: block; margin-bottom: 10px;">
-🔍 点击添加/移除对比候选品牌（已选 <span id="selected-count" style="color: var(--primary-color);">2</span>/4 家）：
-</label> <div id="brand-selector" style="display: flex; gap: 8px; flex-wrap: wrap;"> <button class="selector-tag" data-id="breezenet" style="padding: 6px 14px; font-size: 0.88rem; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.2s; background: var(--primary-color); color: #fff;"> 微风网络 Breezenet </button><button class="selector-tag" data-id="muguang" style="padding: 6px 14px; font-size: 0.88rem; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.2s; background: var(--primary-color); color: #fff;"> 暮光网络 </button><button class="selector-tag" data-id="feimaoyun" style="padding: 6px 14px; font-size: 0.88rem; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.2s; background: #fff; color: var(--text-color);"> 飞猫云 </button><button class="selector-tag" data-id="wuyou" style="padding: 6px 14px; font-size: 0.88rem; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.2s; background: #fff; color: var(--text-color);"> 无忧 </button><button class="selector-tag" data-id="lingmao" style="padding: 6px 14px; font-size: 0.88rem; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.2s; background: #fff; color: var(--text-color);"> 灵猫 </button><button class="selector-tag" data-id="flashleap" style="padding: 6px 14px; font-size: 0.88rem; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.2s; background: #fff; color: var(--text-color);"> 闪跃 FlashLeap </button><button class="selector-tag" data-id="firefly" style="padding: 6px 14px; font-size: 0.88rem; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.2s; background: #fff; color: var(--text-color);"> 萤火虫（Firefly） </button><button class="selector-tag" data-id="kuajiecloud" style="padding: 6px 14px; font-size: 0.88rem; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.2s; background: #fff; color: var(--text-color);"> 跨界 </button><button class="selector-tag" data-id="yinxingren" style="padding: 6px 14px; font-size: 0.88rem; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.2s; background: #fff; color: var(--text-color);"> 隐形人 </button><button class="selector-tag" data-id="feiv" style="padding: 6px 14px; font-size: 0.88rem; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.2s; background: #fff; color: var(--text-color);"> 飞V </button><button class="selector-tag" data-id="laddercloud" style="padding: 6px 14px; font-size: 0.88rem; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.2s; background: #fff; color: var(--text-color);"> 梯子云 LadderCloud </button><button class="selector-tag" data-id="wavenet" style="padding: 6px 14px; font-size: 0.88rem; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.2s; background: #fff; color: var(--text-color);"> 浪网 WaveNet </button><button class="selector-tag" data-id="lingdongcloud" style="padding: 6px 14px; font-size: 0.88rem; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.2s; background: #fff; color: var(--text-color);"> 灵动云 </button><button class="selector-tag" data-id="quanqiuyun" style="padding: 6px 14px; font-size: 0.88rem; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.2s; background: #fff; color: var(--text-color);"> 全球云 </button> </div> </div> <!-- 动态对比表格容器 --> <div style="overflow-x: auto;"> <table class="ranking-table" id="compare-table" style="min-width: 750px;"> <thead id="compare-thead"> <!-- 动态表头 --> </thead> <tbody id="compare-tbody"> <!-- 动态数据行 --> </tbody> </table> </div> <div id="compare-empty" style="display: none; padding: 40px; text-align: center; color: var(--text-muted); background: var(--bg-alt); border-radius: 8px;">
+</p> </div> <!-- 交互选择器卡片 --> <div class="compare-selector-card"> <div class="compare-selector-header"> <div class="compare-selector-title-wrap"> <div class="compare-selector-left"> <span class="compare-selector-icon">⚖️</span> <span class="compare-selector-heading">对比候选品牌选择器</span> </div> <div class="compare-counter-pill">
+已选对比品牌：<strong id="selected-count">2</strong> / 4 家
+</div> </div> <div class="compare-selector-hint">
+💡 点击下方品牌药丸标签可快速添加或移出对比（<strong>至少保留 2 家，最多同时对比 4 家</strong>）：
+</div> </div> <div id="brand-selector" class="compare-tags-wrapper"> <button class="brand-pill-btn active" data-id="breezenet" type="button" title="点击取消对比 微风网络 Breezenet"> <span class="pill-check">✓</span> <span class="pill-name">微风网络 Breezenet</span> </button><button class="brand-pill-btn active" data-id="muguang" type="button" title="点击取消对比 暮光网络"> <span class="pill-check">✓</span> <span class="pill-name">暮光网络</span> </button><button class="brand-pill-btn " data-id="feimaoyun" type="button" title="点击加入对比 飞猫云"> <span class="pill-check">+</span> <span class="pill-name">飞猫云</span> </button><button class="brand-pill-btn " data-id="wuyou" type="button" title="点击加入对比 无忧"> <span class="pill-check">+</span> <span class="pill-name">无忧</span> </button><button class="brand-pill-btn " data-id="lingmao" type="button" title="点击加入对比 灵猫"> <span class="pill-check">+</span> <span class="pill-name">灵猫</span> </button><button class="brand-pill-btn " data-id="flashleap" type="button" title="点击加入对比 闪跃 FlashLeap"> <span class="pill-check">+</span> <span class="pill-name">闪跃 FlashLeap</span> </button><button class="brand-pill-btn " data-id="firefly" type="button" title="点击加入对比 萤火虫（Firefly）"> <span class="pill-check">+</span> <span class="pill-name">萤火虫（Firefly）</span> </button><button class="brand-pill-btn " data-id="kuajiecloud" type="button" title="点击加入对比 跨界"> <span class="pill-check">+</span> <span class="pill-name">跨界</span> </button><button class="brand-pill-btn " data-id="yinxingren" type="button" title="点击加入对比 隐形人"> <span class="pill-check">+</span> <span class="pill-name">隐形人</span> </button><button class="brand-pill-btn " data-id="feiv" type="button" title="点击加入对比 飞V"> <span class="pill-check">+</span> <span class="pill-name">飞V</span> </button><button class="brand-pill-btn " data-id="laddercloud" type="button" title="点击加入对比 梯子云 LadderCloud"> <span class="pill-check">+</span> <span class="pill-name">梯子云 LadderCloud</span> </button><button class="brand-pill-btn " data-id="wavenet" type="button" title="点击加入对比 浪网 WaveNet"> <span class="pill-check">+</span> <span class="pill-name">浪网 WaveNet</span> </button><button class="brand-pill-btn " data-id="lingdongcloud" type="button" title="点击加入对比 灵动云"> <span class="pill-check">+</span> <span class="pill-name">灵动云</span> </button><button class="brand-pill-btn " data-id="quanqiuyun" type="button" title="点击加入对比 全球云"> <span class="pill-check">+</span> <span class="pill-name">全球云</span> </button> </div> </div> <!-- 动态对比表格容器 --> <div style="overflow-x: auto; background: #ffffff; border: 1px solid var(--border-color); border-radius: 14px; box-shadow: var(--shadow-sm); margin-bottom: 30px;"> <table class="ranking-table" id="compare-table" style="min-width: 820px; width: 100%; border-collapse: collapse;"> <thead id="compare-thead"> <!-- 动态表头 --> </thead> <tbody id="compare-tbody"> <!-- 动态数据行 --> </tbody> </table> </div> <div id="compare-empty" style="display: none; padding: 40px; text-align: center; color: var(--text-muted); background: var(--bg-alt); border-radius: 12px; border: 1px dashed var(--border-color);">
 请在上方至少选择 2 家品牌进行对比分析。
 </div> </main>  <footer class="site-footer"> <div class="container"> <div class="footer-grid"> <div class="footer-brand"> <div class="logo" style="margin-bottom: 8px;"> <span class="logo-badge">VPN</span> <span>JICHANG<small style="font-weight:400; color:#64748b; font-size: 0.85rem;">.wiki</small></span> </div> <p class="footer-tagline">
 专注提供客观、严谨、多维度的中文科学上网与网络代理评测。我们立足真实宽带压测数据，帮助用户告别选择困难与翻车风险。
@@ -62,6 +64,22 @@
   // 客户端横向对比脚本
   let selectedIds = [airportsData[0].id, airportsData[1].id];
 
+  function updatePills() {
+    const buttons = document.querySelectorAll('.brand-pill-btn');
+    buttons.forEach(btn => {
+      const id = btn.getAttribute('data-id');
+      const isSelected = selectedIds.includes(id);
+      const checkSpan = btn.querySelector('.pill-check');
+      if (isSelected) {
+        btn.classList.add('active');
+        if (checkSpan) checkSpan.textContent = '✓';
+      } else {
+        btn.classList.remove('active');
+        if (checkSpan) checkSpan.textContent = '+';
+      }
+    });
+  }
+
   function renderTable() {
     const thead = document.getElementById('compare-thead');
     const tbody = document.getElementById('compare-tbody');
@@ -85,11 +103,11 @@
     // 渲染表头
     thead.innerHTML = `
       <tr>
-        <th style="width: 140px;">比较维度</th>
+        <th style="width: 140px; background: #f8fafc; font-weight: 700;">比较维度</th>
         ${selectedAirports.map(a => `
-          <th style="text-align: center;">
-            <div style="font-size: 1.1rem; font-weight: 700;">${a.name}</div>
-            <div style="font-size: 0.8rem; color: #64748b; font-weight: normal; margin-top: 4px;">${a.tagline}</div>
+          <th style="text-align: center; background: #f0f7ff; border-top: 3px solid #2563eb; padding: 16px 12px;">
+            <div style="font-size: 1.15rem; font-weight: 800; color: #1e3a8a;">${a.name}</div>
+            <div style="font-size: 0.82rem; color: #475569; font-weight: 500; margin-top: 4px; line-height: 1.4;">${a.tagline}</div>
           </th>
         `).join('')}
       </tr>
@@ -97,60 +115,60 @@
 
     // 比较维度行配置
     const dimensions = [
-      { label: '起步价格', fn: a => `<strong style="color: #2563eb; font-size: 1.05rem;">￥${a.startingPrice.toFixed(2)}/月</strong>` },
-      { label: '基础配额', fn: a => `<strong>${a.plans[0].trafficGB} GB</strong>` },
-      { label: '每GB折算单价', fn: a => `约 ￥${a.plans[0].pricePerGB.toFixed(3)}/GB` },
-      { label: '线路架构', fn: a => a.tags.includes('premium') ? '<span style="color:#16a34a; font-weight:600;">IPLC/IEPL 国际纯内网专线</span>' : '多线 BGP 智能中转' },
-      { label: '支持协议', fn: a => a.protocols.join(', ') },
+      { label: '起步价格', fn: a => `<strong style="color: #2563eb; font-size: 1.15rem; font-family: var(--font-mono);">￥${a.startingPrice.toFixed(2)}/月</strong>` },
+      { label: '基础配额', fn: a => `<strong style="font-family: var(--font-mono); font-size: 1.02rem;">${a.plans[0].trafficGB} GB</strong>` },
+      { label: '每GB折算单价', fn: a => `<span style="font-family: var(--font-mono); color: #334155; font-weight: 600;">约 ￥${a.plans[0].pricePerGB.toFixed(3)}/GB</span>` },
+      { label: '线路架构', fn: a => a.tags.includes('premium') ? '<span class="badge" style="background: #ecfdf5; color: #047857; font-weight: 700; border: 1px solid #a7f3d0; padding: 4px 10px; border-radius: 6px;">IPLC/IEPL 国际纯专线</span>' : '<span class="badge" style="background: #f1f5f9; color: #334155; font-weight: 600; padding: 4px 10px; border-radius: 6px;">多线 BGP 智能中转</span>' },
+      { label: '支持协议', fn: a => `<span style="font-family: var(--font-mono); font-size: 0.88rem; font-weight: 600; color: #475569;">${a.protocols.join(', ')}</span>` },
       { label: '覆盖枢纽', fn: a => a.regions.join('、') },
-      { label: '设备限制', fn: a => a.deviceLimit || '4-6台设备' },
+      { label: '设备限制', fn: a => `<span style="font-weight: 600; color: #334155;">${a.deviceLimit || '4-6台设备'}</span>` },
       { label: 'AI 大模型', fn: a => (a.aiSupport || []).join('、') },
       { label: '4K 流媒体', fn: a => (a.streamingSupport || []).join('、') },
-      { label: '核心优势', fn: a => `<ul style="text-align:left; margin:0 0 0 16px; padding:0; font-size:0.85rem;">${a.advantages.slice(0, 3).map(adv => `<li>${adv}</li>`).join('')}</ul>` },
-      { label: '注意事项', fn: a => `<ul style="text-align:left; margin:0 0 0 16px; padding:0; font-size:0.85rem; color:#b45309;">${a.disadvantages.map(dis => `<li>${dis}</li>`).join('')}</ul>` },
+      { label: '核心优势', fn: a => `<ul style="text-align:left; margin:0 0 0 16px; padding:0; font-size:0.86rem; line-height: 1.6; color: #1e293b;">${a.advantages.slice(0, 3).map(adv => `<li>${adv}</li>`).join('')}</ul>` },
+      { label: '注意事项', fn: a => `<ul style="text-align:left; margin:0 0 0 16px; padding:0; font-size:0.86rem; line-height: 1.6; color: #b45309;">${a.disadvantages.map(dis => `<li>${dis}</li>`).join('')}</ul>` },
       { label: '直达入口', fn: a => `
-        <div style="display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
-          <a href="review/${a.slug}.html" class="btn-card-review" style="padding:4px 10px; font-size:0.8rem;">查看评测</a>
-          <a href="${a.affiliateUrl || a.officialUrl}" target="_blank" rel="noopener nofollow sponsored" class="btn-card-buy" style="padding:4px 10px; font-size:0.8rem;">前往官网</a>
+        <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin: 4px 0;">
+          <a href="review/${a.slug}.html" class="btn-card-review" style="padding:6px 14px; font-size:0.84rem; white-space:nowrap;">查看深度评测</a>
+          <a href="${a.affiliateUrl || a.officialUrl}" target="_blank" rel="noopener nofollow sponsored" class="btn-card-buy" style="padding:6px 14px; font-size:0.84rem; white-space:nowrap;">前往官网直达 &rarr;</a>
         </div>
       `}
     ];
 
     tbody.innerHTML = dimensions.map(d => `
       <tr>
-        <td><strong>${d.label}</strong></td>
-        ${selectedAirports.map(a => `<td style="text-align: center;">${d.fn(a)}</td>`).join('')}
+        <td style="white-space: nowrap; font-weight: 700; background: #f8fafc; color: #1e293b;">${d.label}</td>
+        ${selectedAirports.map(a => `<td style="text-align: center; vertical-align: middle; padding: 14px 16px;">${d.fn(a)}</td>`).join('')}
       </tr>
     `).join('');
   }
 
   // 绑定按钮事件
   document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.selector-tag');
+    const buttons = document.querySelectorAll('.brand-pill-btn');
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
         const id = btn.getAttribute('data-id');
         if (selectedIds.includes(id)) {
           if (selectedIds.length > 2) {
             selectedIds = selectedIds.filter(item => item !== id);
-            btn.style.background = '#fff';
-            btn.style.color = 'var(--text-color)';
           } else {
             alert('至少需要保留 2 家品牌进行对比！');
+            return;
           }
         } else {
           if (selectedIds.length < 4) {
             selectedIds.push(id);
-            btn.style.background = 'var(--primary-color)';
-            btn.style.color = '#fff';
           } else {
             alert('最多支持同时对比 4 家品牌！请先取消已勾选的其他品牌。');
+            return;
           }
         }
+        updatePills();
         renderTable();
       });
     });
 
+    updatePills();
     renderTable();
   });
 })();</script>

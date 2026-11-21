@@ -775,7 +775,144 @@ img {
   line-height: 1.5;
 }
 
-/* 比较工具界面 */
+/* 比较工具界面与品牌筛选器 */
+.compare-selector-card {
+  background: #ffffff;
+  padding: 24px 28px;
+  border-radius: 16px;
+  border: 2px solid #93c5fd;
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.1), 0 8px 10px -6px rgba(37, 99, 235, 0.05);
+  margin-bottom: 32px;
+  transition: all 0.2s ease;
+}
+
+.compare-selector-header {
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.compare-selector-title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.compare-selector-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.compare-selector-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #eff6ff;
+  border-radius: 8px;
+  font-size: 1.15rem;
+}
+
+.compare-selector-heading {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.compare-counter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1.5px solid #93c5fd;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.compare-counter-pill strong {
+  color: #2563eb;
+  font-size: 1.1rem;
+  font-family: var(--font-mono);
+}
+
+.compare-selector-hint {
+  font-size: 0.88rem;
+  color: #64748b;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.compare-tags-wrapper {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* 品牌药丸按钮 - 未选中态：高对比度、清晰边框、浅灰背景与醒目文字 */
+.brand-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1.5px solid #cbd5e1;
+  background: #ffffff;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  outline: none;
+  user-select: none;
+}
+
+.brand-pill-btn:hover {
+  border-color: #3b82f6;
+  color: #1d4ed8;
+  background: #eff6ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.brand-pill-btn .pill-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 0.78rem;
+  font-weight: 800;
+  background: #e2e8f0;
+  color: #64748b;
+  transition: all 0.2s ease;
+}
+
+/* 品牌药丸按钮 - 选中态：极度显眼、深蓝渐变、白字、微光阴影、清晰勾号 */
+.brand-pill-btn.active {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+  color: #ffffff !important;
+  border-color: #1d4ed8 !important;
+  font-weight: 700 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4) !important;
+}
+
+.brand-pill-btn.active .pill-check {
+  background: #ffffff !important;
+  color: #1d4ed8 !important;
+  font-weight: 900 !important;
+}
+
 .compare-container {
   background-color: #ffffff;
   border: 1px solid var(--border-color);
