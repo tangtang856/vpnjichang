@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { airportsData } from '../data/airports';
+
+const title = '机场横向对比工具 · 2-4家机场价格流量协议全维度对比 - vpnjichang.wiki';
+const description = '在线机场参数横向对比工具。自由勾选 2 到 4 家机场服务商，实时对比官方套餐价格、每GB流量单价、IPLC专线、节点覆盖地区及 ChatGPT/流媒体解锁支持。';
+const keywords = '机场对比, 机场横向比较, 翻墙梯子对比, 节点价格对比, 机场推荐, vpn推荐';
+
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: '机场横向对比工具' }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "vpnjichang.wiki 机场横向对比工具",
+  "url": "https://vpnjichang.wiki/compare.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All"
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  activeNav="compare"
+  breadcrumbs={breadcrumbs}
+  schemaJson={schema}
+>
+  <main class="container" style="padding-bottom: 60px;">
+    <div class="section-header" style="margin-top: 20px;">
+      <span class="section-tag">Comparison Engine</span>
+      <h1 class="section-title">机场全维度多维度横向对比工具</h1>
+      <p class="section-desc">
+        在多家意向机场之间犹豫不决？在下方选择 2 至 4 家品牌，即可实时并排比较起步价格、每 GB 真实单价、物理专线架构与流媒体解锁能力。
+      </p>
+    </div>
+
+    <!-- 交互选择器 -->
+    <div style="background: var(--bg-alt); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 30px;">
+      <label style="font-weight: 600; font-size: 0.95rem; display: block; margin-bottom: 10px;">
+        🔍 点击添加/移除对比候选品牌（已选 <span id="selected-count" style="color: var(--primary-color);">2</span>/4 家）：
+      </label>
+      <div id="brand-selector" style="display: flex; gap: 8px; flex-wrap: wrap;">
+        {airportsData.map((ap, idx) => (
+          <button
+            class="selector-tag"
+            data-id={ap.id}
+            style={`padding: 6px 14px; font-size: 0.88rem; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.2s; ${idx < 2 ? 'background: var(--primary-color); color: #fff;' : 'background: #fff; color: var(--text-color);'}`}
+          >
+            {ap.name}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- 动态对比表格容器 -->
+    <div style="overflow-x: auto;">
+      <table class="ranking-table" id="compare-table" style="min-width: 750px;">
+        <thead id="compare-thead">
+          <!-- 动态表头 -->
+        </thead>
+        <tbody id="compare-tbody">
+          <!-- 动态数据行 -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="compare-empty" style="display: none; padding: 40px; text-align: center; color: var(--text-muted); background: var(--bg-alt); border-radius: 8px;">
+      请在上方至少选择 2 家品牌进行对比分析。
+    </div>
+  </main>
+</BaseLayout>
+
+<script is:inline define:vars={{ airportsData }}>
+  // 客户端横向对比脚本
+  let selectedIds = [airportsData[0].id, airportsData[1].id];
+
+  function renderTable() {
+    const thead = document.getElementById('compare-thead');
+    const tbody = document.getElementById('compare-tbody');
+    const emptyNotice = document.getElementById('compare-empty');
+    const table = document.getElementById('compare-table');
+    const countSpan = document.getElementById('selected-count');
+
+    countSpan.innerText = selectedIds.length;
+
+    if (selectedIds.length < 2) {
+      table.style.display = 'none';
+      emptyNotice.style.display = 'block';
+      return;
+    }
+
+    table.style.display = 'table';
+    emptyNotice.style.display = 'none';
+
+    const selectedAirports = airportsData.filter(a => selectedIds.includes(a.id));
+
+    // 渲染表头
+    thead.innerHTML = `
+      <tr>
+        <th style="width: 140px;">比较维度</th>
+        ${selectedAirports.map(a => `
+          <th style="text-align: center;">
+            <div style="font-size: 1.1rem; font-weight: 700;">${a.name}</div>
+            <div style="font-size: 0.8rem; color: #64748b; font-weight: normal; margin-top: 4px;">${a.tagline}</div>
+          </th>
+        `).join('')}
+      </tr>
+    `;
+
+    // 比较维度行配置
+    const dimensions = [
+      { label: '起步价格', fn: a => `<strong style="color: #2563eb; font-size: 1.05rem;">￥${a.startingPrice.toFixed(2)}/月</strong>` },
+      { label: '基础配额', fn: a => `<strong>${a.plans[0].trafficGB} GB</strong>` },
+      { label: '每GB折算单价', fn: a => `约 ￥${a.plans[0].pricePerGB.toFixed(3)}/GB` },
+      { label: '线路架构', fn: a => a.tags.includes('premium') ? '<span style="color:#16a34a; font-weight:600;">IPLC/IEPL 国际纯内网专线</span>' : '多线 BGP 智能中转' },
+      { label: '支持协议', fn: a => a.protocols.join(', ') },
+      { label: '覆盖枢纽', fn: a => a.regions.join('、') },
+      { label: '设备限制', fn: a => a.deviceLimit || '4-6台设备' },
+      { label: 'AI 大模型', fn: a => (a.aiSupport || []).join('、') },
+      { label: '4K 流媒体', fn: a => (a.streamingSupport || []).join('、') },
+      { label: '核心优势', fn: a => `<ul style="text-align:left; margin:0 0 0 16px; padding:0; font-size:0.85rem;">${a.advantages.slice(0, 3).map(adv => `<li>${adv}</li>`).join('')}</ul>` },
+      { label: '注意事项', fn: a => `<ul style="text-align:left; margin:0 0 0 16px; padding:0; font-size:0.85rem; color:#b45309;">${a.disadvantages.map(dis => `<li>${dis}</li>`).join('')}</ul>` },
+      { label: '直达入口', fn: a => `
+        <div style="display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+          <a href="/review/${a.slug}.html" class="btn-card-review" style="padding:4px 10px; font-size:0.8rem;">查看评测</a>
+          <a href="${a.affiliateUrl || a.officialUrl}" target="_blank" rel="noopener nofollow sponsored" class="btn-card-buy" style="padding:4px 10px; font-size:0.8rem;">前往官网</a>
+        </div>
+      `}
+    ];
+
+    tbody.innerHTML = dimensions.map(d => `
+      <tr>
+        <td><strong>${d.label}</strong></td>
+        ${selectedAirports.map(a => `<td style="text-align: center;">${d.fn(a)}</td>`).join('')}
+      </tr>
+    `).join('');
+  }
+
+  // 绑定按钮事件
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.selector-tag');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-id');
+        if (selectedIds.includes(id)) {
+          if (selectedIds.length > 2) {
+            selectedIds = selectedIds.filter(item => item !== id);
+            btn.style.background = '#fff';
+            btn.style.color = 'var(--text-color)';
+          } else {
+            alert('至少需要保留 2 家品牌进行对比！');
+          }
+        } else {
+          if (selectedIds.length < 4) {
+            selectedIds.push(id);
+            btn.style.background = 'var(--primary-color)';
+            btn.style.color = '#fff';
+          } else {
+            alert('最多支持同时对比 4 家品牌！请先取消已勾选的其他品牌。');
+          }
+        }
+        renderTable();
+      });
+    });
+
+    renderTable();
+  });
+</script>

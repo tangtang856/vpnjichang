@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import { glossaryTopics } from '../../data/topics';
+
+export function getStaticPaths() {
+  const glossaryDetails = [
+    {
+      slug: 'iplc-iepl',
+      content: `
+        <h2>一、IPLC（国际私有租用线路）定义与物理架构</h2>
+        <p><strong>IPLC</strong> 是 <em>International Private Leased Circuit</em> 的缩写，意为“国际点对点私有租用光纤信道”。</p>
+        <p>传统公网数据包需要从国内经过多次跨网路由跳转，最终通过国家级国际互联出口局发往海外；而 IPLC 则是跨国电信运营商在海底光缆中专门划拨出来的<strong>物理隔离信道</strong>。例如从中国深圳机房直接拉一条物理光纤连通香港机房。</p>
+
+        <h2>二、为什么 IPLC 专线“无视审查、永不掉线”？</h2>
+        <p>因为 IPLC 专线在本质上是<strong>企业内部局域网传输</strong>。数据从入口进入光缆后，直接在物理层或数据链路层完成跨境，<strong>全程不接入公共互联网（Public Internet），自然完全不经过公共国际出口处的防火长城（GFW）检测设备</strong>。因此，无论敏感时期公网如何剧烈波动封锁，IPLC 专线都能保持纹丝不动的高可用性。</p>
+
+        <h2>三、IEPL 与 IPLC 有何细微差异？</h2>
+        <p><strong>IEPL（International Ethernet Private Line）</strong>是基于现代以太网架构构建的国际以太网专线，是 IPLC 技术的升级演进。相比传统基于 SDH 架构的 IPLC，IEPL 支持更平滑的带宽按需扩容（从 10Mbps 到 10Gbps 动态无缝升级），并且在抖动控制和故障自愈保护方面更为智能化。对于最终用户而言，两者在使用体验上的稳定性基本一致。</p>`
+    },
+    {
+      slug: 'clash-meta',
+      content: `
+        <h2>一、Clash Meta 内核的诞生背景</h2>
+        <p>原版 Clash 内核由开发者 Dreamacro 主导开发，曾长期统治中文科学上网生态。但随着原版作者因不可抗力停止维护，社区活跃的极客团队接过了接力棒，在原版代码基础上建立了分支——<strong>Clash Meta</strong>（现正式更名为 <strong>Mihomo</strong>）。</p>
+
+        <h2>二、Meta 内核相比原版的核心进化</h2>
+        <ol>
+          <li><strong>现代先进协议全面原生支持：</strong>原版 Clash 仅支持 Shadowsocks、VMess 与基础 Trojan；而 Meta 内核原生全面支持 <strong>VLESS、Reality、Hysteria 2、TUIC v5、Shadowsocks-2022、WireGuard</strong> 等所有现代抗封锁前沿协议。</li>
+          <li><strong>强悍的 TUN 虚拟网卡接管能力：</strong>内置高性能 Wintun 驱动，真正做到操作系统级全流量智能接管，彻底解决各类游戏和桌面软件不走系统代理的问题。</li>
+          <li><strong>更先进的 DNS 与防污染引擎：</strong>支持 Fake-IP、DoH、DoT、DoQ 以及智能分流匹配，彻底杜绝 DNS 泄漏。</li>
+        </ol>`
+    },
+    {
+      slug: 'sing-box',
+      content: `
+        <h2>一、Sing-box 的定位与设计哲学</h2>
+        <p><strong>Sing-box</strong> 是由知名开源团队 SagerNet 自研的通用网络代理工具。与以往在旧架构上缝缝补补的软件不同，Sing-box 从第一行代码开始就采用了现代化 Go 语言设计，追求<strong>极致的内存精简、高吞吐并发与低功耗</strong>。</p>
+
+        <h2>二、Sing-box 的四大突出优势</h2>
+        <ul>
+          <li><strong>极低资源消耗：</strong>在嵌入式软路由或低配 VPS 上运行时，其空闲内存占用通常仅有十几兆，远低于传统代理核心。</li>
+          <li><strong>天然支持所有现代协议：</strong>从设计之初就完整实现了 Shadowsocks-2022、VLESS Reality、Hysteria 2、TUIC、SSH 以及自定义分流规则集。</li>
+          <li><strong>官方维护全平台 GUI 客户端：</strong>在 iOS、macOS、Android、Windows 和 Linux 上均有官方团队直接维护的图形客户端，配置规则格式高度统一，免去了在不同客户端之间转换格式的繁琐折腾。</li>
+        </ul>`
+    },
+    {
+      slug: 'protocol-evolution',
+      content: `
+        <h2>一、第一代：Shadowsocks 经典对称加密</h2>
+        <p>由知名开发者 clowwindy 于 2012 年开创。采用轻量级对称加密算法（如 AES-256-CFB、ChaCha20-Poly1305）。早期抗审查效果卓越，但随着机器学习与重放攻击探测技术的发展，纯对称加密流量已容易被统计学特征识别并阻断。</p>
+
+        <h2>二、第二代：VMess 与 V2Ray 时代</h2>
+        <p>针对 Shadowsocks 的弱点，V2Ray 团队设计了具备时间戳与动态身份验证的 VMess 协议。安全性极高，但复杂的头校验带来了较高的 CPU 与内存开销。</p>
+
+        <h2>三、第三代：Trojan 与 VLESS Reality 伪装时代</h2>
+        <p>现代协议放弃了“自创加密特征”，转而遵循<strong>“大隐隐于市”</strong>的哲学：</p>
+        <ul>
+          <li><strong>Trojan：</strong>完全模拟标准的 HTTPS 协议流量，将代理流量藏在合法的 TLS 握手之中。</li>
+          <li><strong>VLESS + Reality：</strong>最新的抗封锁黑科技。借用真实合法的大型海外网站（如 Yahoo、苹果服务器）的 TLS 证书进行中间伪装，免去了用户自行搭建网站和申请域名的麻烦，是当前公网直连抗封锁能力的巅峰之作。</li>
+        </ul>`
+    },
+    {
+      slug: 'node-rate',
+      content: `
+        <h2>一、节点倍率的计算公式</h2>
+        <p>节点倍率是机场计费面板中用于调整流量扣除权重的参数。其计算公式非常直观：</p>
+        <p style="background: var(--bg-alt); padding: 12px 16px; border-radius: 6px; font-family: var(--font-mono);"><strong>实际扣除流量 = 本次实际消耗流量 × 节点对应倍率</strong></p>
+        <ul>
+          <li><strong>1.0x 节点（标准倍率）：</strong>你下载了 1GB 的文件，后台精准扣除 1GB 流量。</li>
+          <li><strong>0.5x 节点（省流倍率）：</strong>你下载了 1GB 的文件，后台仅扣除 0.5GB 流量！相当于享受了 2 倍的可用流量，通常见于冷门节点或大流量下载专线。</li>
+          <li><strong>3.0x 节点（高倍率节点）：</strong>你下载了 1GB 的视频，后台直接扣除 3GB 流量！你的 100G 月度套餐实际只能看 33G 视频就会被耗尽。</li>
+        </ul>
+
+        <h2>二、为什么会有不同倍率的节点存在？</h2>
+        <p>因为不同线路的物理采购成本差异巨大。香港或日本的优质 IPLC 内网专线成本可能是普通美国机房直连线路的数倍，服务商为了平衡成本，通常会将普通节点设为 1.0x，专线节点设为 1.5x-2.0x。只要<strong>商家在节点列表中明确标明、不搞暗扣</strong>，合理的倍率机制是正常的商业运营行为。</p>`
+    },
+    {
+      slug: 'gfw-overview',
+      content: `
+        <h2>一、防火长城的核心拦截手段</h2>
+        <p>防火长城（Great Firewall，简称 GFW）经过二十余年的技术迭代，构筑了多层联动的过滤体系：</p>
+        <ol>
+          <li><strong>DNS 污染（域名投毒）：</strong>当境内客户端向本地 DNS 服务器查询受限网站（如 google.com）时，GFW 的旁路审查设备会抢先伪造一个错误的虚假 IP 地址并返回给客户端，导致访问失败。</li>
+          <li><strong>IP 黑名单丢弃：</strong>直接将已知的违规海外服务器 IP 注入核心路由器的黑名单路由表中，向这些 IP 发送的所有数据包都会在骨干网被直接丢弃（Null Route）。</li>
+          <li><strong>TCP RST 异常重置：</strong>当监控到明文 HTTP 通信或未加密流量中包含敏感关键词时，防火墙会伪造两端的 TCP RST（Reset）包强行切断连接。</li>
+          <li><strong>SNI 明文探测与阻断：</strong>在 TLS 握手时，传统的 Client Hello 会携带明文的目标域名（Server Name Indication）。审查系统通过读取 SNI 即可精确阻断特定网站的 HTTPS 握手。</li>
+          <li><strong>机器学习主动探测：</strong>当发现某个未知境外 IP 在运行 Shadowsocks 代理时，GFW 会主动从境内发起特定特征的嗅探连接，若境外服务器正常回应验证，该端口会被立即封锁。</li>
+        </ol>`
+    }
+  ];
+
+  return glossaryTopics.map(t => {
+    const detail = glossaryDetails.find(d => d.slug === t.slug);
+    return {
+      params: { slug: t.slug },
+      props: {
+        topic: t,
+        content: detail ? detail.content : ''
+      }
+    };
+  });
+}
+
+interface Props {
+  topic: (typeof glossaryTopics)[0];
+  content: string;
+}
+
+const { topic, content } = Astro.props;
+
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: '知识百科', url: '/glossary/index.html' },
+  { name: topic.h1.split(' · ')[0] }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": topic.h1,
+  "description": topic.desc,
+  "inDefinedTermSet": "https://vpnjichang.wiki/glossary/index.html"
+};
+---
+
+<BaseLayout
+  title={topic.title}
+  description={topic.desc}
+  activeNav="glossary"
+  breadcrumbs={breadcrumbs}
+  schemaJson={schema}
+>
+  <main class="container">
+    <div class="article-container">
+      <article class="article-main">
+        <header class="article-header">
+          <span class="section-tag">Glossary Entry</span>
+          <h1 class="section-title" style="font-size: 2.1rem; margin: 8px 0;">{topic.h1}</h1>
+          <div class="article-meta">
+            <span>分类: 核心网络术语</span>
+            <span>审核: vpnjichang.wiki 词条小组</span>
+          </div>
+        </header>
+
+        <div class="article-conclusion-box">
+          <div class="conclusion-title">概念定义速查</div>
+          <p style="margin: 0; color: #166534; font-size: 0.95rem;">{topic.summary}</p>
+        </div>
+
+        <div class="article-content">
+          <div set:html={content} />
+
+          <div style="margin-top: 40px; padding: 24px; background: var(--bg-alt); border-radius: 8px; border: 1px solid var(--border-color);">
+            <h3 style="margin-top: 0;">延伸学习与实操导航</h3>
+            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 16px;">
+              掌握了底层概念后，您可以进一步查阅客户端教程或在推荐列表中挑选具备该技术特性的机场：
+            </p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="/recommend/premium.html" class="btn-primary">高端专线机场推荐</a>
+              <a href="/guides/windows.html" class="btn-secondary">Windows 配置教程</a>
+              <a href="/ranking/overall.html" class="btn-secondary">综合排行榜</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <Sidebar />
+    </div>
+  </main>
+</BaseLayout>

@@ -1,0 +1,36 @@
+---
+import type { SpeedtestNode } from '../data/airports';
+
+interface Props {
+  nodes: SpeedtestNode[];
+}
+
+const { nodes = [] } = Astro.props;
+---
+
+<div style="overflow-x: auto; margin-bottom: 24px;">
+  <table class="ranking-table" style="min-width: 650px;">
+    <thead>
+      <tr>
+        <th>节点名称</th>
+        <th>往返延迟 (Ping/RTT)</th>
+        <th>下行速率 (Download)</th>
+        <th>上行速率 (Upload)</th>
+        <th>晚高峰丢包率</th>
+        <th>4K 缓冲耗时</th>
+      </tr>
+    </thead>
+    <tbody>
+      {nodes.map(n => (
+        <tr>
+          <td><strong>{n.name}</strong></td>
+          <td><span style="color:#16a34a; font-weight:700;">{n.rtt}</span></td>
+          <td><strong>{n.down}</strong></td>
+          <td>{n.up}</td>
+          <td><span style={`color:${n.loss === '0.0%' ? '#16a34a' : '#d97706'}; font-weight:600;`}>{n.loss}</span></td>
+          <td>{n.buffer}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

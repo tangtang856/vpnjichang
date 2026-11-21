@@ -30,7 +30,10 @@ if (args.includes('--url')) {
   }
 } else if (args.includes('--all')) {
   // 从 sitemap 读取全部 URL
-  const sitemapPath = path.resolve(__dirname, '../sitemap.xml');
+  let sitemapPath = path.resolve(__dirname, '../dist/sitemap-0.xml');
+  if (!fs.existsSync(sitemapPath)) {
+    sitemapPath = path.resolve(__dirname, '../sitemap.xml');
+  }
   if (fs.existsSync(sitemapPath)) {
     const content = fs.readFileSync(sitemapPath, 'utf8');
     const matches = content.match(/<loc>(.*?)<\/loc>/g);

@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: '编辑政策与评测标准' }
+];
+
+const title = "编辑政策与评测标准 · 独立客观透明的测试准则 - vpnjichang.wiki";
+const description = "详细阐述 vpnjichang.wiki 的评测方法论、数据采集机制、排行榜打分规则以及联盟推广披露政策。";
+---
+
+<BaseLayout title={title} description={description} canonical="/editorial-policy.html" breadcrumbs={breadcrumbs}>
+  <div class="article-container full-width">
+    <article class="article-main">
+      <header class="article-header">
+        <h1 class="section-title" style="font-size: 2rem; margin-bottom: 8px;">编辑政策与评测标准 · 独立客观透明的测试准则</h1>
+        <div class="article-meta">
+          <span>最后修订: 2026-03-15</span>
+          <span>来源: vpnjichang.wiki 编辑部</span>
+        </div>
+      </header>
+      <div class="article-content">
+        <h2>一、评测方法论与数据采集</h2>
+        <p>为确保评测结论的公正性，我们的测试数据均来自以下客观渠道：</p>
+        <ol>
+          <li><strong>官方公开资料：</strong>收录各服务商官网公布的套餐价格、流量配额、协议类型及设备并发限制。</li>
+          <li><strong>真实网络监控：</strong>部署于上海电信、广州联通和北京移动机房的探针节点，每 15 分钟对亚太及欧美主流节点发起 TCP Ping 与 HTTP 可用性探测。</li>
+          <li><strong>晚高峰压测：</strong>重点记录每晚 20:00 至 23:00 网络高峰期时的实际可用带宽、YouTube 4K 缓冲延迟及丢包率。</li>
+        </ol>
+
+        <h2>二、排行榜评分维度划分</h2>
+        <p>我们的排行榜严格依据以下权重进行多维度综合加权：</p>
+        <ul>
+          <li><strong>晚高峰稳定性 (40%)：</strong>高峰期连通率与抗阻断能力，IPLC/IEPL 专线享更高稳定性权重。</li>
+          <li><strong>性价比与单价 (25%)：</strong>基础套餐起步月付与每 GB 实际流量的真实折算单价。</li>
+          <li><strong>流媒体与 AI 解锁率 (15%)：</strong>Netflix、Disney+ 及 ChatGPT/Claude 等风控平台的解锁成功率。</li>
+          <li><strong>协议现代化与客户端体验 (10%)：</strong>是否支持 VLESS、Hysteria 2 等抗弱网协议，是否提供一键配置。</li>
+          <li><strong>客服与运营年限 (10%)：</strong>品牌连续运营时长、工单回复时效与退款政策规范程度。</li>
+        </ul>
+
+        <h2>三、联盟推广披露 (Affiliate Disclosure)</h2>
+        <p>为了维持本站日常服务器、测速探针及域名维护的运营成本，本站部分外部购买链接可能包含联盟推荐追踪代码（Affiliate Links）。</p>
+        <p><strong>特别声明：</strong>联盟佣金的存在绝不会影响我们对任何品牌的客观评价与排名顺位。若某服务商表现恶劣或出现跑路征兆，我们将无条件在显著位置标注预警甚至直接下架，绝不因商业利益误导用户。</p>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

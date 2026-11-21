@@ -1,0 +1,69 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Breadcrumbs, { type BreadcrumbItem } from '../components/Breadcrumbs.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  canonical?: string;
+  schemaJson?: object;
+  activeNav?: string;
+  breadcrumbs?: BreadcrumbItem[];
+}
+
+const {
+  title,
+  description,
+  keywords,
+  canonical = `https://vpnjichang.wiki${Astro.url.pathname}`,
+  schemaJson,
+  activeNav = '',
+  breadcrumbs
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  {keywords && <meta name="keywords" content={keywords}>}
+  <link rel="canonical" href={canonical}>
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / 社交卡片 -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonical}>
+  <meta property="og:site_name" content="vpnjichang.wiki - 中文机场评测导航">
+  <meta property="og:locale" content="zh_CN">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  {schemaJson && (
+    <script type="application/ld+json" set:html={JSON.stringify(schemaJson, null, 2)} />
+  )}
+</head>
+<body>
+  <Header activeNav={activeNav} />
+
+  {breadcrumbs && breadcrumbs.length > 0 && (
+    <Breadcrumbs items={breadcrumbs} />
+  )}
+
+  <slot />
+
+  <Footer />
+</body>
+</html>

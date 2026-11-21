@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { airportsData } from '../../data/airports';
+
+const title = '收录机场数据库索引 · 2026品牌资料与节点参数查询 - vpnjichang.wiki';
+const description = '查询 vpnjichang.wiki 收录的全部中文网络代理与机场服务商基础资料。包含官方套餐报价、专线线路类型、支持协议及流媒体解锁参数。';
+const keywords = '机场数据库, 机场资料库, 机场套餐价格, 机场节点查询, 机场推荐, 梯子推荐, vpn机场';
+
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: '机场数据库索引' }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "收录机场与网络节点数据库索引",
+  "description": description,
+  "itemListElement": airportsData.map((ap, idx) => ({
+    "@type": "ListItem",
+    "position": idx + 1,
+    "name": ap.name,
+    "url": `https://vpnjichang.wiki/airport/${ap.slug}.html`
+  }))
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  activeNav="review"
+  breadcrumbs={breadcrumbs}
+  schemaJson={schema}
+>
+  <main class="container" style="padding-bottom: 60px;">
+    <div class="section-header" style="margin-top: 20px;">
+      <span class="section-tag">Airport Directory</span>
+      <h1 class="section-title">收录机场与网络节点数据库索引</h1>
+      <p class="section-desc">
+        本页面汇集本站统一核验的 14 家核心机场服务商资料档案。所有数据均来自官方公开页面与实测网络记录，拒绝虚标假冒。
+      </p>
+    </div>
+    <div class="cards-grid">
+      {airportsData.map(ap => {
+        const p0 = ap.plans[0];
+        const pMax = ap.plans[ap.plans.length - 1];
+        return (
+          <div class="airport-card">
+            <h3 class="airport-brand-name"><a href={`/airport/${ap.slug}.html`}>{ap.name}</a></h3>
+            <div class="card-tagline">{ap.tagline}</div>
+            <p class="card-desc">{ap.description}</p>
+            <div class="card-specs">
+              <div class="spec-item"><span class="spec-label">起步月付</span><span class="spec-value">￥{ap.startingPrice.toFixed(2)} /月</span></div>
+              <div class="spec-item"><span class="spec-label">流量规格</span><span class="spec-value">{p0.trafficGB} - {pMax.trafficGB} GB</span></div>
+              <div class="spec-item"><span class="spec-label">核验状态</span><span class="spec-value">{ap.testStatus === 'tested' ? '已实测核验' : '官方公开资料'}</span></div>
+              <div class="spec-item"><span class="spec-label">核验日期</span><span class="spec-value">{ap.lastVerified}</span></div>
+            </div>
+            <div class="card-footer">
+              <a href={`/airport/${ap.slug}.html`} class="btn-card-review">查看完整资料</a>
+              <a href={`/review/${ap.slug}.html`} class="btn-card-buy">阅读深度评测</a>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </main>
+</BaseLayout>

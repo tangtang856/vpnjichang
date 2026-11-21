@@ -1,0 +1,47 @@
+---
+interface Props {
+  activeNav?: string;
+}
+
+const { activeNav = '' } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo" title="vpnjichang.wiki - 机场推荐导航">
+      <span class="logo-badge">VPN</span>
+      <span>JICHANG<small style="font-weight:400; color:#64748b; font-size: 0.85rem;">.wiki</small></span>
+    </a>
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="/" class={activeNav === 'home' ? 'active' : ''}>首页</a></li>
+      <li class="nav-item"><a href="/recommend/index.html" class={activeNav === 'recommend' ? 'active' : ''}>机场推荐</a></li>
+      <li class="nav-item"><a href="/ranking/index.html" class={activeNav === 'ranking' ? 'active' : ''}>机场排行</a></li>
+      <li class="nav-item"><a href="/review/index.html" class={activeNav === 'review' ? 'active' : ''}>机场评测</a></li>
+      <li class="nav-item"><a href="/compare.html" class={activeNav === 'compare' ? 'active' : ''}>机场对比</a></li>
+      <li class="nav-item"><a href="/guides/index.html" class={activeNav === 'guides' ? 'active' : ''}>使用教程</a></li>
+      <li class="nav-item"><a href="/blog/index.html" class={activeNav === 'blog' ? 'active' : ''}>博客文章</a></li>
+      <li class="nav-item"><a href="/glossary/index.html" class={activeNav === 'glossary' ? 'active' : ''}>知识百科</a></li>
+    </ul>
+    <div class="header-actions">
+      <a href="/compare.html" class="btn-nav-compare">⚡ 横向对比</a>
+      <button class="mobile-toggle" aria-label="切换移动端导航菜单" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  // 移动端菜单切换脚本
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.querySelector('.mobile-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    if (toggleBtn && navMenu) {
+      toggleBtn.addEventListener('click', () => {
+        const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+        toggleBtn.setAttribute('aria-expanded', !isExpanded);
+        navMenu.classList.toggle('active');
+      });
+    }
+  });
+</script>

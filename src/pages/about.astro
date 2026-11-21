@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+const title = '关于我们 · vpnjichang.wiki 团队背景与使命 - vpnjichang.wiki';
+const description = '了解 vpnjichang.wiki 的团队背景、建立初衷与核心使命。我们致力于打造客观中立、数据说话的中文网络代理评测门户。';
+
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: '关于我们' }
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  breadcrumbs={breadcrumbs}
+>
+  <main class="container">
+    <div class="article-container">
+      <div class="article-main">
+        <header class="article-header">
+          <span class="section-tag">About Us</span>
+          <h1 class="section-title">关于 vpnjichang.wiki 评测团队</h1>
+          <div class="article-meta">
+            <span>更新时间: 2026-03-15</span>
+            <span>审核编辑: vpnjichang.wiki 站长委员会</span>
+          </div>
+        </header>
+        <div class="article-content">
+          <h2>一、我们的建立初衷</h2>
+          <p>
+            在当今互联网环境下，网络代理与出海加速服务鱼龙混杂。“劣质直连冒充专线”、“虚标大流量暗设 3x 倍率”、“特大促销突击跑路”等行业乱象频发。大量科研人员、外贸企业与开发者在寻找稳定梯子时，频频遭遇信息不对称与资金损失。
+          </p>
+          <p>
+            <strong>vpnjichang.wiki</strong> 应运而生。我们的目标不仅是提供一个导航目录，更是建立一套<strong>以网络工程技术为基石、以真实测速数据为支撑、以保护消费者权益为底线</strong>的第三方客观评测体系。
+          </p>
+
+          <h2>二、团队专业背景</h2>
+          <p>我们的核心团队成员由深耕跨国通信与计算机网络领域的专业工程师组成：</p>
+          <ul>
+            <li><strong>资深网络架构师：</strong>具备十年以上跨国电信 BGP 路由调优与内网专线运维经验；</li>
+            <li><strong>前沿协议研究员：</strong>持续追踪 Shadowsocks、VLESS Reality、Hysteria 2、TUIC 等协议的最新开源演进；</li>
+            <li><strong>自动化压测工程师：</strong>维护遍布全国的真实宽带自动化探针集群，对收录服务商进行 7x24 小时丢包与延迟监控。</li>
+          </ul>
+
+          <h2>三、我们的三大坚持</h2>
+          <ol>
+            <li><strong>坚持用数据说话：</strong>所有测评数据均来自真实探针网络日志，杜绝任何未经检验的商业吹捧；</li>
+            <li><strong>坚持月付防范风险：</strong>始终向用户灌输“先月付后季付、常备备用梯子”的资金安全防护法则；</li>
+            <li><strong>坚持知识公开透明：</strong>编写全平台保姆级配置教程与网络协议深度科普，赋能每一位普通网民。</li>
+          </ol>
+        </div>
+      </div>
+      <Sidebar />
+    </div>
+  </main>
+</BaseLayout>

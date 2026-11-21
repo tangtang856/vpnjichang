@@ -1,0 +1,108 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides');
+  return guides.map(entry => ({
+    params: { slug: entry.data.slug },
+    props: { entry }
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { data } = entry;
+
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: '使用教程', url: '/guides/index.html' },
+  { name: data.h1.split(' · ')[0].split('：')[0] }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": data.h1,
+  "description": data.desc,
+  "inLanguage": "zh-CN",
+  "mainEntityOfPage": `https://vpnjichang.wiki/guides/${data.slug}.html`,
+  "datePublished": "2026-03-01",
+  "dateModified": "2026-03-15",
+  "author": {
+    "@type": "Organization",
+    "name": "vpnjichang.wiki 客户端技术组",
+    "url": "https://vpnjichang.wiki"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "vpnjichang.wiki",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vpnjichang.wiki/images/logo.png"
+    }
+  }
+};
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.desc}
+  activeNav="guides"
+  breadcrumbs={breadcrumbs}
+  schemaJson={schema}
+>
+  <main class="container">
+    <div class="article-container">
+      <article class="article-main">
+        <header class="article-header">
+          <div style="display:flex; gap: 8px; align-items:center; margin-bottom: 8px;">
+            <span class="badge" style="background:#e0e7ff; color:#3730a3; font-weight:600; font-size:0.8rem; padding: 3px 10px; border-radius: 4px;">{data.platform}</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">更新日期: 2026-03-15</span>
+          </div>
+          <h1 class="section-title" style="font-size: 2.1rem; margin: 8px 0; line-height: 1.3;">{data.h1}</h1>
+          <div class="article-meta">
+            <span>作者: vpnjichang.wiki 客户端技术组</span>
+            <span>审核状态: 已验证通过</span>
+          </div>
+        </header>
+
+        <div class="article-conclusion-box">
+          <div class="conclusion-title">本篇核心要点</div>
+          <p style="margin: 0; color: #166534; font-size: 0.95rem; line-height: 1.6;">{data.summary}</p>
+        </div>
+
+        <div class="article-content">
+          <Content />
+
+          {data.faq && data.faq.length > 0 && (
+            <div style="margin-top: 40px; padding: 24px; background: var(--bg-alt); border-radius: 8px; border: 1px solid var(--border-color);">
+              <h3 style="margin-top: 0; color: var(--text-color); font-size: 1.25rem;">💡 常见问题与排错答疑 (FAQ)</h3>
+              {data.faq.map(f => (
+                <div style="margin-bottom: 16px;">
+                  <strong style="color: #0f172a; font-size: 0.98rem;">问：{f.q}</strong>
+                  <p style="margin: 6px 0 0 0; color: #475569; font-size: 0.92rem; line-height: 1.6;">答：{f.a}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div style="margin-top: 40px; padding: 24px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+            <h3 style="margin-top: 0; font-size: 1.15rem; color: #1e293b;">🚀 延伸阅读与选购推荐</h3>
+            <p style="font-size: 0.92rem; color: #64748b; margin-bottom: 16px;">
+              配置好客户端后，您可以参考我们的选购排行榜或专题推荐，挑选稳定抗封锁的高质量机场节点：
+            </p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <a href="/recommend/budget.html" class="btn-primary" style="font-size: 0.85rem;">性价比机场推荐</a>
+              <a href="/recommend/premium.html" class="btn-secondary" style="font-size: 0.85rem;">IPLC 高端专线</a>
+              <a href="/ranking/overall.html" class="btn-secondary" style="font-size: 0.85rem;">机场综合排行榜</a>
+              <a href="/compare.html" class="btn-secondary" style="font-size: 0.85rem;">机场横向对比工具</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <Sidebar />
+    </div>
+  </main>
+</BaseLayout>

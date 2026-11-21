@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import AirportCard from '../../components/AirportCard.astro';
+import { recommendTopics, type TopicItem } from '../../data/topics';
+import { airportsData } from '../../data/airports';
+
+export function getStaticPaths() {
+  return recommendTopics.map(topic => {
+    let filteredAirports = airportsData.filter(a => a.tags && a.tags.includes(topic.filterTag));
+    if (filteredAirports.length === 0) filteredAirports = airportsData.slice(0, 6);
+    return {
+      params: { slug: topic.slug },
+      props: { topic, airports: filteredAirports }
+    };
+  });
+}
+
+interface Props {
+  topic: TopicItem;
+  airports: typeof airportsData;
+}
+
+const { topic, airports } = Astro.props;
+
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: '机场推荐专题', url: '/recommend/index.html' },
+  { name: topic.h1.split('与')[0].split('·')[0] }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": topic.h1,
+  "description": topic.desc,
+  "itemListElement": airports.map((ap, idx) => ({
+    "@type": "ListItem",
+    "position": idx + 1,
+    "name": ap.name,
+    "url": `https://vpnjichang.wiki/review/${ap.slug}.html`
+  }))
+};
+---
+
+<BaseLayout
+  title={topic.title}
+  description={topic.desc}
+  keywords={topic.keywords}
+  activeNav="recommend"
+  breadcrumbs={breadcrumbs}
+  schemaJson={schema}
+>
+  <main class="container">
+    <div class="article-container">
+      <div class="article-main">
+        <header class="article-header">
+          <span class="section-tag">{topic.tag}</span>
+          <h1 class="section-title" style="font-size: 2.1rem; margin: 8px 0; line-height: 1.3;">{topic.h1}</h1>
+          <div class="article-meta">
+            <span>最后更新: 2026-03-15</span>
+            <span>审核人员: vpnjichang.wiki 编辑部</span>
+            <span>入选品牌数: {airports.length} 家精选服务商</span>
+          </div>
+        </header>
+
+        <div class="article-conclusion-box">
+          <div class="conclusion-title">💡 专题导读与速查</div>
+          <p style="margin: 0; color: #166534; font-size: 0.95rem; line-height: 1.6;">{topic.summary}</p>
+        </div>
+
+        <div class="article-content">
+          <h2>一、专题选型背景与标准</h2>
+          <p>{topic.intro}</p>
+          <ul>
+            {topic.features.map(f => <li>{f}</li>)}
+          </ul>
+
+          <h2>二、精选推荐品牌清单</h2>
+          <div class="cards-grid" style="margin-bottom: 30px;">
+            {airports.map(ap => (
+              <AirportCard airport={ap} />
+            ))}
+          </div>
+
+          <h2>三、专家避坑与购买决策建议</h2>
+          <div class="quick-answer-card" style="margin: 16px 0;">
+            <p style="margin: 0 0 8px 0; font-weight: 600; color: #1e3a8a;">在选购本专题机场时，我们强烈建议遵循以下三项铁律：</p>
+            <ol style="margin-left: 20px; line-height: 1.8; color: #334155;">
+              <li><strong>坚守月付原则：</strong>初次使用务必先选择月付周期，实测您当地网络运营商与节点的真实兼容性与丢包率。</li>
+              <li><strong>防范倍率暗扣：</strong>部分不良商家宣称大流量但设置了 2.0x-3.0x 高倍率，使用前请在客户端仔细核对节点倍率。</li>
+              <li><strong>配置备用节点：</strong>核心办公人员建议常备一条支持不限时按量计费的备用节点，保障网络永不失联。</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <Sidebar />
+    </div>
+  </main>
+</BaseLayout>

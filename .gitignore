@@ -5,3 +5,5 @@ Thumbs.db
 .vscode/
 .idea/
 scripts/crawl_cache/
+dist/
+.astro/

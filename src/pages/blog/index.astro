@@ -1,0 +1,113 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const blogs = await getCollection('blog');
+// 按日期或原有顺序排序
+blogs.sort((a, b) => b.data.date.localeCompare(a.data.date));
+
+const title = '行业观察与技术科普博客 · 科学上网选型分析与避坑指南 - vpnjichang.wiki';
+const description = 'vpnjichang.wiki 深度博客。涵盖大模型 AI 加速、4K 流媒体解锁、IPLC 专线实测、协议演进、跨境办公、外服网游低延迟及安全防封全景剖析。';
+const categories = ['全部', '选型指南', 'AI大模型', '流媒体', '协议科普', '线路专线', '安全合规', '游戏竞技', '网络工程', '开发提效', '出海办公', '故障排查', '行业前瞻'];
+
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: '博客文章' }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "vpnjichang.wiki 技术博客",
+  "description": description,
+  "url": "https://vpnjichang.wiki/blog/index.html",
+  "blogPost": blogs.map(b => ({
+    "@type": "BlogPosting",
+    "headline": b.data.h1,
+    "datePublished": b.data.date,
+    "url": `https://vpnjichang.wiki/blog/${b.data.slug}.html`
+  }))
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  activeNav="blog"
+  breadcrumbs={breadcrumbs}
+  schemaJson={schema}
+>
+  <main class="container" style="padding-bottom: 60px;">
+    <div class="section-header" style="margin-top: 20px;">
+      <span class="section-tag">Insights & Blog</span>
+      <h1 class="section-title">网络代理深度观察与技术实战博客</h1>
+      <p class="section-desc">
+        用严谨的数据与客观的技术工程视角，为您拆解翻墙代理、跨境网络与数字出海领域的底层逻辑与最新动态。
+      </p>
+    </div>
+
+    <!-- 博客分类筛选按钮组 -->
+    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; padding: 12px; background: var(--bg-alt); border-radius: 8px; border: 1px solid var(--border-color);">
+      <span style="font-size: 0.88rem; font-weight: 600; align-self: center; margin-right: 8px; color: var(--text-color);">主题分类:</span>
+      {categories.map(c => (
+        <button
+          class={`blog-filter-btn ${c === '全部' ? 'active' : ''}`}
+          data-category-target={c}
+          style={`padding: 4px 12px; font-size: 0.82rem; border-radius: 20px; border: 1px solid var(--border-color); background: ${c === '全部' ? 'var(--primary-color)' : '#fff'}; color: ${c === '全部' ? '#fff' : 'var(--text-color)'}; cursor: pointer; transition: all 0.2s;`}
+        >
+          {c}
+        </button>
+      ))}
+    </div>
+
+    <div class="cards-grid" id="blogs-grid">
+      {blogs.map(b => (
+        <div class="airport-card blog-card-item" data-category={b.data.category}>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
+            <span class="badge" style="background:#f1f5f9; color:#475569; font-weight:600; font-size:0.75rem; padding: 2px 8px; border-radius: 4px;">{b.data.category}</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">{b.data.date}</span>
+          </div>
+          <h3 class="airport-brand-name" style="font-size: 1.15rem; margin-bottom: 8px;">
+            <a href={`/blog/${b.data.slug}.html`}>{b.data.h1}</a>
+          </h3>
+          <p class="card-desc" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">
+            {b.data.desc || b.data.summary}
+          </p>
+          <div style="margin-top:auto; font-size:0.88rem;">
+            <a href={`/blog/${b.data.slug}.html`} class="btn-card-review">阅读全文 &rarr;</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </main>
+</BaseLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btns = document.querySelectorAll('.blog-filter-btn');
+    const cards = document.querySelectorAll('.blog-card-item');
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.getAttribute('data-category-target');
+        btns.forEach(b => {
+          if (b === btn) {
+            b.style.background = 'var(--primary-color)';
+            b.style.color = '#fff';
+          } else {
+            b.style.background = '#fff';
+            b.style.color = 'var(--text-color)';
+          }
+        });
+
+        cards.forEach(c => {
+          if (cat === '全部' || c.getAttribute('data-category') === cat) {
+            c.style.display = 'flex';
+          } else {
+            c.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>

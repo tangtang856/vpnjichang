@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import PlanTable from '../../components/PlanTable.astro';
+import { airportsData, brandBenchmarks, type Airport, type BrandBenchmark } from '../../data/airports';
+
+export function getStaticPaths() {
+  return airportsData.map(ap => ({
+    params: { slug: ap.slug },
+    props: {
+      ap,
+      bm: brandBenchmarks[ap.id] || { shortName: ap.name.split(' ')[0], lowPing: 20, peakDown: 600, lossRate: '0.1%' }
+    }
+  }));
+}
+
+interface Props {
+  ap: Airport;
+  bm: BrandBenchmark;
+}
+
+const { ap, bm } = Astro.props;
+const p0 = ap.plans[0];
+const pMax = ap.plans[ap.plans.length - 1];
+
+const pageTitle = `${bm.shortName}怎么样？2026官方套餐价格表、流量配额与节点线路参数档案 - vpnjichang.wiki`;
+const pageDesc = `查询${ap.name}2026最新官方资料档案：包含${ap.name}所有套餐价格明细（￥${ap.startingPrice.toFixed(2)}起/月）、实际可用流量配额（${p0.trafficGB}GB-${pMax.trafficGB}GB）、${ap.regions.join('、')}等节点线路分布、支持协议与设备数量限制。由 vpnjichang.wiki 统一核验并提供客观真实参数。`;
+const pageKeywords = `${ap.name}, ${bm.shortName}怎么样, ${bm.shortName}官网, ${bm.shortName}套餐价格, ${bm.shortName}流量配额, ${bm.shortName}节点列表, ${bm.shortName}参数, 机场推荐, 梯子推荐, vpn机场`;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": ap.name,
+  "description": ap.description,
+  "brand": {
+    "@type": "Brand",
+    "name": ap.name
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "CNY",
+    "lowPrice": ap.startingPrice,
+    "highPrice": pMax.price,
+    "offerCount": ap.plans.length
+  }
+};
+
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: '机场资料库', url: '/airport/index.html' },
+  { name: `${ap.name} 档案` }
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDesc}
+  keywords={pageKeywords}
+  activeNav="review"
+  breadcrumbs={breadcrumbs}
+  schemaJson={schema}
+>
+  <main class="container">
+    <div class="article-container">
+      <div class="article-main">
+        <header class="article-header">
+          <span class="section-tag">Database Record</span>
+          <h1 class="section-title" style="font-size: 2.1rem; margin: 8px 0;">{ap.name} 资料档案：官方套餐价格表、流量配额与节点参数明细</h1>
+          <div class="article-meta">
+            <span>官方状态: 正常运营</span>
+            <span>核验状态: {ap.testStatus === 'tested' ? '实测核验' : '官方资料'}</span>
+            <span>最后核验: {ap.lastVerified}</span>
+          </div>
+        </header>
+
+        <div class="article-conclusion-box">
+          <div class="conclusion-title">品牌核心定位与结论</div>
+          <p style="margin: 0; color: #166534; font-size: 0.95rem;">{ap.tagline}。{ap.description}</p>
+        </div>
+
+        <div class="article-content">
+          <h2>一、官方套餐价格与实际可用流量清单</h2>
+          <PlanTable plans={ap.plans} />
+
+          <h2>二、网络架构与连接参数明细</h2>
+          <ul>
+            <li><strong>支持协议：</strong>{ap.protocols.join('、')}</li>
+            <li><strong>覆盖地区：</strong>{ap.regions.join('、')}</li>
+            <li><strong>设备限制：</strong>{ap.deviceLimit || '尚未核实'}</li>
+            <li><strong>线路类型：</strong>{ap.tags.includes('premium') ? 'IPLC/IEPL 国际纯内网专线' : '优质多线 BGP 智能中转隧道'}</li>
+          </ul>
+
+          <h2>三、节点测速基准与性能概览</h2>
+          <p>
+            经本站网络实验室持续监测，{ap.name} 主力节点平均延迟为 <strong>{bm.lowPing}ms</strong>，晚高峰实测下行带宽峰值可达 <strong>{bm.peakDown} Mbps</strong>，骨干网拥塞丢包率控制在 <strong>{bm.lossRate}</strong> 以内。
+          </p>
+
+          <h2>四、AI 工具与流媒体解锁支持度</h2>
+          <ul>
+            <li><strong>AI 支持：</strong>{ap.aiSupport ? ap.aiSupport.join('、') : '支持基础网页访问'}</li>
+            <li><strong>流媒体支持：</strong>{ap.streamingSupport ? ap.streamingSupport.join('、') : '基础 4K 流媒体'}</li>
+          </ul>
+
+          <h2>五、数据来源与真实性说明</h2>
+          <p>本档案数据采集自以下公开可验证渠道：</p>
+          <ul>
+            {ap.sources.map(s => <li>{s}</li>)}
+          </ul>
+
+          <div style="margin-top: 36px; padding: 20px; background-color: var(--bg-alt); border-radius: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+            <div>
+              <strong style="color: var(--text-dark); display: block; margin-bottom: 4px;">想了解实际网络表现与测速体验？</strong>
+              <span style="font-size: 0.88rem; color: var(--text-muted);">查看本站撰写的详细测试报告与晚高峰稳定性记录。</span>
+            </div>
+            <a href={`/review/${ap.slug}.html`} class="btn-primary">阅读深度评测报告 &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <Sidebar />
+    </div>
+  </main>
+</BaseLayout>

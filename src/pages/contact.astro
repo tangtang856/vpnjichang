@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+const title = '联系我们 · 勘误反馈与商务沟通 - vpnjichang.wiki';
+const description = '联系 vpnjichang.wiki 评测团队。接受数据勘误、商家线路入驻实测申请与学术技术交流。';
+
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: '联系我们' }
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  breadcrumbs={breadcrumbs}
+>
+  <main class="container">
+    <div class="article-container">
+      <div class="article-main">
+        <header class="article-header">
+          <span class="section-tag">Contact Us</span>
+          <h1 class="section-title">联系我们与反馈渠道</h1>
+          <div class="article-meta">
+            <span>官方联系邮箱: contact@vpnjichang.wiki</span>
+            <span>响应时效: 1-2 个工作日</span>
+          </div>
+        </header>
+        <div class="article-content">
+          <h2>一、数据勘误与技术反馈</h2>
+          <p>
+            我们力求本站所有价格、流量与节点参数的精准性。如果您发现某家机场的资费发生调整、节点倍率变动或网络出现长期大面积故障，欢迎第一时间向我们发送邮件勘误。
+          </p>
+
+          <h2>二、服务商送测与入驻须知</h2>
+          <p>如果您是机场运营方并希望参与我们的榜单实测，请在来信中提供：</p>
+          <ul>
+            <li>品牌官方域名与正式运营时长（需稳定运营 1 年以上）；</li>
+            <li>国内入口 BGP 架构与跨境专线机房证明；</li>
+            <li>供实验室自动化探针测试的测试订阅；</li>
+            <li>注意：本站绝不接受任何形式的“付费买排名”行为，所有上榜品牌必须接受统一的标准压测。</li>
+          </ul>
+
+          <h2>三、联系方式</h2>
+          <p>
+            <strong>官方邮箱：</strong><code>contact@vpnjichang.wiki</code><br />
+            <strong>GitHub 仓库：</strong><a href="https://github.com/tangtang856/vpnjichang" target="_blank" rel="noopener">tangtang856/vpnjichang</a>
+          </p>
+        </div>
+      </div>
+      <Sidebar />
+    </div>
+  </main>
+</BaseLayout>

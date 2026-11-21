@@ -1,0 +1,38 @@
+---
+import type { Plan } from '../data/airports';
+
+interface Props {
+  plans: Plan[];
+}
+
+const { plans = [] } = Astro.props;
+---
+
+<div style="overflow-x: auto; margin-bottom: 24px;">
+  <table class="ranking-table" style="min-width: 620px;">
+    <thead>
+      <tr>
+        <th>套餐名称</th>
+        <th>价格</th>
+        <th>计费周期</th>
+        <th>月度流量配额</th>
+        <th>每GB单价</th>
+        <th>速率峰值</th>
+        <th>设备限制</th>
+      </tr>
+    </thead>
+    <tbody>
+      {plans.map(p => (
+        <tr>
+          <td><strong>{p.name}</strong></td>
+          <td><strong style="color:#2563eb;">￥{p.price.toFixed(2)}</strong></td>
+          <td>{p.period}</td>
+          <td>{p.trafficGB} GB</td>
+          <td>约 ￥{p.pricePerGB.toFixed(3)} /GB</td>
+          <td>{p.speed}</td>
+          <td>{p.devices}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

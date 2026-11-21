@@ -1,0 +1,32 @@
+---
+import type { Airport } from '../data/airports';
+
+interface Props {
+  airport: Airport;
+  showReviewLink?: boolean;
+}
+
+const { airport, showReviewLink = true } = Astro.props;
+const p0 = airport.plans[0];
+const pMax = airport.plans[airport.plans.length - 1];
+---
+
+<div class="airport-card">
+  <div class="card-header">
+    <h3 class="airport-brand-name"><a href={`/review/${airport.slug}.html`}>{airport.name}</a></h3>
+    <span class="airport-badge badge-stable">{airport.testStatus === 'tested' ? '已核验' : '官方资料'}</span>
+  </div>
+  <div class="card-tagline">{airport.tagline}</div>
+  <p class="card-desc">{airport.description}</p>
+  <div class="card-specs">
+    <div class="spec-item"><span class="spec-label">入门起步</span><span class="spec-value">￥{airport.startingPrice.toFixed(2)}/月</span></div>
+    <div class="spec-item"><span class="spec-label">月度配额</span><span class="spec-value">{p0.trafficGB} - {pMax.trafficGB} GB</span></div>
+    <div class="spec-item"><span class="spec-label">协议类型</span><span class="spec-value">{airport.protocols.slice(0, 2).join(', ')}</span></div>
+    <div class="spec-item"><span class="spec-label">专线类型</span><span class="spec-value">{airport.tags.includes('premium') ? 'IPLC专线' : 'BGP中转'}</span></div>
+  </div>
+  <div class="card-footer">
+    {showReviewLink && <a href={`/review/${airport.slug}.html`} class="btn-card-review">评测报告</a>}
+    <a href={`/airport/${airport.slug}.html`} class="btn-card-review" style="background:#f1f5f9; color:#475569;">资费参数</a>
+    <a href={airport.affiliateUrl || airport.officialUrl} target="_blank" rel="noopener nofollow sponsored" class="btn-card-buy">前往官网</a>
+  </div>
+</div>

@@ -1,0 +1,285 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AirportCard from '../components/AirportCard.astro';
+import { airportsData, brandBenchmarks } from '../data/airports';
+import { recommendTopics, rankingTopics, glossaryTopics } from '../data/topics';
+
+const title = '机场推荐 · 2026最新优质稳定性价比机场与梯子节点测评导航 - vpnjichang.wiki';
+const description = '专业中文网络代理测评与导航门户。基于真实宽带压测数据，提供2026优质稳定机场推荐、性价比梯子节点评测、IPLC专线横向对比与全平台客户端使用教程。';
+const keywords = '机场推荐, 机场节点, 性价比机场, 梯子推荐, vpn, vpn机场, vpn节点, vpn推荐';
+
+const featuredAirports = airportsData.slice(0, 6);
+const topRankings = [...airportsData].sort((a, b) => (a.rankings?.overall || 99) - (b.rankings?.overall || 99)).slice(0, 8);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "vpnjichang.wiki",
+  "url": "https://vpnjichang.wiki/",
+  "description": description,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://vpnjichang.wiki/compare.html?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  activeNav="home"
+  schemaJson={schema}
+>
+  <!-- Section 2: Hero 主视觉区 -->
+  <section class="hero-section">
+    <div class="container hero-inner">
+      <div class="hero-badge">2026 独立第三方实测标准 · 杜绝虚构评分</div>
+      <h1 class="hero-title">2026 优质稳定机场推荐与科学翻墙节点导航</h1>
+      <p class="hero-desc">
+        立足真实千兆宽带网络压测，客观横评中文主流 <strong>vpn机场</strong> 与 <strong>vpn节点</strong>。
+        为您提供经过长期抗封锁验证的 <strong>性价比机场</strong> 与 <strong>梯子推荐</strong> 方案，
+        助您轻松选购不踩坑、杜绝跑路风险。
+      </p>
+      <div class="hero-actions">
+        <a href="#featured" class="btn-primary">🔥 查看精选机场推荐</a>
+        <a href="#rankings" class="btn-secondary">🏆 2026 综合排行榜</a>
+        <a href="/compare.html" class="btn-secondary">⚡ 机场横向对比工具</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-num">14+</span><span class="stat-label">真实核验品牌</span></div>
+        <div class="stat-item"><span class="stat-num">30+</span><span class="stat-label">客户端保姆教程</span></div>
+        <div class="stat-item"><span class="stat-num">100+</span><span class="stat-label">深度评测与博文</span></div>
+        <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">客观实测数据</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: 快速答案卡片 -->
+  <section style="padding: 40px 0; background-color: var(--bg-alt); border-bottom: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Quick Decision Guide</span>
+        <h2 class="section-title">选购速查：30秒找到最适合您的翻墙梯子方案</h2>
+        <p class="section-desc">根据您的核心使用场景与预算，获取立即可用的专业选型结论。</p>
+      </div>
+      <div class="quick-answers-grid">
+        <div class="quick-answer-card">
+          <div class="qa-badge">新手入门推荐</div>
+          <h3>刚接触科学上网的小白用户怎么选？</h3>
+          <p>建议首选支持<strong>一键导入订阅</strong>且月付门槛低的品牌。先买 1 个月轻量套餐（通常 5-10 元），导入手机或电脑客户端实测您本地宽带的连接表现，满意再按季续费。</p>
+          <a href="/recommend/beginner.html" class="qa-link">查看小白一键导入机场 &rarr;</a>
+        </div>
+        <div class="quick-answer-card">
+          <div class="qa-badge">稳定防失联</div>
+          <h3>外贸企业办公与敏感期用什么线路最稳？</h3>
+          <p>必须认准<strong>全内网物理专线（IPLC/IEPL）</strong>。专线通信在光缆内网直接点对点传输，不经过公共国际公网出口与 GFW 审查拦截，晚高峰与特殊时期依然能稳如磐石。</p>
+          <a href="/recommend/premium.html" class="qa-link">查看高端稳定专线推荐 &rarr;</a>
+        </div>
+        <div class="quick-answer-card">
+          <div class="qa-badge">AI与流媒体</div>
+          <h3>看 4K Netflix 与使用 ChatGPT 如何选节点？</h3>
+          <p>核心看两点：一是节点出口是否为<strong>纯净原生住宅 IP</strong>（防 OpenAI 封号与 Stripe 拒付）；二是晚高峰带宽冗余是否充足（确保 4K 60fps 码率秒开不转圈）。</p>
+          <a href="/recommend/ai.html" class="qa-link">查看 ChatGPT 专线专题 &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: 精选推荐 -->
+  <section id="featured" style="padding: 60px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Editor's Choice</span>
+        <h2 class="section-title">2026 精选优质机场服务商推荐</h2>
+        <p class="section-desc">结合官方透明资费、物理线路品质、客户端兼容性与长期工单服务综合严选。</p>
+      </div>
+      <div class="cards-grid">
+        {featuredAirports.map(ap => (
+          <AirportCard airport={ap} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: 综合排行榜 -->
+  <section id="rankings" style="padding: 60px 0; background-color: var(--bg-alt); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Performance Leaderboard</span>
+        <h2 class="section-title">2026 综合实力排行榜（实测数据）</h2>
+        <p class="section-desc">基于晚高峰测速、物理专线架构、单位流量性价比与售后响应的综合量化评级。</p>
+      </div>
+      <div style="overflow-x: auto; margin-bottom: 24px;">
+        <table class="ranking-table" style="min-width: 650px;">
+          <thead>
+            <tr>
+              <th>排名</th>
+              <th>品牌名称</th>
+              <th>起步价格</th>
+              <th>入门流量</th>
+              <th>每GB单价</th>
+              <th>网络线路类型</th>
+              <th>适合人群</th>
+              <th>评测详情</th>
+            </tr>
+          </thead>
+          <tbody>
+            {topRankings.map((ap, idx) => {
+              const p0 = ap.plans[0];
+              return (
+                <tr>
+                  <td><span class={`rank-badge ${idx < 3 ? 'rank-' + (idx + 1) : 'rank-other'}`}>{idx + 1}</span></td>
+                  <td><strong><a href={`/review/${ap.slug}.html`}>{ap.name}</a></strong></td>
+                  <td><strong style="color: #2563eb;">￥{ap.startingPrice.toFixed(2)}</strong></td>
+                  <td>{p0.trafficGB} GB</td>
+                  <td>约 ￥{p0.pricePerGB.toFixed(3)}</td>
+                  <td>{ap.tags.includes('premium') ? 'IPLC/IEPL 国际专线' : '优质多线 BGP 中转'}</td>
+                  <td><span style="font-size:0.85rem; color:#475569;">{ap.suitableFor[0] || '通用翻墙'}</span></td>
+                  <td><a href={`/review/${ap.slug}.html`} class="btn-card-review" style="padding: 4px 10px; font-size: 0.8rem;">查看评测</a></td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="/ranking/overall.html" class="btn-secondary">查看完整榜单与详细评分依据 &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: 按需求直达专题 -->
+  <section style="padding: 60px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Scenario Portals</span>
+        <h2 class="section-title">按使用场景选择专属专题推荐</h2>
+        <p class="section-desc">找平价、找专线、找流媒体还是找 AI？分类专题直达最契合您的节点池。</p>
+      </div>
+      <div class="topics-grid">
+        {recommendTopics.map(t => (
+          <a href={`/recommend/${t.slug}.html`} class="topic-card">
+            <div class="topic-icon">🎯</div>
+            <div class="topic-info">
+              <h3>{t.h1}</h3>
+              <p>{t.summary}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: 机场横向比较入口 -->
+  <section style="padding: 50px 0; background: linear-gradient(135deg, #1e293b, #0f172a); color: #ffffff;">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
+      <div style="max-width: 680px;">
+        <span style="display: inline-block; padding: 4px 10px; background: rgba(59, 130, 246, 0.2); color: #60a5fa; font-size: 0.85rem; font-weight: 600; border-radius: 4px; margin-bottom: 12px;">Interactive Tool</span>
+        <h2 style="font-size: 1.8rem; margin: 0 0 10px 0; color: #ffffff;">多品牌全维度横向对比工具</h2>
+        <p style="font-size: 0.95rem; color: #94a3b8; line-height: 1.6; margin: 0;">
+          在 2 到 4 家候选品牌间犹豫不决？使用本站专属的横向对比工具，直观比较套餐单价、流量上限、线路协议与流媒体解锁能力。
+        </p>
+      </div>
+      <div>
+        <a href="/compare.html" class="btn-primary" style="padding: 14px 28px; font-size: 1rem;">立即开启横向对比 &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: 评测与教程精选入口 -->
+  <section style="padding: 60px 0; background-color: var(--bg-alt);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Guides & Tutorials</span>
+        <h2 class="section-title">全平台客户端配置保姆级教程中心</h2>
+        <p class="section-desc">Windows、Android、iOS、macOS 及软路由图文教程全景收录，小白也能轻松上手。</p>
+      </div>
+      <div class="topics-grid">
+        <a href="/guides/windows.html" class="topic-card">
+          <div class="topic-icon">💻</div>
+          <div class="topic-info">
+            <h3>Windows 客户端配置教程</h3>
+            <p>Clash Verge Rev 与 v2rayN 图文教程，开启 TUN 虚拟网卡接管全局。</p>
+          </div>
+        </a>
+        <a href="/guides/android.html" class="topic-card">
+          <div class="topic-icon">📱</div>
+          <div class="topic-info">
+            <h3>Android 安卓客户端教程</h3>
+            <p>Clash Meta 与 Surfboard 客户端配置，订阅链接一键导入与分流设置。</p>
+          </div>
+        </a>
+        <a href="/guides/ios.html" class="topic-card">
+          <div class="topic-icon">🍎</div>
+          <div class="topic-info">
+            <h3>iOS 苹果小火箭配置指南</h3>
+            <p>Shadowrocket 与 Loon 节点导入、美区 Apple ID 获取与规则模块安装。</p>
+          </div>
+        </a>
+        <a href="/guides/macos.html" class="topic-card">
+          <div class="topic-icon">🖥️</div>
+          <div class="topic-info">
+            <h3>macOS 苹果电脑配置教程</h3>
+            <p>Clash Verge 与 Surge Mac 配置实战，M 系列芯片原生极速优化。</p>
+          </div>
+        </a>
+      </div>
+      <div style="text-align: center; margin-top: 24px;">
+        <a href="/guides/index.html" class="btn-secondary">浏览全部 30 篇实操配置指南 &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 12: 核心关键词 FAQ -->
+  <section style="padding: 60px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Frequently Asked Questions</span>
+        <h2 class="section-title">关于机场与科学翻墙节点的常见疑问解答 (FAQ)</h2>
+        <p class="section-desc">解答用户在选购、配置与日常使用翻墙网络时最关心的核心问题。</p>
+      </div>
+      <div style="max-width: 820px; margin: 0 auto;">
+        <div class="faq-item">
+          <button class="faq-question">什么是“机场”？它与传统 VPN 有何本质区别？<span>+</span></button>
+          <div class="faq-answer">
+            <p>
+              “机场”是中文互联网对抗审查代理服务商的俗称。与传统国外商业 VPN（如 ExpressVPN、NordVPN 采用 OpenVPN/IPsec 全局握手，特征明显极易被 GFW 封锁）不同，现代机场采用<strong>抗审查伪装协议</strong>（如 Shadowsocks、VLESS Reality、Trojan、Hysteria 2），将流量伪装成正常 HTTPS 通信，并支持<strong>智能分流</strong>（国内直连、国外走代理），极速且稳定。
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">为什么坚决不建议一次性购买年付或两年套餐？<span>+</span></button>
+          <div class="faq-answer">
+            <p>
+              代理行业受网络审查政策、机房线路合规及资金链波动影响极大。历史上大批暴雷跑路的服务商往往在跑路前推出“年付骨折大促”。坚守<strong>“先月付、后季付”</strong>的原则，不仅能随时根据线路表现灵活换用，更能在服务商出现波动时将个人资金损失降至最低。
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">什么是“节点倍率”？1.0x、0.5x 和 3.0x 有何差异？<span>+</span></button>
+          <div class="faq-answer">
+            <p>
+              节点倍率是商家扣除流量的系数。公式为：<strong>实际扣费流量 = 本次使用流量 × 节点倍率</strong>。1.0x 节点用 1G 扣 1G；0.5x 节点用 1G 仅扣 0.5G；而 3.0x 节点用 1G 扣 3G。很多商家用超大流量宣传，但主线全部是 2.0x-3.0x 高倍率，实际可用流量大打折扣。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const btn = item.querySelector('.faq-question');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
+      }
+    });
+  });
+</script>

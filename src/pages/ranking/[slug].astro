@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import { rankingTopics, type TopicItem } from '../../data/topics';
+import { airportsData } from '../../data/airports';
+
+export function getStaticPaths() {
+  return rankingTopics.map(topic => {
+    let sortedAirports = [...airportsData];
+    if (topic.slug === 'overall') {
+      sortedAirports.sort((a, b) => (a.rankings?.overall || 99) - (b.rankings?.overall || 99));
+    } else if (topic.slug === 'value') {
+      sortedAirports.sort((a, b) => a.plans[0].pricePerGB - b.plans[0].pricePerGB);
+    } else if (topic.slug === 'budget') {
+      sortedAirports.sort((a, b) => a.startingPrice - b.startingPrice);
+    } else if (topic.slug === 'stable') {
+      sortedAirports.sort((a, b) => (a.rankings?.stable || 99) - (b.rankings?.stable || 99));
+    }
+    return {
+      params: { slug: topic.slug },
+      props: { topic, airports: sortedAirports }
+    };
+  });
+}
+
+interface Props {
+  topic: TopicItem;
+  airports: typeof airportsData;
+}
+
+const { topic, airports } = Astro.props;
+
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: '机场排行榜', url: '/ranking/index.html' },
+  { name: topic.h1.split('与')[0].split('·')[0] }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": topic.h1,
+  "description": topic.desc,
+  "itemListElement": airports.map((ap, idx) => ({
+    "@type": "ListItem",
+    "position": idx + 1,
+    "name": `${ap.name} - 排名第 ${idx + 1} 位`,
+    "url": `https://vpnjichang.wiki/review/${ap.slug}.html`
+  }))
+};
+---
+
+<BaseLayout
+  title={topic.title}
+  description={topic.desc}
+  keywords={topic.keywords}
+  activeNav="ranking"
+  breadcrumbs={breadcrumbs}
+  schemaJson={schema}
+>
+  <main class="container">
+    <div class="article-container">
+      <div class="article-main">
+        <header class="article-header">
+          <span class="section-tag">{topic.tag}</span>
+          <h1 class="section-title" style="font-size: 2.1rem; margin: 8px 0; line-height: 1.3;">{topic.h1}</h1>
+          <div class="article-meta">
+            <span>评选机构: vpnjichang.wiki 排行实验室</span>
+            <span>更新频率: 月度核准</span>
+            <span>上榜品牌: {airports.length} 家品牌</span>
+          </div>
+        </header>
+
+        <div class="article-conclusion-box">
+          <div class="conclusion-title">🏆 榜单核心结论速查</div>
+          <p style="margin: 0; color: #166534; font-size: 0.95rem; line-height: 1.6;">{topic.summary}</p>
+        </div>
+
+        <div class="article-content">
+          <h2>一、排名评定标准与规则公开</h2>
+          <p>{topic.intro}</p>
+          <ul>
+            {topic.features.map(f => <li>{f}</li>)}
+          </ul>
+
+          <h2>二、2026 年度上榜梯队详细对比</h2>
+          <div style="overflow-x: auto; margin-bottom: 24px;">
+            <table class="ranking-table" style="min-width: 650px;">
+              <thead>
+                <tr>
+                  <th>名次</th>
+                  <th>品牌名称</th>
+                  <th>起步价格</th>
+                  <th>入门配额</th>
+                  <th>每GB单价</th>
+                  <th>网络线路架构</th>
+                  <th>详情入口</th>
+                </tr>
+              </thead>
+              <tbody>
+                {airports.map((ap, idx) => {
+                  const p0 = ap.plans[0];
+                  return (
+                    <tr>
+                      <td><span class={`rank-badge ${idx < 3 ? 'rank-' + (idx + 1) : 'rank-other'}`}>{idx + 1}</span></td>
+                      <td><strong><a href={`/review/${ap.slug}.html`}>{ap.name}</a></strong></td>
+                      <td><strong style="color: #2563eb;">￥{ap.startingPrice.toFixed(2)}</strong></td>
+                      <td>{p0.trafficGB} GB</td>
+                      <td>约 ￥{p0.pricePerGB.toFixed(3)}</td>
+                      <td>{ap.tags.includes('premium') ? 'IPLC/IEPL 国际专线' : '多线 BGP 智能中转'}</td>
+                      <td>
+                        <a href={`/review/${ap.slug}.html`} class="btn-card-review" style="padding: 3px 10px; font-size: 0.8rem;">评测详情</a>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+
+          <h2>三、各上榜品牌详尽解析与适合人群</h2>
+          {airports.map((ap, idx) => (
+            <div style="margin-bottom: 24px; padding: 18px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px;">
+              <h3 style="margin-top: 0; display: flex; align-items: center; justify-content: space-between;">
+                <span>第 {idx + 1} 名：<a href={`/review/${ap.slug}.html`}>{ap.name}</a></span>
+                <span style="font-size: 0.9rem; color: #2563eb;">￥{ap.startingPrice.toFixed(2)}/月起</span>
+              </h3>
+              <p style="font-size: 0.92rem; color: #475569; margin: 6px 0;">{ap.tagline}。{ap.description}</p>
+              <div style="font-size: 0.88rem; color: #64748b; margin-top: 8px;">
+                <strong>适合人群：</strong>{ap.suitableFor.join('、')}
+              </div>
+              <div style="margin-top: 12px; display: flex; gap: 10px;">
+                <a href={`/review/${ap.slug}.html`} class="btn-card-review" style="font-size: 0.82rem; padding: 4px 12px;">查看深度评测</a>
+                <a href={ap.affiliateUrl || ap.officialUrl} target="_blank" rel="noopener nofollow sponsored" class="btn-card-buy" style="font-size: 0.82rem; padding: 4px 12px;">前往官网 &rarr;</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <Sidebar />
+    </div>
+  </main>
+</BaseLayout>

@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: '隐私政策' }
+];
+
+const title = "隐私政策 · 用户数据安全与隐私保护声明 - vpnjichang.wiki";
+const description = "vpnjichang.wiki 严格尊重并保护所有访问者的个人隐私，绝不收集敏感个人信息，不记录浏览轨迹。";
+---
+
+<BaseLayout title={title} description={description} canonical="/privacy-policy.html" breadcrumbs={breadcrumbs}>
+  <div class="article-container full-width">
+    <article class="article-main">
+      <header class="article-header">
+        <h1 class="section-title" style="font-size: 2rem; margin-bottom: 8px;">隐私政策 · 用户数据安全与隐私保护声明</h1>
+        <div class="article-meta">
+          <span>最后修订: 2026-03-15</span>
+          <span>来源: vpnjichang.wiki 编辑部</span>
+        </div>
+      </header>
+      <div class="article-content">
+        <h2>数据隐私承诺</h2>
+        <p>vpnjichang.wiki 深知隐私对于网络用户的重要性。作为纯静态技术博客与评测导航站点，我们遵循<strong>最小必要数据原则</strong>。</p>
+
+        <h2>我们收集的信息</h2>
+        <p>当您访问本网站时，我们不会要求您进行任何账号注册或提供姓名、手机号等敏感个人隐私：</p>
+        <ul>
+          <li><strong>静态访问日志：</strong>托管服务器（如 Cloudflare Pages）可能会基于网络安全与抵御 DDoS 攻击需要，自动记录访问者的匿名 IP、请求时间、User-Agent 和 HTTP 状态码。这些日志仅用于安全审计与流量统计，不会与任何个人身份关联。</li>
+          <li><strong>本地 Cookie 与 Storage：</strong>我们仅在客户端使用极简的 LocalStorage 或内存变量来保存您的横向对比选项或夜间模式偏好（如有），绝不用于任何跨站点广告追踪。</li>
+        </ul>
+
+        <h2>第三方外部链接</h2>
+        <p>本网站包含跳转至各机场官方网站的外部链接。一旦您离开本站访问第三方服务平台，请查阅该第三方网站的专属隐私政策与服务条款。我们对任何第三方平台的隐私做法不承担连带法律责任。</p>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

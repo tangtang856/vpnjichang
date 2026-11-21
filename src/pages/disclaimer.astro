@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: '免责声明与服务协议' }
+];
+
+const title = "免责声明与服务协议 · 合规使用与第三方服务提醒 - vpnjichang.wiki";
+const description = "阅读 vpnjichang.wiki 免责声明，明确了解关于第三方代理服务购买风险、网络合规使用及技术知识传播的免责条款。";
+---
+
+<BaseLayout title={title} description={description} canonical="/disclaimer.html" breadcrumbs={breadcrumbs}>
+  <div class="article-container full-width">
+    <article class="article-main">
+      <header class="article-header">
+        <h1 class="section-title" style="font-size: 2rem; margin-bottom: 8px;">免责声明与服务协议 · 合规使用与第三方服务提醒</h1>
+        <div class="article-meta">
+          <span>最后修订: 2026-03-15</span>
+          <span>来源: vpnjichang.wiki 编辑部</span>
+        </div>
+      </header>
+      <div class="article-content">
+        <h2>合规使用特别提醒</h2>
+        <p><strong>vpnjichang.wiki 仅作为网络技术交流、网络协议科普以及公开网络服务评测与参数对比平台。</strong></p>
+        <p>本站坚决拥护国家网络安全相关法律法规。我们在此郑重提醒广大读者：</p>
+        <ul>
+          <li>请自觉遵守所在国家和地区的相关法律法规，合理合法使用网络资源；</li>
+          <li>本站严禁利用相关网络技术从事任何危害国家安全、传播违法违规内容、侵犯他人隐私或破坏计算机信息系统的非法活动；</li>
+          <li>所有评测内容仅供计算机网络学术研究、跨境企业合法外贸办公以及外语文献查阅等正当用途参考。</li>
+        </ul>
+
+        <h2>第三方服务与交易免责声明</h2>
+        <p>本站仅对各服务商公开的参数、价格及测试阶段的表现进行客观记录，<strong>本站本身不销售任何代理服务、不提供任何付费翻墙节点，亦非任何机场的运营主体或担保方</strong>。</p>
+        <p>用户在第三方服务商平台发生的任何充值、购买、退款纠纷、数据丢失或因第三方服务商关停跑路而导致的经济损失，请直接与该第三方服务商协商解决。本站不承担任何直接或间接的担保或赔偿责任。</p>
+      </div>
+    </article>
+  </div>
+</BaseLayout>
