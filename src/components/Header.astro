@@ -21,9 +21,6 @@ const { activeNav = '' } = Astro.props;
       <li class="nav-item"><a href="/guides/index.html" class={activeNav === 'guides' ? 'active' : ''}>使用教程</a></li>
       <li class="nav-item"><a href="/blog/index.html" class={activeNav === 'blog' ? 'active' : ''}>博客文章</a></li>
       <li class="nav-item"><a href="/glossary/index.html" class={activeNav === 'glossary' ? 'active' : ''}>知识百科</a></li>
-      <li class="nav-item mobile-only-item">
-        <a href="#contact" id="btn-mobile-contact" style="color: #2563eb; font-weight: 700;">💬 商务合作与联络</a>
-      </li>
     </ul>
     <div class="header-actions">
       <!-- 联络我们按钮 -->
@@ -164,7 +161,6 @@ const { activeNav = '' } = Astro.props;
     // 联络弹窗交互
     const modal = document.getElementById('contact-modal');
     const openBtn = document.getElementById('btn-open-contact');
-    const mobileContactBtn = document.getElementById('btn-mobile-contact');
     const closeBtn = document.getElementById('btn-close-contact');
     const toast = document.getElementById('contact-toast');
     const toastText = document.getElementById('contact-toast-text');
@@ -186,14 +182,6 @@ const { activeNav = '' } = Astro.props;
     }
 
     if (openBtn) openBtn.addEventListener('click', openModal);
-    if (mobileContactBtn) {
-      mobileContactBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (navMenu) navMenu.classList.remove('active');
-        if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
-        openModal();
-      });
-    }
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
     // 点击蒙层关闭
