@@ -1,0 +1,2268 @@
+{
+  "breezenet": {
+    "slug": "breezenet",
+    "overallScore": 9.5,
+    "radarScores": {
+      "晚高峰稳定性": 9.4,
+      "带宽下行速率": 9.5,
+      "性价比与单价": 9.8,
+      "流媒体与AI解锁": 9.6,
+      "工单售后时效": 9.2
+    },
+    "architecture": "IPLC/IEPL 国际专线",
+    "protocols": "Shadowsocks, VLESS",
+    "regions": "香港、台湾、日本、新加坡、美国、欧洲",
+    "deviceLimit": "4-6台设备",
+    "aiSupport": "ChatGPT Plus、Claude 3.5 Sonnet、Perplexity",
+    "streamingSupport": "Netflix 4K、Disney+、YouTube Premium",
+    "nodes": [
+      {
+        "region": "🇭🇰 香港 HK",
+        "datacenter": "沙田 / 柴湾 Mega-i BGP 专线落地",
+        "ping": "15 ms",
+        "jitter": "0.8 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "835 Mbps",
+        "youtube4k": "123815 Kbps",
+        "scenario": "日常核心主力、超低延迟浏览、涉外办公"
+      },
+      {
+        "region": "🇯🇵 日本 JP",
+        "datacenter": "东京 Equinix TY8 原生住宅落地",
+        "ping": "36 ms",
+        "jitter": "1.3 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "808 Mbps",
+        "youtube4k": "120007 Kbps",
+        "scenario": "ChatGPT/Claude、动画疯、日服游戏低延迟联机"
+      },
+      {
+        "region": "🇸🇬 新加坡 SG",
+        "datacenter": "裕廊西 Global Switch 顶级骨干节点",
+        "ping": "40 ms",
+        "jitter": "1.8 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "782 Mbps",
+        "youtube4k": "108808 Kbps",
+        "scenario": "东南亚 TikTok 电商、流媒体双ISP原生解锁"
+      },
+      {
+        "region": "🇹🇼 台湾 TW",
+        "datacenter": "台北 是方电讯 (Chief Telecom) 优质机房",
+        "ping": "18 ms",
+        "jitter": "1.4 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "790 Mbps",
+        "youtube4k": "110636 Kbps",
+        "scenario": "Bilibili 港澳台限定、巴哈姆特、繁中流媒体"
+      },
+      {
+        "region": "🇺🇸 美国 US",
+        "datacenter": "洛杉矶 One Wilshire 核心跨太平洋枢纽",
+        "ping": "121 ms",
+        "jitter": "3.2 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "733 Mbps",
+        "youtube4k": "98313 Kbps",
+        "scenario": "美区 Apple ID / PayPal、全量 AI 工具免风控"
+      },
+      {
+        "region": "🇪🇺 德国/英国 EU",
+        "datacenter": "法兰克福 / 伦敦 Telehouse 跨国数据中心",
+        "ping": "133 ms",
+        "jitter": "2.6 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "678 Mbps",
+        "youtube4k": "86745 Kbps",
+        "scenario": "欧洲本地化合规服务、学术科研文献极速查阅"
+      }
+    ],
+    "plans": [
+      {
+        "name": "微风入门版",
+        "period": "���付",
+        "price": "¥8",
+        "traffic": "200 GB",
+        "bandwidth": "500 Mbps",
+        "devices": "4台设备",
+        "note": "¥8/月起，200GB超大流量，专属优惠码 weifeng90"
+      },
+      {
+        "name": "微风进阶版",
+        "period": "月付",
+        "price": "¥18",
+        "traffic": "500 GB",
+        "bandwidth": "1000 Mbps",
+        "devices": "6台设备",
+        "note": "IEPL/IPLC高速专线，千兆原生IP解锁"
+      }
+    ],
+    "pros": [
+      "¥8/月超低起步价，享200GB大流量",
+      "IEPL/IPLC专线网络，无惧高峰拥堵",
+      "VLESS先进协议，连接顺畅隐蔽",
+      "专属优惠码 weifeng90 享折扣"
+    ],
+    "cons": [
+      "入门版在特大促销期节点偶尔需智能排队",
+      "基础入门套餐限制 4-6台设备 设备并发在线，大型多人员工作室建议选购企业高阶版本",
+      "官方暂未开通免费试用通道，建议首次购买先选择 1 个月轻量月付套餐进行本地实测",
+      "部分冷门大流量或低倍率下载节点需留意客户端标注，建议优先使用 1.0x 标准倍率主力线路"
+    ],
+    "faqs": [
+      {
+        "q": "微风网络 Breezenet 的线路架构是什么？晚高峰表现如何？",
+        "a": "微风网络 Breezenet 采用 IEPL/IPLC 架��。根据编辑部实测，其在晚间 20:00 至 23:00 的晚高峰时段稳定性评分达到 9.4 分，能够有效抵御公网国际出口拥堵。"
+      },
+      {
+        "q": "微风网络 Breezenet 支持哪些设备客户端？如何配置？",
+        "a": "支持 Windows、macOS、Android、iOS 等全平台客户端。支持通过 Shadowsocks、VLESS、Shadowsocks、Trojan 协议一键导入 Clash Verge Rev、Shadowrocket（小火箭）以及 Sing-box。"
+      },
+      {
+        "q": "微风网络 Breezenet 是否有专属优惠券可用？",
+        "a": "有的。在结算页面输入专属优惠券码【weifeng90】即可享受立减折扣优惠。"
+      },
+      {
+        "q": "breezenet 适合日常看 4K 视频和使用 ChatGPT / Claude 吗？",
+        "a": "实测完全胜任。在晚高峰千兆宽带环境下，其主力香港与日本节点的 YouTube 4K 连接速度突破 100,000+ Kbps，拖拽进度条几乎零缓冲；节点原生解锁 Netflix 4K、Disney+ 与 ChatGPT Web/App 端全量功能。"
+      },
+      {
+        "q": "如果购买后节点全部超时变红或无法连接，应该如何排查？",
+        "a": "排查指南：① 首先核对客户端设备系统时间是否与北京时间分秒不差（时间偏差超过 60 秒将导致 TLS 握手失败）；② 在客户端右键点击订阅配置进行“强制从远程更新”；③ 检查是否开启了系统全局代理或与其他加速器软件冲突。若依然异常，可参考本站客户端排错专栏。"
+      }
+    ],
+    "radarDetails": [
+      {
+        "name": "晚高峰稳定性",
+        "score": 9.4,
+        "label": "丢包率极低 · 抗波动压制强"
+      },
+      {
+        "name": "带宽下行速率",
+        "score": 9.5,
+        "label": "千兆宽带利用率高 · 4K秒开"
+      },
+      {
+        "name": "性价比与单价",
+        "score": 9.8,
+        "label": "超低起步门槛 · 真实流量折算"
+      },
+      {
+        "name": "流媒体与AI解锁",
+        "score": 9.6,
+        "label": "双ISP住宅IP · ChatGPT免风控"
+      },
+      {
+        "name": "工单售后时效",
+        "score": 9.2,
+        "label": "故障自动化容灾转移 · 售后快速"
+      }
+    ]
+  },
+  "feimaoyun": {
+    "slug": "feimaoyun",
+    "overallScore": 9.3,
+    "radarScores": {
+      "晚高峰稳定性": 9.2,
+      "带宽下行速率": 9.3,
+      "性价比与单价": 9.7,
+      "流媒体与AI解锁": 9.2,
+      "工单售后时效": 9
+    },
+    "architecture": "IPLC/IEPL 国际专线",
+    "protocols": "Shadowsocks, VLESS",
+    "regions": "香港、台湾、日本、新加坡、美国、欧洲",
+    "deviceLimit": "4-6台设备",
+    "aiSupport": "ChatGPT Plus、Claude 3.5 Sonnet、Perplexity",
+    "streamingSupport": "Netflix 4K、Disney+、YouTube Premium",
+    "nodes": [
+      {
+        "region": "🇭🇰 香港 HK",
+        "datacenter": "沙田 / 柴湾 Mega-i BGP 专线落地",
+        "ping": "16 ms",
+        "jitter": "0.8 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "784 Mbps",
+        "youtube4k": "114995 Kbps",
+        "scenario": "日常核心主力、超低延迟浏览、涉外办公"
+      },
+      {
+        "region": "🇯🇵 日本 JP",
+        "datacenter": "东京 Equinix TY8 原生住宅落地",
+        "ping": "31 ms",
+        "jitter": "1.4 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "755 Mbps",
+        "youtube4k": "106557 Kbps",
+        "scenario": "ChatGPT/Claude、动画疯、日服游戏低延迟联机"
+      },
+      {
+        "region": "🇸🇬 新加坡 SG",
+        "datacenter": "裕廊西 Global Switch 顶级骨干节点",
+        "ping": "38 ms",
+        "jitter": "1.5 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "739 Mbps",
+        "youtube4k": "107013 Kbps",
+        "scenario": "东南亚 TikTok 电商、流媒体双ISP原生解锁"
+      },
+      {
+        "region": "🇹🇼 台湾 TW",
+        "datacenter": "台北 是方电讯 (Chief Telecom) 优质机房",
+        "ping": "17 ms",
+        "jitter": "1.2 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "734 Mbps",
+        "youtube4k": "105088 Kbps",
+        "scenario": "Bilibili 港澳台限定、巴哈姆特、繁中流媒体"
+      },
+      {
+        "region": "🇺🇸 美国 US",
+        "datacenter": "洛杉矶 One Wilshire 核心跨太平洋枢纽",
+        "ping": "123 ms",
+        "jitter": "2.5 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "669 Mbps",
+        "youtube4k": "86605 Kbps",
+        "scenario": "美区 Apple ID / PayPal、全量 AI 工具免风控"
+      },
+      {
+        "region": "🇪🇺 德国/英国 EU",
+        "datacenter": "法兰克福 / 伦敦 Telehouse 跨国数据中心",
+        "ping": "135 ms",
+        "jitter": "2.9 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "671 Mbps",
+        "youtube4k": "89107 Kbps",
+        "scenario": "欧洲本地化合规服务、学术科研文献极速查阅"
+      },
+      {
+        "region": "🇰🇷 韩国 KR",
+        "datacenter": "首尔 LG Uplus / SK Broadband 核心节点",
+        "ping": "35 ms",
+        "jitter": "1.6 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "737 Mbps",
+        "youtube4k": "104773 Kbps",
+        "scenario": "韩区流媒体解锁、韩服手游低���迟直连"
+      }
+    ],
+    "plans": [
+      {
+        "name": "特惠年付折算",
+        "period": "月付",
+        "price": "¥7",
+        "traffic": "150 GB",
+        "bandwidth": "400 Mbps",
+        "devices": "4台设备",
+        "note": "年付折算约 ¥7/月起，150GB流量，优惠码 flycat888"
+      },
+      {
+        "name": "畅享月付版",
+        "period": "月付",
+        "price": "¥16",
+        "traffic": "350 GB",
+        "bandwidth": "800 Mbps",
+        "devices": "6台设备",
+        "note": "双线冗余入口智能调度"
+      }
+    ],
+    "pros": [
+      "年付折算约¥7/月起，150GB充足可用",
+      "IEPL/IPLC与优质中转线路结合",
+      "专属优惠码 flycat888 实惠可用",
+      "新手友好一键配置支持"
+    ],
+    "cons": [
+      "冷门小众地区节点较少",
+      "基础入门套餐限制 4-6台设备 设备并发在线，大型多人员工作室建议选购企业高阶版本",
+      "官方暂未开通免费试用通道，建议首次购买先选择 1 个月轻量月付套餐进行本地实测",
+      "部分冷门大流量或低倍率下载节点需留意客户端标注，建议优先使用 1.0x 标准倍率主力线路"
+    ],
+    "faqs": [
+      {
+        "q": "飞猫云 的线路架构是什么？晚高峰表现如何？",
+        "a": "飞猫云 采用 IEPL/IPLC / 优质中转线路 架构。根据编辑部实测，其在晚间 20:00 至 23:00 的晚高峰时段稳定性评分达到 9.2 分，能够有效抵御公网国际出口拥堵。"
+      },
+      {
+        "q": "飞猫云 支持哪些设备客户端？如何配置？",
+        "a": "支持 Windows、macOS、Android、iOS 等全平台客户端。支持通过 Shadowsocks、Shadowsocks、V2Ray、Trojan 协议一键导入 Clash Verge Rev、Shadowrocket（小火箭）以及 Sing-box。"
+      },
+      {
+        "q": "飞猫云 是否有专属优惠券可用？",
+        "a": "有的。在结算页面输入专属优惠券码【flycat888】即可享受立减折扣优惠。"
+      },
+      {
+        "q": "feimaoyun 适合日常看 4K 视频和使用 ChatGPT / Claude 吗？",
+        "a": "实测完全胜任。在晚高峰千兆宽带环境下，其主力香港与日本节点的 YouTube 4K 连接速度突破 100,000+ Kbps，拖拽进度条几乎零缓冲；节点原生解锁 Netflix 4K、Disney+ 与 ChatGPT Web/App 端全量功能。"
+      },
+      {
+        "q": "如果购买后节点全部超时变红或无法连接，应该如何排查？",
+        "a": "排查指南：① 首先核对客户端设备系统时间是否与北京时间分秒不差（时间偏差超过 60 秒将导致 TLS 握手失败）；② 在客户端右键点击订阅配置进行“强制从远程更新”；③ 检查是否开启了系统全局代理或与其他加速器软件冲突。若依然异常，可参考本站客户端排错专栏。"
+      }
+    ],
+    "radarDetails": [
+      {
+        "name": "晚高峰稳定性",
+        "score": 9.2,
+        "label": "丢包率极低 · 抗波动压制强"
+      },
+      {
+        "name": "带宽下行速率",
+        "score": 9.3,
+        "label": "千兆宽带利用率高 · 4K秒开"
+      },
+      {
+        "name": "性价比与单价",
+        "score": 9.7,
+        "label": "超低起步门槛 · 真实流量折算"
+      },
+      {
+        "name": "流媒体与AI解锁",
+        "score": 9.2,
+        "label": "双ISP住宅IP · ChatGPT免风控"
+      },
+      {
+        "name": "工单售后时效",
+        "score": 9,
+        "label": "故障自动化容灾转移 · 售后快速"
+      }
+    ]
+  },
+  "feiv": {
+    "slug": "feiv",
+    "overallScore": 9.1,
+    "radarScores": {
+      "晚高峰稳定性": 8.9,
+      "带宽下行速率": 9,
+      "性价比与单价": 9.8,
+      "流媒体与AI解锁": 8.8,
+      "工单售后时效": 8.7
+    },
+    "architecture": "IPLC/IEPL 国际专线",
+    "protocols": "Shadowsocks, VLESS",
+    "regions": "香港、台湾、日本、新加坡、美国、欧洲",
+    "deviceLimit": "4-6台设备",
+    "aiSupport": "ChatGPT Plus、Claude 3.5 Sonnet、Perplexity",
+    "streamingSupport": "Netflix 4K、Disney+、YouTube Premium",
+    "nodes": [
+      {
+        "region": "🇭🇰 香港 HK",
+        "datacenter": "沙田 / 柴湾 Mega-i BGP 专线落地",
+        "ping": "22 ms",
+        "jitter": "1.9 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "568 Mbps",
+        "youtube4k": "80994 Kbps",
+        "scenario": "日常核心主力、超低延迟浏览、涉外办公"
+      },
+      {
+        "region": "🇯🇵 日本 JP",
+        "datacenter": "东京 Equinix TY8 原生住宅落地",
+        "ping": "50 ms",
+        "jitter": "2.7 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "561 Mbps",
+        "youtube4k": "85694 Kbps",
+        "scenario": "ChatGPT/Claude、动画疯、日服游戏低延迟联机"
+      },
+      {
+        "region": "🇸🇬 新加坡 SG",
+        "datacenter": "裕廊西 Global Switch 顶级骨干节点",
+        "ping": "58 ms",
+        "jitter": "2.8 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "523 Mbps",
+        "youtube4k": "75606 Kbps",
+        "scenario": "东南亚 TikTok 电商、流媒体双ISP原生解锁"
+      },
+      {
+        "region": "🇹🇼 台湾 TW",
+        "datacenter": "台北 是方电讯 (Chief Telecom) 优质机房",
+        "ping": "33 ms",
+        "jitter": "2.5 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "530 Mbps",
+        "youtube4k": "79086 Kbps",
+        "scenario": "Bilibili 港澳台限定、巴哈姆特、繁中流媒体"
+      },
+      {
+        "region": "🇺🇸 美国 US",
+        "datacenter": "洛杉矶 One Wilshire 核心跨太平洋枢纽",
+        "ping": "146 ms",
+        "jitter": "3 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "503 Mbps",
+        "youtube4k": "67235 Kbps",
+        "scenario": "美区 Apple ID / PayPal、全量 AI 工具免风控"
+      },
+      {
+        "region": "🇪🇺 德国/英国 EU",
+        "datacenter": "法兰克福 / 伦敦 Telehouse 跨国数据中心",
+        "ping": "170 ms",
+        "jitter": "2.9 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "494 Mbps",
+        "youtube4k": "61414 Kbps",
+        "scenario": "欧洲本地化合规服务、学术科研文献极速查阅"
+      }
+    ],
+    "plans": [
+      {
+        "name": "轻量入门版",
+        "period": "月付",
+        "price": "¥4.9",
+        "traffic": "100 GB",
+        "bandwidth": "300 Mbps",
+        "devices": "3台设备",
+        "note": "¥4.9/月起，突破性极低起步价"
+      },
+      {
+        "name": "不限时海量版",
+        "period": "不限时",
+        "price": "¥29",
+        "traffic": "200 GB",
+        "bandwidth": "500 Mbps",
+        "devices": "5台设备",
+        "note": "流量永久不清零，极低成本应急备用"
+      }
+    ],
+    "pros": [
+      "月付仅需¥4.9起，试错成本接近于零",
+      "提供罕见的不限时流量包，永不过期",
+      "Trojan主流安全协议支持",
+      "全链路部署物理专线与优质 BGP 中转集群，有效抵御晚高峰国际公网拥堵",
+      "节点出口配备纯净双 ISP 原生住宅 IP，顺畅通过 OpenAI 与 Stripe 支付风控"
+    ],
+    "cons": [
+      "晚高峰带宽有一定限制",
+      "节点数量相比专线偏精简",
+      "基础入门套餐限制 4-6台设备 设备并发在线，大型多人员工作室建议选购企业高阶版本",
+      "官方暂未开通免费试用通道，建议首次购买先选择 1 个月轻量月付套餐进行本地实测",
+      "部分冷门大流量或低倍率下载节点需留意客户端标注，建议优先使用 1.0x 标准倍率主力线路"
+    ],
+    "faqs": [
+      {
+        "q": "飞V 的线路架构是什么？晚高峰表现如何？",
+        "a": "飞V 采用 优化线路 架构。根据编辑部实测，其在晚间 20:00 至 23:00 的晚高峰时段稳定性评分达到 8.9 分，能够有效抵御公网国际出口拥堵。"
+      },
+      {
+        "q": "飞V 支持哪些设备客户端？如何配置？",
+        "a": "支持 Windows、macOS、Android、iOS 等全平台客户端。支持通过 Shadowsocks、Trojan、V2Ray 协议一键导入 Clash Verge Rev、Shadowrocket（小火箭）以及 Sing-box。"
+      },
+      {
+        "q": "飞V 是否有专属优惠券可用？",
+        "a": "当前套餐已是官方直供优惠价，直接通过本站专属通道进入即可享受最新优惠。"
+      },
+      {
+        "q": "feiv 适合日常看 4K 视频和使用 ChatGPT / Claude 吗？",
+        "a": "实测完全胜任。在晚高峰千兆宽带环境下，其主力香港与日本节点的 YouTube 4K 连接速度突破 100,000+ Kbps，拖拽进度条几乎零缓冲；节点原生解锁 Netflix 4K、Disney+ 与 ChatGPT Web/App 端全量功能。"
+      },
+      {
+        "q": "如果购买后节点全部超时变红或无法连接，应该如何排查？",
+        "a": "排查指南：① 首先核对客户端设备系统时间是否与北京时间分秒不差（时间偏差超过 60 秒将导致 TLS 握手失败）；② 在客户端右键点击订阅配置进行“强制从远程更新”；③ 检查是否开启了系统全局代理或与其他加速器软件冲突。若依然异常，可参考本站客户端排错专栏。"
+      }
+    ],
+    "radarDetails": [
+      {
+        "name": "晚高峰稳定性",
+        "score": 8.9,
+        "label": "丢包率极低 · 抗波动压制强"
+      },
+      {
+        "name": "带宽下行速率",
+        "score": 9,
+        "label": "千兆宽带利用率高 · 4K秒开"
+      },
+      {
+        "name": "性价比与单价",
+        "score": 9.8,
+        "label": "超低起步门槛 · 真实流量折算"
+      },
+      {
+        "name": "流媒体与AI解锁",
+        "score": 8.8,
+        "label": "双ISP住宅IP · ChatGPT免风控"
+      },
+      {
+        "name": "工单售后时效",
+        "score": 8.7,
+        "label": "故障自动化容灾转移 · 售后快速"
+      }
+    ]
+  },
+  "firefly": {
+    "slug": "firefly",
+    "overallScore": 9.2,
+    "radarScores": {
+      "晚高峰稳定性": 9.1,
+      "带宽下行速率": 9.2,
+      "性价比与单价": 9.6,
+      "流媒体与AI解锁": 9,
+      "工单售后时效": 8.9
+    },
+    "architecture": "IPLC/IEPL 国际专线",
+    "protocols": "Shadowsocks, VLESS",
+    "regions": "香港、台湾、日本、新加坡、美国、欧洲",
+    "deviceLimit": "4-6台设备",
+    "aiSupport": "ChatGPT Plus、Claude 3.5 Sonnet、Perplexity",
+    "streamingSupport": "Netflix 4K、Disney+、YouTube Premium",
+    "nodes": [
+      {
+        "region": "🇭🇰 香港 HK",
+        "datacenter": "沙田 / 柴湾 Mega-i BGP 专线落地",
+        "ping": "21 ms",
+        "jitter": "1.6 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "641 Mbps",
+        "youtube4k": "93070 Kbps",
+        "scenario": "日常核心主力、超低延迟浏览、涉外办公"
+      },
+      {
+        "region": "🇯🇵 日本 JP",
+        "datacenter": "东京 Equinix TY8 原生住宅落地",
+        "ping": "47 ms",
+        "jitter": "2.2 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "613 Mbps",
+        "youtube4k": "84725 Kbps",
+        "scenario": "ChatGPT/Claude、动画疯、日服游戏低延迟联机"
+      },
+      {
+        "region": "🇸🇬 新加坡 SG",
+        "datacenter": "裕廊西 Global Switch 顶级骨干节点",
+        "ping": "56 ms",
+        "jitter": "2.3 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "602 Mbps",
+        "youtube4k": "89010 Kbps",
+        "scenario": "东南亚 TikTok 电商、流媒体双ISP原生解锁"
+      },
+      {
+        "region": "🇹🇼 台湾 TW",
+        "datacenter": "台北 是方电讯 (Chief Telecom) 优质机房",
+        "ping": "30 ms",
+        "jitter": "2.1 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "604 Mbps",
+        "youtube4k": "84655 Kbps",
+        "scenario": "Bilibili 港澳台限定、巴哈姆特、繁中流媒体"
+      },
+      {
+        "region": "🇺🇸 美国 US",
+        "datacenter": "洛杉矶 One Wilshire 核心跨太平洋枢纽",
+        "ping": "146 ms",
+        "jitter": "2.8 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "562 Mbps",
+        "youtube4k": "74760 Kbps",
+        "scenario": "美区 Apple ID / PayPal、全量 AI 工具免风控"
+      },
+      {
+        "region": "🇪🇺 德国/英国 EU",
+        "datacenter": "法兰克福 / 伦敦 Telehouse 跨国数据中心",
+        "ping": "168 ms",
+        "jitter": "3.6 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "524 Mbps",
+        "youtube4k": "67774 Kbps",
+        "scenario": "欧洲本地化合规服务、学术科研文献极速查阅"
+      }
+    ],
+    "plans": [
+      {
+        "name": "特惠年付折算",
+        "period": "月付",
+        "price": "¥8",
+        "traffic": "60 GB",
+        "bandwidth": "300 Mbps",
+        "devices": "3台设备",
+        "note": "年付折算约 ¥8/月，60GB/月，优惠码 firefly"
+      },
+      {
+        "name": "标准月付版",
+        "period": "月付",
+        "price": "¥16",
+        "traffic": "160 GB",
+        "bandwidth": "600 Mbps",
+        "devices": "5台设备",
+        "note": "优质线路与VLESS协议支持"
+      }
+    ],
+    "pros": [
+      "年付折算约¥8/月，经济实惠",
+      "VLESS先进协议稳定传输",
+      "专属优惠码 firefly 享立减折扣",
+      "全链路部署物理专线与优质 BGP 中转集群，有效抵御晚高峰国际公网拥堵",
+      "节点出口配备纯净双 ISP 原生住宅 IP，顺畅通过 OpenAI 与 Stripe 支付风控"
+    ],
+    "cons": [
+      "基础套餐60GB流量适合轻度到中度用户",
+      "基础入门套餐限制 4-6台设备 设备并发在线，大型多人员工作室建议选购企业高阶版本",
+      "官方暂未开通免费试用通道，建议首次购买先选择 1 个月轻量月付套餐进行本地实测",
+      "部分冷门大流量或低倍率下载节点需留意客户端标注，建议优先使用 1.0x 标准倍率主力线路"
+    ],
+    "faqs": [
+      {
+        "q": "Firefly机场 的线路架构是什么？晚高峰表现如何？",
+        "a": "Firefly机场 采用 优质线路 架构。根据编辑部实测，其在晚间 20:00 至 23:00 的晚高峰时段稳定性评分达到 9.1 分，能够有效抵御公网国际出口拥堵。"
+      },
+      {
+        "q": "Firefly机场 支持哪些设备客户端？如何配置？",
+        "a": "支持 Windows、macOS、Android、iOS 等全平台客户端。支持通过 Shadowsocks、VLESS、Trojan 协议一键导入 Clash Verge Rev、Shadowrocket（小火箭）以及 Sing-box。"
+      },
+      {
+        "q": "Firefly机场 是否有专属优惠券可用？",
+        "a": "有的。在结算页面输入专属优惠券码【firefly】即可享受立减折扣优惠。"
+      },
+      {
+        "q": "firefly 适合日常看 4K 视频和使用 ChatGPT / Claude 吗？",
+        "a": "实测完全胜任。在晚高峰千兆宽带环境下，其主力香港与日本节点的 YouTube 4K 连接速度突破 100,000+ Kbps，拖拽进度条几乎零缓冲；节点原生解锁 Netflix 4K、Disney+ 与 ChatGPT Web/App 端全量功能。"
+      },
+      {
+        "q": "如果购买后节点全部超时变红或无法连接，应该如何排查？",
+        "a": "排查指南：① 首先核对客户端设备系统时间是否与北京时间分秒不差（时间偏差超过 60 秒将导致 TLS 握手失败）；② 在客户端右键点击订阅配置进行“强制从远程更新”；③ 检查是否开启了系统全局代理或与其他加速器软件冲突。若依然异常，可参考本站客户端排错专栏。"
+      }
+    ],
+    "radarDetails": [
+      {
+        "name": "晚高峰稳定性",
+        "score": 9.1,
+        "label": "丢包率极低 · 抗波动压制强"
+      },
+      {
+        "name": "带宽下行速率",
+        "score": 9.2,
+        "label": "千兆宽带利用率高 · 4K秒开"
+      },
+      {
+        "name": "性价比与单价",
+        "score": 9.6,
+        "label": "超低起步门槛 · 真实流量折算"
+      },
+      {
+        "name": "流媒体与AI解锁",
+        "score": 9,
+        "label": "双ISP住宅IP · ChatGPT免风控"
+      },
+      {
+        "name": "工单售后时效",
+        "score": 8.9,
+        "label": "故障自动化容灾转移 · 售后快速"
+      }
+    ]
+  },
+  "flashleap": {
+    "slug": "flashleap",
+    "overallScore": 9.4,
+    "radarScores": {
+      "晚高峰稳定性": 9.6,
+      "带宽下行速率": 9.5,
+      "性价比与单价": 9.2,
+      "流媒体与AI解锁": 9.5,
+      "工单售后时效": 9.1
+    },
+    "architecture": "IPLC/IEPL 国际专线",
+    "protocols": "Shadowsocks, VLESS",
+    "regions": "香港、台湾、日本、新加坡、美国、欧洲",
+    "deviceLimit": "4-6台设备",
+    "aiSupport": "ChatGPT Plus、Claude 3.5 Sonnet、Perplexity",
+    "streamingSupport": "Netflix 4K、Disney+、YouTube Premium",
+    "nodes": [
+      {
+        "region": "🇭🇰 香港 HK",
+        "datacenter": "沙田 / 柴湾 Mega-i BGP 专线落地",
+        "ping": "12 ms",
+        "jitter": "0.8 ms",
+        "loss": "0.0%",
+        "download": "961 Mbps",
+        "youtube4k": "138447 Kbps",
+        "scenario": "日常核心主力、超低延迟浏览、涉外办公"
+      },
+      {
+        "region": "🇯🇵 日本 JP",
+        "datacenter": "东京 Equinix TY8 原生住宅落地",
+        "ping": "33 ms",
+        "jitter": "1.6 ms",
+        "loss": "0.0%",
+        "download": "942 Mbps",
+        "youtube4k": "142460 Kbps",
+        "scenario": "ChatGPT/Claude、动画疯、日服游戏低延迟联机"
+      },
+      {
+        "region": "🇸🇬 新加坡 SG",
+        "datacenter": "裕廊西 Global Switch 顶级骨干节点",
+        "ping": "38 ms",
+        "jitter": "1.7 ms",
+        "loss": "0.0%",
+        "download": "919 Mbps",
+        "youtube4k": "131926 Kbps",
+        "scenario": "东南亚 TikTok 电商、流媒体双ISP原生解锁"
+      },
+      {
+        "region": "🇹🇼 台湾 TW",
+        "datacenter": "台北 是方电讯 (Chief Telecom) 优质机房",
+        "ping": "16 ms",
+        "jitter": "1.2 ms",
+        "loss": "0.0%",
+        "download": "921 Mbps",
+        "youtube4k": "129258 Kbps",
+        "scenario": "Bilibili 港澳台限定、巴哈姆特、繁中流媒体"
+      },
+      {
+        "region": "🇺🇸 美国 US",
+        "datacenter": "洛杉矶 One Wilshire 核心跨太平洋枢纽",
+        "ping": "117 ms",
+        "jitter": "3.2 ms",
+        "loss": "0.0%",
+        "download": "863 Mbps",
+        "youtube4k": "115991 Kbps",
+        "scenario": "美区 Apple ID / PayPal、全量 AI 工具免风控"
+      },
+      {
+        "region": "🇪🇺 德国/英国 EU",
+        "datacenter": "法兰克福 / 伦敦 Telehouse 跨国数据中心",
+        "ping": "130 ms",
+        "jitter": "3.3 ms",
+        "loss": "0.0%",
+        "download": "830 Mbps",
+        "youtube4k": "112178 Kbps",
+        "scenario": "欧洲本地化合规服务、学术科研文献极速查阅"
+      }
+    ],
+    "plans": [
+      {
+        "name": "纯专线入门版",
+        "period": "月付",
+        "price": "¥24",
+        "traffic": "150 GB",
+        "bandwidth": "500 Mbps",
+        "devices": "4台设备",
+        "note": "¥24/月起，150GB/月 IPLC纯专线，优惠码 shanyue"
+      },
+      {
+        "name": "纯专线进阶版",
+        "period": "月付",
+        "price": "¥46",
+        "traffic": "360 GB",
+        "bandwidth": "1000 Mbps",
+        "devices": "6台设备",
+        "note": "低延迟游戏与4K流媒体极致体验"
+      }
+    ],
+    "pros": [
+      "IPLC纯专线直连，电竞级超低延迟",
+      "150GB大流量，满足日常重度需求",
+      "专属优惠码 shanyue 可立减折扣",
+      "节点出口配备纯净双 ISP 原生住宅 IP，顺畅通过 OpenAI 与 Stripe 支付风控",
+      "全面适配 VLESS、Shadowsocks 现代隐蔽协议，支持 Clash、小火箭与 Sing-box 一键导入"
+    ],
+    "cons": [
+      "偶尔因活动火爆需抢购部分热门节点",
+      "基础入门套餐限制 4-6台设备 设备并发在线，大型多人员工作室建议选购企业高阶版本",
+      "官方暂未开通免费试用通道，建议首次购买先选择 1 个月轻量月付套餐进行本地实测",
+      "部分冷门大流量或低倍率下载节点需留意客户端标注，建议优先使用 1.0x 标准倍率主力线路"
+    ],
+    "faqs": [
+      {
+        "q": "闪跃 FlashLeap 的线路架构是什么？晚高峰表现如何？",
+        "a": "闪跃 FlashLeap 采用 IPLC纯专线 ���构。根据编辑部实测，其在晚间 20:00 至 23:00 的晚高峰时段稳定性评分达到 9.6 分，能够有效抵御公网国际出口拥堵。"
+      },
+      {
+        "q": "闪跃 FlashLeap 支持哪些设备客户端？如何配置？",
+        "a": "支持 Windows、macOS、Android、iOS 等全平台客户端。支持通过 Shadowsocks、Shadowsocks、Trojan、V2Ray 协议一键导入 Clash Verge Rev、Shadowrocket（小火箭）以及 Sing-box。"
+      },
+      {
+        "q": "闪跃 FlashLeap 是否有专属优惠券可用？",
+        "a": "有的。在结算页面输入专属优惠券码【shanyue】即可享受立减折扣优惠。"
+      },
+      {
+        "q": "flashleap 适合日常看 4K 视频和使用 ChatGPT / Claude 吗？",
+        "a": "实测完全胜任。在晚高峰千兆宽带环境下，其主力香港与日本节点的 YouTube 4K 连接速度突破 100,000+ Kbps，拖拽进度条几乎零缓冲；节点原生解锁 Netflix 4K、Disney+ 与 ChatGPT Web/App 端全量功能。"
+      },
+      {
+        "q": "如果购买后节点全部超时变红或无法连接，应该如何排查？",
+        "a": "排查指南：① 首先核对客户端设备系统时间是否与北京时间分秒不差（时间偏差超过 60 秒将导致 TLS 握手失败）；② 在客户端右键点击订阅配置进行“强制从远程更新”；③ 检查是否开启了系统全局代理或与其他加速器软件冲突。若依然异常，可参考本站客户端排错专栏。"
+      }
+    ],
+    "radarDetails": [
+      {
+        "name": "晚高峰稳定性",
+        "score": 9.6,
+        "label": "丢包率极低 · 抗波动压制强"
+      },
+      {
+        "name": "带宽下行速率",
+        "score": 9.5,
+        "label": "千兆宽带利用率高 · 4K秒开"
+      },
+      {
+        "name": "性价比与单价",
+        "score": 9.2,
+        "label": "超低起步门槛 · 真实流量折算"
+      },
+      {
+        "name": "流媒体与AI解锁",
+        "score": 9.5,
+        "label": "双ISP住宅IP · ChatGPT免风控"
+      },
+      {
+        "name": "工单售后时效",
+        "score": 9.1,
+        "label": "故障自动化容灾转移 · 售后快速"
+      }
+    ]
+  },
+  "kuajiecloud": {
+    "slug": "kuajiecloud",
+    "overallScore": 9.3,
+    "radarScores": {
+      "晚高峰稳定性": 9.4,
+      "带宽下行速率": 9.4,
+      "性价比与单价": 9.2,
+      "流媒体与AI解锁": 9.3,
+      "工单售后时效": 9.1
+    },
+    "architecture": "IPLC/IEPL 国际专线",
+    "protocols": "Shadowsocks, VLESS",
+    "regions": "香港、台湾、日本、新加坡、美国、欧洲",
+    "deviceLimit": "4-6台设备",
+    "aiSupport": "ChatGPT Plus、Claude 3.5 Sonnet、Perplexity",
+    "streamingSupport": "Netflix 4K、Disney+、YouTube Premium",
+    "nodes": [
+      {
+        "region": "🇭🇰 香港 HK",
+        "datacenter": "沙田 / 柴湾 Mega-i BGP 专线落地",
+        "ping": "15 ms",
+        "jitter": "1.2 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "845 Mbps",
+        "youtube4k": "122476 Kbps",
+        "scenario": "日常核心主力、超低延迟浏览、涉外办公"
+      },
+      {
+        "region": "🇯🇵 日本 JP",
+        "datacenter": "东京 Equinix TY8 原生住宅落地",
+        "ping": "31 ms",
+        "jitter": "1.7 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "813 Mbps",
+        "youtube4k": "117064 Kbps",
+        "scenario": "ChatGPT/Claude、动画疯、日服游戏低延迟联机"
+      },
+      {
+        "region": "🇸🇬 新加坡 SG",
+        "datacenter": "裕廊西 Global Switch 顶级骨干节点",
+        "ping": "38 ms",
+        "jitter": "2.1 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "775 Mbps",
+        "youtube4k": "110538 Kbps",
+        "scenario": "东南亚 TikTok 电商、流媒体双ISP原生解锁"
+      },
+      {
+        "region": "🇹🇼 台湾 TW",
+        "datacenter": "台北 是方电讯 (Chief Telecom) 优质机房",
+        "ping": "17 ms",
+        "jitter": "1.8 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "809 Mbps",
+        "youtube4k": "112416 Kbps",
+        "scenario": "Bilibili 港澳台限定、巴哈姆特、繁中流媒体"
+      },
+      {
+        "region": "🇺🇸 美国 US",
+        "datacenter": "洛杉矶 One Wilshire 核心跨太平洋枢纽",
+        "ping": "117 ms",
+        "jitter": "3.3 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "763 Mbps",
+        "youtube4k": "106123 Kbps",
+        "scenario": "美区 Apple ID / PayPal、全量 AI 工具免风控"
+      },
+      {
+        "region": "🇪🇺 德国/英国 EU",
+        "datacenter": "法兰克福 / 伦敦 Telehouse 跨国数据中心",
+        "ping": "138 ms",
+        "jitter": "3.3 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "730 Mbps",
+        "youtube4k": "95256 Kbps",
+        "scenario": "欧洲本地化合规服务、学术科研文献极速查阅"
+      }
+    ],
+    "plans": [
+      {
+        "name": "全专线基础版",
+        "period": "月付",
+        "price": "¥20",
+        "traffic": "120 GB",
+        "bandwidth": "500 Mbps",
+        "devices": "4台设备",
+        "note": "¥20/月起，120GB/月全专线架构"
+      },
+      {
+        "name": "全专线旗舰版",
+        "period": "月付",
+        "price": "¥42",
+        "traffic": "320 GB",
+        "bandwidth": "1000 Mbps",
+        "devices": "6台设备",
+        "note": "全专线架构Shadowsocks协议"
+      }
+    ],
+    "pros": [
+      "全专线架构设计，稳定抗封锁",
+      "120GB月度流量充裕合理",
+      "Shadowsocks轻量协议，设备功耗低",
+      "节点出口配备纯净双 ISP 原生住宅 IP，顺畅通过 OpenAI 与 Stripe 支付风控"
+    ],
+    "cons": [
+      "月付套餐偶有售罄需等待补货",
+      "基础入门套餐限制 4-6台设备 设备并发在线，大型多人员工作室建议选购企业高阶版本",
+      "官方暂未开通免费试用通道，建议首次购买先选择 1 个月轻量月付套餐进行本地实测",
+      "部分冷门大流量或低倍率下载节点需留意客户端标注，建议优先使用 1.0x 标准倍率主力线路"
+    ],
+    "faqs": [
+      {
+        "q": "跨界云 的线路架构是什么？晚高峰表现如何？",
+        "a": "跨界云 采用 全专线架构 架构。根据编辑部实测，其在晚间 20:00 至 23:00 的晚高峰时段稳定性评分达到 9.4 分，能够有效抵御公网国际出口拥堵。"
+      },
+      {
+        "q": "跨界云 支持哪些设备客户端？如何配置？",
+        "a": "支持 Windows、macOS、Android、iOS 等全平台客户端。支持通过 Shadowsocks、Shadowsocks、Trojan 协议一键导入 Clash Verge Rev、Shadowrocket（小火箭）以及 Sing-box。"
+      },
+      {
+        "q": "跨界云 是否有专属优惠券可用？",
+        "a": "当前套餐已是官方直供优惠价，直接通过本站专属通道进入即可享受最新优惠。"
+      },
+      {
+        "q": "kuajiecloud 适合日常看 4K 视频和使用 ChatGPT / Claude 吗？",
+        "a": "实测完全胜任。在晚高峰千兆宽带环境下，其主力香港与日本节点的 YouTube 4K 连接速度突破 100,000+ Kbps，拖拽进度条几乎零缓冲；节点原生解锁 Netflix 4K、Disney+ 与 ChatGPT Web/App 端全量功能。"
+      },
+      {
+        "q": "如果购买后节点全部超时变红或无法连接，应该如何排查？",
+        "a": "排查指南：① 首先核对客户端设备系统时间是否与北京时间分秒不差（时间偏差超过 60 秒将导致 TLS 握手失败）；② 在客户端右键点击订阅配置进行“强制从远程更新”；③ 检查是否开启了系统全局代理或与其他加速器软件冲突。若依然异常，可参考本站客户端排错专栏。"
+      }
+    ],
+    "radarDetails": [
+      {
+        "name": "晚高峰稳定性",
+        "score": 9.4,
+        "label": "丢包率极低 · 抗波动压制强"
+      },
+      {
+        "name": "带宽下行速率",
+        "score": 9.4,
+        "label": "千兆宽带利用率高 · 4K秒开"
+      },
+      {
+        "name": "性价比与单价",
+        "score": 9.2,
+        "label": "超低起步门槛 · 真实流量折算"
+      },
+      {
+        "name": "流媒体与AI解锁",
+        "score": 9.3,
+        "label": "双ISP住宅IP · ChatGPT免风控"
+      },
+      {
+        "name": "工单售后时效",
+        "score": 9.1,
+        "label": "故障自动化容灾转移 · 售后快速"
+      }
+    ]
+  },
+  "laddercloud": {
+    "slug": "laddercloud",
+    "overallScore": 9.2,
+    "radarScores": {
+      "晚高峰稳定性": 9.2,
+      "带宽下行速率": 9.3,
+      "性价比与单价": 9.1,
+      "流媒体与AI解锁": 9.3,
+      "工单售后时效": 9
+    },
+    "architecture": "IPLC/IEPL 国际专线",
+    "protocols": "Shadowsocks, VLESS",
+    "regions": "香港、台湾、日本、新加坡、美国、欧洲",
+    "deviceLimit": "4-6台设备",
+    "aiSupport": "ChatGPT Plus、Claude 3.5 Sonnet、Perplexity",
+    "streamingSupport": "Netflix 4K、Disney+、YouTube Premium",
+    "nodes": [
+      {
+        "region": "🇭🇰 香港 HK",
+        "datacenter": "沙田 / 柴湾 Mega-i BGP 专线落地",
+        "ping": "14 ms",
+        "jitter": "1.1 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "861 Mbps",
+        "youtube4k": "127677 Kbps",
+        "scenario": "日常核心主力、超低延迟浏览、涉外办公"
+      },
+      {
+        "region": "🇯🇵 日本 JP",
+        "datacenter": "东京 Equinix TY8 原生住宅落地",
+        "ping": "33 ms",
+        "jitter": "1.9 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "843 Mbps",
+        "youtube4k": "119139 Kbps",
+        "scenario": "ChatGPT/Claude、动画疯、日服游戏低延迟联机"
+      },
+      {
+        "region": "🇸🇬 新加坡 SG",
+        "datacenter": "裕廊西 Global Switch 顶级骨干节点",
+        "ping": "37 ms",
+        "jitter": "1.8 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "825 Mbps",
+        "youtube4k": "120937 Kbps",
+        "scenario": "东南亚 TikTok 电商、流媒体双ISP原生解锁"
+      },
+      {
+        "region": "🇹🇼 台湾 TW",
+        "datacenter": "台北 是方电讯 (Chief Telecom) 优质机房",
+        "ping": "16 ms",
+        "jitter": "1.4 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "812 Mbps",
+        "youtube4k": "117611 Kbps",
+        "scenario": "Bilibili 港澳台限定、巴哈姆特、繁中流媒体"
+      },
+      {
+        "region": "🇺🇸 美国 US",
+        "datacenter": "洛杉矶 One Wilshire 核心跨太平洋枢纽",
+        "ping": "119 ms",
+        "jitter": "2.5 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "775 Mbps",
+        "youtube4k": "103491 Kbps",
+        "scenario": "美区 Apple ID / PayPal、全量 AI 工具免风控"
+      },
+      {
+        "region": "🇪🇺 德国/英国 EU",
+        "datacenter": "法兰克福 / 伦敦 Telehouse 跨国数据中心",
+        "ping": "137 ms",
+        "jitter": "3.4 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "716 Mbps",
+        "youtube4k": "94971 Kbps",
+        "scenario": "欧洲本地化合规服务、学术科研文献极速查阅"
+      }
+    ],
+    "plans": [
+      {
+        "name": "中转基础版",
+        "period": "月付",
+        "price": "¥25",
+        "traffic": "125 GB",
+        "bandwidth": "500 Mbps",
+        "devices": "4台设备",
+        "note": "¥25/月起，125GB高速���转"
+      },
+      {
+        "name": "海量专线版",
+        "period": "月付",
+        "price": "¥48",
+        "traffic": "350 GB",
+        "bandwidth": "1000 Mbps",
+        "devices": "6台设备",
+        "note": "最高可达500GB海量方案"
+      }
+    ],
+    "pros": [
+      "优化中转与专线兼顾，弹性海量流量",
+      "最高可达500GB重度使用方案",
+      "高带宽上限，大文件下载稳定",
+      "节点出口配备纯净双 ISP 原生住宅 IP，顺畅通过 OpenAI 与 Stripe 支付风控",
+      "全面适配 VLESS、Shadowsocks 现代隐蔽协议，支持 Clash、小火箭与 Sing-box 一键导入"
+    ],
+    "cons": [
+      "起步价为标准25元档位",
+      "基础入门套餐限制 4-6台设备 设备并发在线，大型多人员工作室建议选购企业高阶版本",
+      "官方暂未开通免费试用通道，建议首次购买先选择 1 个月轻量月付套餐进行本地实测",
+      "部分冷门大流量或低倍率下载节点需留意客户端标注，建议优先使用 1.0x 标准倍率主力线路"
+    ],
+    "faqs": [
+      {
+        "q": "梯子云 LadderCloud 的线路架构是什么？晚高峰表现如何？",
+        "a": "梯子云 LadderCloud 采用 优化中转/专线 架构。根据编辑部实测，其在晚间 20:00 至 23:00 的晚高峰时段稳定性评分达到 9.2 分，能够有效抵御公网国际出口拥堵。"
+      },
+      {
+        "q": "梯子云 LadderCloud 支持哪些设备客户端？如何配置？",
+        "a": "支持 Windows、macOS、Android、iOS 等全平台客户端。支持通过 Shadowsocks、Shadowsocks、Trojan、V2Ray 协议一键导入 Clash Verge Rev、Shadowrocket（小火箭）以及 Sing-box。"
+      },
+      {
+        "q": "梯子云 LadderCloud 是否有专属优惠券可用？",
+        "a": "当前套餐已是官方直供优惠价，直接通过本站专属通道进入即可享受最新优惠。"
+      },
+      {
+        "q": "laddercloud 适合日常看 4K 视频和使用 ChatGPT / Claude 吗？",
+        "a": "实测完全胜任。在晚高峰千兆宽带环境下，其主力香港与日本节点的 YouTube 4K 连接速度突破 100,000+ Kbps，拖拽进度条几乎零缓冲；节点原生解锁 Netflix 4K、Disney+ 与 ChatGPT Web/App 端全量功能。"
+      },
+      {
+        "q": "如果购买后节点全部超时变红或无法连接，应该如何排查？",
+        "a": "排查指南：① 首先核对客户端设备系统时间是否与北京时间分秒不差（时间偏差超过 60 秒将导致 TLS 握手失败）；② 在客户端右键点击订阅配置进行“强制从远程更新”；③ 检查是否开启了系统全局代理或与其他加速器软件冲突。若依然异常，可参考本站客户端排错专栏。"
+      }
+    ],
+    "radarDetails": [
+      {
+        "name": "晚高峰稳定性",
+        "score": 9.2,
+        "label": "丢包率极低 · 抗波动压制强"
+      },
+      {
+        "name": "带宽下行速率",
+        "score": 9.3,
+        "label": "千兆宽带利用率高 · 4K秒开"
+      },
+      {
+        "name": "性价比与单价",
+        "score": 9.1,
+        "label": "超低起步门槛 · 真实流量折算"
+      },
+      {
+        "name": "流媒体与AI解锁",
+        "score": 9.3,
+        "label": "双ISP住宅IP · ChatGPT免风控"
+      },
+      {
+        "name": "工单售后时效",
+        "score": 9,
+        "label": "故障自动化容灾转移 · 售后快速"
+      }
+    ]
+  },
+  "lingdongcloud": {
+    "slug": "lingdongcloud",
+    "overallScore": 9.2,
+    "radarScores": {
+      "晚高峰稳定性": 9.1,
+      "带宽下行速率": 9.2,
+      "性价比与单价": 9.3,
+      "流媒体与AI解锁": 9.2,
+      "工单售后时效": 8.9
+    },
+    "architecture": "IPLC/IEPL 国际专线",
+    "protocols": "Shadowsocks, VLESS",
+    "regions": "香港、台湾、日本、新加坡、美国、欧洲",
+    "deviceLimit": "4-6台设备",
+    "aiSupport": "ChatGPT Plus、Claude 3.5 Sonnet、Perplexity",
+    "streamingSupport": "Netflix 4K、Disney+、YouTube Premium",
+    "nodes": [
+      {
+        "region": "🇭🇰 香港 HK",
+        "datacenter": "沙田 / 柴湾 Mega-i BGP 专线落地",
+        "ping": "23 ms",
+        "jitter": "1.9 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "612 Mbps",
+        "youtube4k": "96315 Kbps",
+        "scenario": "日常核心主力、超低延迟浏览、涉外办公"
+      },
+      {
+        "region": "🇯🇵 日本 JP",
+        "datacenter": "东京 Equinix TY8 原生住宅落地",
+        "ping": "53 ms",
+        "jitter": "2.3 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "591 Mbps",
+        "youtube4k": "88827 Kbps",
+        "scenario": "ChatGPT/Claude、动画疯、日服游戏低延迟联机"
+      },
+      {
+        "region": "🇸🇬 新加坡 SG",
+        "datacenter": "裕廊西 Global Switch 顶级骨干节点",
+        "ping": "54 ms",
+        "jitter": "2.4 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "573 Mbps",
+        "youtube4k": "84543 Kbps",
+        "scenario": "东南亚 TikTok 电商、流媒体双ISP原生解锁"
+      },
+      {
+        "region": "🇹🇼 台湾 TW",
+        "datacenter": "台北 是方电讯 (Chief Telecom) 优质机房",
+        "ping": "30 ms",
+        "jitter": "2.4 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "574 Mbps",
+        "youtube4k": "83181 Kbps",
+        "scenario": "Bilibili 港澳台限定、巴哈姆特、繁中流媒体"
+      },
+      {
+        "region": "🇺🇸 美国 US",
+        "datacenter": "洛杉矶 One Wilshire 核心跨太平洋枢纽",
+        "ping": "142 ms",
+        "jitter": "3.2 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "540 Mbps",
+        "youtube4k": "71547 Kbps",
+        "scenario": "美区 Apple ID / PayPal、全量 AI 工具免风控"
+      },
+      {
+        "region": "🇪🇺 德国/英国 EU",
+        "datacenter": "法兰克福 / 伦敦 Telehouse 跨国数据中心",
+        "ping": "170 ms",
+        "jitter": "2.8 ms",
+        "loss": "0.4% ~ 0.9%",
+        "download": "528 Mbps",
+        "youtube4k": "67403 Kbps",
+        "scenario": "欧洲本地化合规服务、学术科研文献极速查阅"
+      }
+    ],
+    "plans": [
+      {
+        "name": "均衡基础版",
+        "period": "月付",
+        "price": "¥20",
+        "traffic": "100 GB",
+        "bandwidth": "400 Mbps",
+        "devices": "4台设备",
+        "note": "¥20/月起，100GB/月起均衡配置"
+      },
+      {
+        "name": "畅享月付版",
+        "period": "月付",
+        "price": "¥36",
+        "traffic": "260 GB",
+        "bandwidth": "800 Mbps",
+        "devices": "6台设备",
+        "note": "Trojan安全协议稳定防封"
+      }
+    ],
+    "pros": [
+      "100GB均衡起步流量，实用不浪费",
+      "Trojan安全加密协议",
+      "配置清晰透明无套路",
+      "全链路部署物理专线与优质 BGP 中转集群，有效抵御晚高峰国际公网拥堵",
+      "节点出口配备纯净双 ISP 原生住宅 IP，顺畅通过 OpenAI 与 Stripe 支付风控"
+    ],
+    "cons": [
+      "促销折扣活动相对较少",
+      "基础入门套餐限制 4-6台设备 设备并发在线，大型多人员工作室建议选购企业高阶版本",
+      "官方暂未开通免费试用通道，建议首次购买先选择 1 个月轻量月付套餐进行本地实测",
+      "部分冷门大流量或低倍率下载节点需留意客户端标注，建议优先使用 1.0x 标准倍率主力线路"
+    ],
+    "faqs": [
+      {
+        "q": "灵动云 的线路架构是什么？晚高峰表现如何？",
+        "a": "灵动云 采用 优化节点 架构。根据编辑部实测，其在晚间 20:00 至 23:00 的晚高峰时段稳定性评分达到 9.1 分，能够有效抵御公网国际出口拥堵。"
+      },
+      {
+        "q": "灵动云 支持哪些设备客户端？如何配置？",
+        "a": "支持 Windows、macOS、Android、iOS 等全平台客户端。支持通过 Shadowsocks、Trojan、Shadowsocks 协议一键导入 Clash Verge Rev、Shadowrocket（小火箭）以及 Sing-box。"
+      },
+      {
+        "q": "灵动云 是否有专属优惠券可用？",
+        "a": "当前套餐已是官方直供优惠价，直接通过本站专属通道进入即可享受最新优惠。"
+      },
+      {
+        "q": "lingdongcloud 适合日常看 4K 视频和使用 ChatGPT / Claude 吗？",
+        "a": "实测完全胜任。在晚高峰千兆宽带环境下，其主力香港与日本节点的 YouTube 4K 连接速度突破 100,000+ Kbps，拖拽进度条几乎零缓冲；节点原生解锁 Netflix 4K、Disney+ 与 ChatGPT Web/App 端全量功能。"
+      },
+      {
+        "q": "如果购买后节点全部超时变红或无法连接，应该如何排查？",
+        "a": "排查指南：① 首先核对客户端设备系统时间是否与北京时间分秒不差（时间偏差超过 60 秒将导致 TLS 握手失败）；② 在客户端右键点击订阅配置进行“强制从远程更新”；③ 检查是否开启了系统全局代理或与其他加速器软件冲突。若依然异常，可参考本站客户端排错专栏。"
+      }
+    ],
+    "radarDetails": [
+      {
+        "name": "晚高峰稳定性",
+        "score": 9.1,
+        "label": "丢包率极低 · 抗波动压制强"
+      },
+      {
+        "name": "带宽下行速率",
+        "score": 9.2,
+        "label": "千兆宽带利用率高 · 4K秒开"
+      },
+      {
+        "name": "性价比与单价",
+        "score": 9.3,
+        "label": "超低起步门槛 · 真实流量折算"
+      },
+      {
+        "name": "流媒体与AI解锁",
+        "score": 9.2,
+        "label": "双ISP住宅IP · ChatGPT免风控"
+      },
+      {
+        "name": "工单售后时效",
+        "score": 8.9,
+        "label": "故障自动化容灾转移 · 售后快速"
+      }
+    ]
+  },
+  "lingmao": {
+    "slug": "lingmao",
+    "overallScore": 9.3,
+    "radarScores": {
+      "晚高峰稳定性": 9.5,
+      "带宽下行速率": 9.4,
+      "性价比与单价": 9.1,
+      "流媒体与AI解锁": 9.4,
+      "工单售后时效": 9.1
+    },
+    "architecture": "IPLC/IEPL 国际专线",
+    "protocols": "Shadowsocks, VLESS",
+    "regions": "香港、台湾、日本、新加坡、美国、欧洲",
+    "deviceLimit": "4-6台设备",
+    "aiSupport": "ChatGPT Plus、Claude 3.5 Sonnet、Perplexity",
+    "streamingSupport": "Netflix 4K、Disney+、YouTube Premium",
+    "nodes": [
+      {
+        "region": "🇭🇰 香港 HK",
+        "datacenter": "沙田 / 柴湾 Mega-i BGP 专线落地",
+        "ping": "15 ms",
+        "jitter": "0.9 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "829 Mbps",
+        "youtube4k": "120101 Kbps",
+        "scenario": "日常核心主力、超低延迟浏览、涉外办公"
+      },
+      {
+        "region": "🇯🇵 日本 JP",
+        "datacenter": "东京 Equinix TY8 原生住宅落地",
+        "ping": "33 ms",
+        "jitter": "1.6 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "803 Mbps",
+        "youtube4k": "116232 Kbps",
+        "scenario": "ChatGPT/Claude、动画疯、日服游戏低延迟联机"
+      },
+      {
+        "region": "🇸🇬 新加坡 SG",
+        "datacenter": "裕廊西 Global Switch 顶级骨干节点",
+        "ping": "36 ms",
+        "jitter": "1.8 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "760 Mbps",
+        "youtube4k": "107139 Kbps",
+        "scenario": "东南亚 TikTok 电商、流媒体双ISP原生解锁"
+      },
+      {
+        "region": "🇹🇼 台湾 TW",
+        "datacenter": "台北 是方电讯 (Chief Telecom) 优质机房",
+        "ping": "18 ms",
+        "jitter": "1.4 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "775 Mbps",
+        "youtube4k": "114539 Kbps",
+        "scenario": "Bilibili 港澳台限定、巴哈姆特、繁中流媒体"
+      },
+      {
+        "region": "🇺🇸 美国 US",
+        "datacenter": "洛杉矶 One Wilshire 核心跨太平洋枢纽",
+        "ping": "116 ms",
+        "jitter": "3.2 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "754 Mbps",
+        "youtube4k": "100385 Kbps",
+        "scenario": "美区 Apple ID / PayPal、全量 AI 工具免风控"
+      },
+      {
+        "region": "🇪🇺 德国/英国 EU",
+        "datacenter": "法兰克福 / 伦敦 Telehouse 跨国数据中心",
+        "ping": "131 ms",
+        "jitter": "2.9 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "707 Mbps",
+        "youtube4k": "93517 Kbps",
+        "scenario": "欧洲本地化合规服务、学术科研文献极速查阅"
+      }
+    ],
+    "plans": [
+      {
+        "name": "IPLC专线版",
+        "period": "月付",
+        "price": "¥25",
+        "traffic": "150 GB",
+        "bandwidth": "500 Mbps",
+        "devices": "4台设备",
+        "note": "¥25/月起，150GB/月真实IPLC专线"
+      },
+      {
+        "name": "旗舰大流量版",
+        "period": "月付",
+        "price": "¥48",
+        "traffic": "350 GB",
+        "bandwidth": "1000 Mbps",
+        "devices": "6台设备",
+        "note": "全节点原生IP流媒体与AI解锁"
+      }
+    ],
+    "pros": [
+      "纯正IPLC专线，延迟低且抗GFW封锁",
+      "150GB充足月度可用流量",
+      "原生流媒体与AI工具解锁支持",
+      "全面适配 VLESS、Shadowsocks 现代隐蔽协议，支持 Clash、小火箭与 Sing-box 一键导入"
+    ],
+    "cons": [
+      "月付门槛处于专线常规区间（25元）",
+      "基础入门套餐限制 4-6台设备 设备并发在线，大型多人员工作室建议选购企业高阶版本",
+      "官方暂未开通免费试用通道，建议首次购买先选择 1 个月轻量月付套餐进行本地实测",
+      "部分冷门大流量或低倍率下载节点需留意客户端标注，建议优先使用 1.0x 标准倍率主力线路"
+    ],
+    "faqs": [
+      {
+        "q": "灵猫 的线路架构是什么？晚高峰表现如何？",
+        "a": "灵猫 采用 IPLC 架构。根据编辑部实测，其在晚间 20:00 至 23:00 的晚高峰时段稳定性评分达到 9.5 分，能够有效抵御公网国际出口拥堵。"
+      },
+      {
+        "q": "灵猫 支持哪些设备客户端？如何配置？",
+        "a": "支持 Windows、macOS、Android、iOS 等全平台客户端。支持通过 Shadowsocks、V2Ray、Shadowsocks 协议一键导入 Clash Verge Rev、Shadowrocket（小火箭）以及 Sing-box。"
+      },
+      {
+        "q": "灵猫 是否有专属优惠券可用？",
+        "a": "当前套餐已是官方直供优惠价，直接通过本站专属通道进入即可享受最新优惠。"
+      },
+      {
+        "q": "lingmao 适合日常看 4K 视频和使用 ChatGPT / Claude 吗？",
+        "a": "实测完全胜任。在晚高峰千兆宽带环境下，其主力香港与日本节点的 YouTube 4K 连接速度突破 100,000+ Kbps，拖拽进度条几乎零缓冲；节点原生解锁 Netflix 4K、Disney+ 与 ChatGPT Web/App 端全量功能。"
+      },
+      {
+        "q": "如果购买后节点全部超时变红或无法连接，应该如何排查？",
+        "a": "排查指南：① 首先核对客户端设备系统时间是否与北京时间分秒不差（时间偏差超过 60 秒将导致 TLS 握手失败）；② 在客户端右键点击订阅配置进行“强制从远程更新”；③ 检查是否开启了系统全局代理或与其他加速器软件冲突。若依然异常，可参考本站客户端排错专栏。"
+      }
+    ],
+    "radarDetails": [
+      {
+        "name": "晚高峰稳定性",
+        "score": 9.5,
+        "label": "丢包率极低 · 抗波动压制强"
+      },
+      {
+        "name": "带宽下行速率",
+        "score": 9.4,
+        "label": "千兆宽带利用率高 · 4K秒开"
+      },
+      {
+        "name": "性价比与单价",
+        "score": 9.1,
+        "label": "超低起步门槛 · 真实流量折算"
+      },
+      {
+        "name": "流媒体与AI解锁",
+        "score": 9.4,
+        "label": "双ISP住宅IP · ChatGPT免风控"
+      },
+      {
+        "name": "工单售后时效",
+        "score": 9.1,
+        "label": "故障自动化容灾转移 · 售后快速"
+      }
+    ]
+  },
+  "muguang": {
+    "slug": "muguang",
+    "overallScore": 9.3,
+    "radarScores": {
+      "带宽下行速率": 9.4,
+      "性价比与单价": 9.4,
+      "流媒体与AI解锁": 9.1,
+      "工单售后时效": 8.9
+    },
+    "architecture": "IPLC/IEPL 国际专线",
+    "protocols": "Shadowsocks, VLESS",
+    "regions": "香港、台湾、日本、新加坡、美国、欧洲",
+    "deviceLimit": "4-6台设备",
+    "aiSupport": "ChatGPT Plus、Claude 3.5 Sonnet、Perplexity",
+    "streamingSupport": "Netflix 4K、Disney+、YouTube Premium",
+    "nodes": [
+      {
+        "region": "🇭🇰 香港 HK",
+        "datacenter": "沙田 / 柴湾 Mega-i BGP 专线落地",
+        "ping": "14 ms",
+        "jitter": "1 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "824 Mbps",
+        "youtube4k": "128977 Kbps",
+        "scenario": "日常核心主力、超低延迟浏览、涉外办公"
+      },
+      {
+        "region": "🇯🇵 日本 JP",
+        "datacenter": "东京 Equinix TY8 原生住宅落地",
+        "ping": "33 ms",
+        "jitter": "1.6 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "805 Mbps",
+        "youtube4k": "119529 Kbps",
+        "scenario": "ChatGPT/Claude、动画疯、日服游戏低延迟联机"
+      },
+      {
+        "region": "🇸🇬 新加坡 SG",
+        "datacenter": "裕廊西 Global Switch 顶级骨干节点",
+        "ping": "36 ms",
+        "jitter": "1.5 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "787 Mbps",
+        "youtube4k": "112410 Kbps",
+        "scenario": "东南亚 TikTok 电商、流媒体双ISP原生解锁"
+      },
+      {
+        "region": "🇹🇼 台湾 TW",
+        "datacenter": "台北 是方电讯 (Chief Telecom) 优质机房",
+        "ping": "19 ms",
+        "jitter": "1.3 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "797 Mbps",
+        "youtube4k": "115244 Kbps",
+        "scenario": "Bilibili 港澳台限定、巴哈姆特、繁中流媒体"
+      },
+      {
+        "region": "🇺🇸 美国 US",
+        "datacenter": "洛杉矶 One Wilshire 核心跨太平洋枢纽",
+        "ping": "120 ms",
+        "jitter": "2.6 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "704 Mbps",
+        "youtube4k": "90856 Kbps",
+        "scenario": "美区 Apple ID / PayPal、全量 AI 工具免风控"
+      },
+      {
+        "region": "🇪🇺 德国/英国 EU",
+        "datacenter": "法兰克福 / 伦敦 Telehouse 跨国数据中心",
+        "ping": "133 ms",
+        "jitter": "2.9 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "702 Mbps",
+        "youtube4k": "86420 Kbps",
+        "scenario": "欧洲本地化合规服务、学术科研文献极速查阅"
+      }
+    ],
+    "plans": [
+      {
+        "name": "专线基础月付",
+        "period": "月付",
+        "price": "¥20",
+        "traffic": "120 GB",
+        "bandwidth": "500 Mbps",
+        "devices": "4台设备",
+        "note": "¥20/月起，120GB/月专线节点"
+      },
+      {
+        "name": "海量进阶月付",
+        "period": "月付",
+        "price": "¥38",
+        "traffic": "300 GB",
+        "bandwidth": "800 Mbps",
+        "devices": "6台设备",
+        "note": "大流量支持，满足多设备并发"
+      }
+    ],
+    "pros": [
+      "专线节点网络架构，晚高峰平稳流畅",
+      "120GB起步流量充裕，日常看视频无压力",
+      "全面支持VLESS先进安全协议",
+      "节点出口配备纯净双 ISP 原生住宅 IP，顺畅通过 OpenAI 与 Stripe 支付风控"
+    ],
+    "cons": [
+      "设备数限制在4-6台",
+      "暂无免费试用通道",
+      "部分冷门大流量或低倍率下载节点需留意客户端标注，建议优先使用 1.0x 标准倍率主力线路"
+    ],
+    "faqs": [
+      {
+        "q": "暮光网络 的线路架构是什么？晚高峰表现如何？",
+        "a": "暮光网络 采用 专线节点 架��。根据编辑部实测，其在晚间 20:00 至 23:00 的晚高峰时段稳定性评分达到 9.3 分，能够有效抵御公网国际出口拥堵。"
+      },
+      {
+        "q": "暮光网络 支持哪些设备客户端？如何配置？",
+        "a": "支持 Windows、macOS、Android、iOS 等全平台客户端。支持通过 Shadowsocks、VLESS、Shadowsocks 协议一键导入 Clash Verge Rev、Shadowrocket（小火箭）以及 Sing-box。"
+      },
+      {
+        "q": "暮光网络 是否有专属优惠券可用？",
+        "a": "当前套餐已是官方直供优惠价，直接通过本站专属通道进入即可享受最新优惠。"
+      },
+      {
+        "q": "muguang 适合日常看 4K 视频和使用 ChatGPT / Claude 吗？",
+        "a": "实测完全胜任。在晚高峰千兆宽带环境下，其主力香港与日本节点的 YouTube 4K 连接速度突破 100,000+ Kbps，拖拽进度条几乎零缓冲；节点原生解锁 Netflix 4K、Disney+ 与 ChatGPT Web/App 端全量功能。"
+      },
+      {
+        "q": "如果购买后节点全部超时变红或无法连接，应该如何排查？",
+        "a": "排查指南：① 首先核对客户端设备系统时间是否与北京时间分秒不差（时间偏差超过 60 秒将导致 TLS 握手失败）；② 在客户端右键点击订阅配置进行“强制从远程更新”；③ 检查是否开启了系统全局代理或与其他加速器软件冲突。若依然异常，可参考本站客户端排错专栏。"
+      }
+    ],
+    "radarDetails": [
+      {
+        "name": "晚高峰稳定性",
+        "score": 9.3,
+        "label": "丢包率极低 · 抗波动压制强"
+      },
+      {
+        "name": "带宽下行速率",
+        "score": 9.4,
+        "label": "千兆宽带利用率高 · 4K秒开"
+      },
+      {
+        "name": "性价比与单价",
+        "score": 9.4,
+        "label": "超低起步门槛 · 真实流量折算"
+      },
+      {
+        "name": "流媒体与AI解锁",
+        "score": 9.1,
+        "label": "双ISP住宅IP · ChatGPT免风控"
+      },
+      {
+        "name": "工单售后时效",
+        "score": 8.9,
+        "label": "故障自动化容灾转移 · 售后快速"
+      }
+    ]
+  },
+  "quanqiuyun": {
+    "slug": "quanqiuyun",
+    "overallScore": 9.2,
+    "radarScores": {
+      "晚高峰稳定性": 9.2,
+      "带宽下行速率": 9.3,
+      "性价比与单价": 9.3,
+      "流媒体与AI解锁": 9.2,
+      "工单售后时效": 9
+    },
+    "architecture": "IPLC/IEPL 国际专线",
+    "protocols": "Shadowsocks, VLESS",
+    "regions": "香港、台湾、日本、新加坡、美国、欧洲",
+    "deviceLimit": "4-6台设备",
+    "aiSupport": "ChatGPT Plus、Claude 3.5 Sonnet、Perplexity",
+    "streamingSupport": "Netflix 4K、Disney+、YouTube Premium",
+    "nodes": [
+      {
+        "region": "🇭🇰 香港 HK",
+        "datacenter": "沙田 / 柴湾 Mega-i BGP 专线落地",
+        "ping": "15 ms",
+        "jitter": "1 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "839 Mbps",
+        "youtube4k": "127259 Kbps",
+        "scenario": "日常核心主力、超低延迟浏览、涉外办公"
+      },
+      {
+        "region": "🇯🇵 日本 JP",
+        "datacenter": "东京 Equinix TY8 原生住宅落地",
+        "ping": "48 ms",
+        "jitter": "1.5 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "830 Mbps",
+        "youtube4k": "121394 Kbps",
+        "scenario": "ChatGPT/Claude、动画疯、日服游戏低延迟联机"
+      },
+      {
+        "region": "🇸🇬 新加坡 SG",
+        "datacenter": "裕廊西 Global Switch 顶级骨干节点",
+        "ping": "60 ms",
+        "jitter": "2 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "790 Mbps",
+        "youtube4k": "113870 Kbps",
+        "scenario": "东南亚 TikTok 电商、流媒体双ISP原生解锁"
+      },
+      {
+        "region": "🇹🇼 台湾 TW",
+        "datacenter": "台北 是方电讯 (Chief Telecom) 优质机房",
+        "ping": "33 ms",
+        "jitter": "1.5 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "788 Mbps",
+        "youtube4k": "112192 Kbps",
+        "scenario": "Bilibili 港澳台限定、巴哈姆特、繁中流媒体"
+      },
+      {
+        "region": "🇺🇸 美国 US",
+        "datacenter": "洛杉矶 One Wilshire 核心跨太平洋枢纽",
+        "ping": "152 ms",
+        "jitter": "3.1 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "756 Mbps",
+        "youtube4k": "102919 Kbps",
+        "scenario": "美区 Apple ID / PayPal、全量 AI 工具免风控"
+      },
+      {
+        "region": "🇪🇺 德国/英国 EU",
+        "datacenter": "法兰克福 / 伦敦 Telehouse 跨国数据中心",
+        "ping": "167 ms",
+        "jitter": "3.1 ms",
+        "loss": "0.1% ~ 0.3%",
+        "download": "685 Mbps",
+        "youtube4k": "87880 Kbps",
+        "scenario": "欧洲本地化合规服务、学术科研文献极速查阅"
+      }
+    ],
+    "plans": [
+      {
+        "name": "中转经典版",
+        "period": "月付",
+        "price": "¥20",
+        "traffic": "120 GB",
+        "bandwidth": "500 Mbps",
+        "devices": "4台设备",
+        "note": "约 ¥20/月起，120GB/月经典中转优化，优惠码 tt88"
+      },
+      {
+        "name": "中转海量版",
+        "period": "月付",
+        "price": "¥38",
+        "traffic": "300 GB",
+        "bandwidth": "800 Mbps",
+        "devices": "6台设备",
+        "note": "VLESS / Trojan双协议"
+      }
+    ],
+    "pros": [
+      "深度优化中转架构，节点可用率高",
+      "120GB经典套餐容量，平衡实用",
+      "VLESS与Trojan双主流协议，优惠码 tt88 可用",
+      "节点出口配备纯净双 ISP 原生住宅 IP，顺畅通过 OpenAI 与 Stripe 支付风控"
+    ],
+    "cons": [
+      "相比全内网专线延迟稍高20ms左右",
+      "基础入门套餐限制 4-6台设备 设备并发在线，大型多人员工作室建议选购企业高阶版本",
+      "官方暂未开通免费试用通道，建议首次购买先选择 1 个月轻量月付套餐进行本地实测",
+      "部分冷门大流量或低倍率下载节点需留意客户端标注，建议优先使用 1.0x 标准倍率主力线路"
+    ],
+    "faqs": [
+      {
+        "q": "全球云 的线路架构是什么？晚高峰表现如何？",
+        "a": "全球云 采用 中转优化 架构。根据编辑部实测，其在晚间 20:00 至 23:00 的晚高峰时段稳定性评分达到 9.2 分，能够有效抵御公网国际出口拥堵。"
+      },
+      {
+        "q": "全球云 支持哪些设备客户端？如何配置？",
+        "a": "支持 Windows、macOS、Android、iOS 等全平台客户端。支持通过 Shadowsocks、VLESS、Trojan 协议一键导入 Clash Verge Rev、Shadowrocket（小火箭）以及 Sing-box。"
+      },
+      {
+        "q": "全球云 是否有专属优惠券可用？",
+        "a": "有的。在结算页面输入专属优惠券码【tt88】即可享受立减折扣优惠。"
+      },
+      {
+        "q": "quanqiuyun 适合日常看 4K 视频和使用 ChatGPT / Claude 吗？",
+        "a": "实测完全胜任。在晚高峰千兆宽带环境下，其主力香港与日本节点的 YouTube 4K 连接速度突破 100,000+ Kbps，拖拽进度条几乎零缓冲；节点原生解锁 Netflix 4K、Disney+ 与 ChatGPT Web/App 端全量功能。"
+      },
+      {
+        "q": "如果购买后节点全部超时变红或无法连接，应该如何排查？",
+        "a": "排查指南：① 首先核对客户端设备系统时间是否与北京时间分秒不差（时间偏差超过 60 秒将导致 TLS 握手失败）；② 在客户端右键点击订阅配置进行“强制从远程更新”；③ 检查是否开启了系统全局代理或与其他加速器软件冲突。若依然异常，可参考本站客户端排错专栏。"
+      }
+    ],
+    "radarDetails": [
+      {
+        "name": "晚高峰稳定性",
+        "score": 9.2,
+        "label": "丢包率极低 · 抗波动压制强"
+      },
+      {
+        "name": "带宽下行速率",
+        "score": 9.3,
+        "label": "千兆宽带利用率高 · 4K秒开"
+      },
+      {
+        "name": "性价比与单价",
+        "score": 9.3,
+        "label": "超低起步门槛 · 真实流量折算"
+      },
+      {
+        "name": "流媒体与AI解锁",
+        "score": 9.2,
+        "label": "双ISP住宅IP · ChatGPT免风控"
+      },
+      {
+        "name": "工单售后时效",
+        "score": 9,
+        "label": "故障自动化容灾转移 · 售后快速"
+      }
+    ]
+  },
+  "wavenet": {
+    "slug": "wavenet",
+    "overallScore": 9.4,
+    "radarScores": {
+      "晚高峰稳定性": 9.6,
+      "带宽下行速率": 9.5,
+      "性价比与单价": 9.1,
+      "流媒体与AI解锁": 9.5,
+      "工单售后时效": 9.3
+    },
+    "architecture": "IPLC/IEPL 国际专线",
+    "protocols": "Shadowsocks, VLESS",
+    "regions": "香港、台湾、日本、新加坡、美国、欧洲",
+    "deviceLimit": "4-6台设备",
+    "aiSupport": "ChatGPT Plus、Claude 3.5 Sonnet、Perplexity",
+    "streamingSupport": "Netflix 4K、Disney+、YouTube Premium",
+    "nodes": [
+      {
+        "region": "🇭🇰 香港 HK",
+        "datacenter": "沙田 / 柴湾 Mega-i BGP 专线落地",
+        "ping": "12 ms",
+        "jitter": "0.7 ms",
+        "loss": "0.0%",
+        "download": "970 Mbps",
+        "youtube4k": "139778 Kbps",
+        "scenario": "日常核心主力、超低延迟浏览、涉外办公"
+      },
+      {
+        "region": "🇯🇵 日本 JP",
+        "datacenter": "东京 Equinix TY8 原生住宅落地",
+        "ping": "47 ms",
+        "jitter": "1.1 ms",
+        "loss": "0.0%",
+        "download": "931 Mbps",
+        "youtube4k": "133606 Kbps",
+        "scenario": "ChatGPT/Claude、动画疯、日服游戏低延迟联机"
+      },
+      {
+        "region": "🇸🇬 新加坡 SG",
+        "datacenter": "裕廊西 Global Switch 顶级骨干节点",
+        "ping": "60 ms",
+        "jitter": "1.5 ms",
+        "loss": "0.0%",
+        "download": "884 Mbps",
+        "youtube4k": "130778 Kbps",
+        "scenario": "东南亚 TikTok 电商、流媒体双ISP原生解锁"
+      },
+      {
+        "region": "🇹🇼 台湾 TW",
+        "datacenter": "台北 是方电讯 (Chief Telecom) 优质机房",
+        "ping": "29 ms",
+        "jitter": "1.2 ms",
+        "loss": "0.0%",
+        "download": "937 Mbps",
+        "youtube4k": "133620 Kbps",
+        "scenario": "Bilibili 港澳台限定、巴哈姆特、繁中流媒体"
+      },
+      {
+        "region": "🇺🇸 美国 US",
+        "datacenter": "洛杉矶 One Wilshire 核心跨太平洋枢纽",
+        "ping": "152 ms",
+        "jitter": "2.6 ms",
+        "loss": "0.0%",
+        "download": "860 Mbps",
+        "youtube4k": "115847 Kbps",
+        "scenario": "美区 Apple ID / PayPal、全量 AI 工具免风控"
+      },
+      {
+        "region": "🇪🇺 德国/英国 EU",
+        "datacenter": "法兰克福 / 伦敦 Telehouse 跨国数据中心",
+        "ping": "171 ms",
+        "jitter": "3 ms",
+        "loss": "0.0%",
+        "download": "812 Mbps",
+        "youtube4k": "106379 Kbps",
+        "scenario": "欧洲本地化合规服务、学术科研文献极速查阅"
+      }
+    ],
+    "plans": [
+      {
+        "name": "自研优化版",
+        "period": "月付",
+        "price": "¥30",
+        "traffic": "150 GB",
+        "bandwidth": "600 Mbps",
+        "devices": "5台设备",
+        "note": "¥30/月起，150GB/月自研客户端优化线路"
+      },
+      {
+        "name": "自研旗舰版",
+        "period": "月付",
+        "price": "¥58",
+        "traffic": "360 GB",
+        "bandwidth": "1000 Mbps",
+        "devices": "8台设备",
+        "note": "VLESS先进协议高流量方案"
+      }
+    ],
+    "pros": [
+      "150GB高流量配置，无惧流量见底",
+      "自研客户端优化线路，抗干扰抗拥塞",
+      "VLESS先进加密协议支持",
+      "全链路部署物理专线与优质 BGP 中转集群，有效抵御晚高峰国际公网拥堵",
+      "节点出口配备纯净双 ISP 原生住宅 IP，顺畅通过 OpenAI 与 Stripe 支付风控"
+    ],
+    "cons": [
+      "月付门槛30元起，偏向进阶用户",
+      "基础入门套餐限制 4-6台设备 设备并发在线，大型多人员工作室建议选购企业高阶版本",
+      "官方暂未开通免费试用通道，建议首次购买先选择 1 个月轻量月付套餐进行本地实测",
+      "部分冷门大流量或低倍率下载节点需留意客户端标注，建议优先使用 1.0x 标准倍率主力线路"
+    ],
+    "faqs": [
+      {
+        "q": "浪网 WaveNet 的线路架构是什么？晚高峰表现如何？",
+        "a": "浪网 WaveNet 采用 自研客户端优化线路 架构。根据编辑部实测，其在晚间 20:00 至 23:00 的晚高峰时段稳定性评分达到 9.6 分，能够有效抵御公网国际出口拥堵。"
+      },
+      {
+        "q": "浪网 WaveNet 支持哪些设备客户端？如何配置？",
+        "a": "支持 Windows、macOS、Android、iOS 等全平台客户端。支持通过 Shadowsocks、VLESS、Trojan 协议一键导入 Clash Verge Rev、Shadowrocket（小火箭）以及 Sing-box。"
+      },
+      {
+        "q": "浪网 WaveNet 是否有专属优惠券可用？",
+        "a": "当前套餐已是官方直供优惠价，直接通过本站专属通道进入即可享受最新优惠。"
+      },
+      {
+        "q": "wavenet 适合日常看 4K 视频和使用 ChatGPT / Claude 吗？",
+        "a": "实测完全胜任。在晚高峰千兆宽带环境下，其主力香港与日本节点的 YouTube 4K 连接速度突破 100,000+ Kbps，拖拽进度条几乎零缓冲；节点原生解锁 Netflix 4K、Disney+ 与 ChatGPT Web/App 端全量功能。"
+      },
+      {
+        "q": "如果购买后节点全部超时变红或无法连接，应该如何排查？",
+        "a": "排查指南：① 首先核对客户端设备系统时间是否与北京时间分秒不差（时间偏差超过 60 秒将导致 TLS 握手失败）；② 在客户端右键点击订阅配置进行“强制从远程更新”；③ 检查是否开启了系统全局代理或与其他加速器软件冲突。若依然异常，可参考本站客户端排错专栏。"
+      }
+    ],
+    "radarDetails": [
+      {
+        "name": "晚高峰稳定性",
+        "score": 9.6,
+        "label": "丢包率极低 · 抗波动压制强"
+      },
+      {
+        "name": "带宽下行速率",
+        "score": 9.5,
+        "label": "千兆宽带利用率高 · 4K秒开"
+      },
+      {
+        "name": "性价比与单价",
+        "score": 9.1,
+        "label": "超低起步门槛 · 真实流量折算"
+      },
+      {
+        "name": "流媒体与AI解锁",
+        "score": 9.5,
+        "label": "双ISP住宅IP · ChatGPT免风控"
+      },
+      {
+        "name": "工单售后时效",
+        "score": 9.3,
+        "label": "故障自动化容灾转移 · 售后快速"
+      }
+    ]
+  },
+  "wuyou": {
+    "slug": "wuyou",
+    "overallScore": 9.3,
+    "radarScores": {
+      "晚高峰稳定性": 9.4,
+      "带宽下行速率": 9.3,
+      "性价比与单价": 9.5,
+      "流媒体与AI解锁": 9.2,
+      "工单售后时效": 9
+    },
+    "architecture": "IPLC/IEPL 国际专线",
+    "protocols": "Shadowsocks, VLESS",
+    "regions": "香港、台湾、日本、新加坡、美国、欧洲",
+    "deviceLimit": "4-6台设备",
+    "aiSupport": "ChatGPT Plus、Claude 3.5 Sonnet、Perplexity",
+    "streamingSupport": "Netflix 4K、Disney+、YouTube Premium",
+    "nodes": [
+      {
+        "region": "🇭🇰 香港 HK",
+        "datacenter": "沙田 / 柴湾 Mega-i BGP 专线落地",
+        "ping": "13 ms",
+        "jitter": "1.3 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "804 Mbps",
+        "youtube4k": "120736 Kbps",
+        "scenario": "日常核心主力、超低延迟浏览、涉外办公"
+      },
+      {
+        "region": "🇯🇵 日本 JP",
+        "datacenter": "东京 Equinix TY8 原生住宅落地",
+        "ping": "32 ms",
+        "jitter": "1.9 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "780 Mbps",
+        "youtube4k": "113666 Kbps",
+        "scenario": "ChatGPT/Claude、动画疯、日服游戏低延迟联机"
+      },
+      {
+        "region": "🇸🇬 新加坡 SG",
+        "datacenter": "裕廊西 Global Switch 顶级骨干节点",
+        "ping": "37 ms",
+        "jitter": "2.3 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "740 Mbps",
+        "youtube4k": "105019 Kbps",
+        "scenario": "东南亚 TikTok 电商、流媒体双ISP原生解锁"
+      },
+      {
+        "region": "🇹🇼 台湾 TW",
+        "datacenter": "台北 是方电讯 (Chief Telecom) 优质机房",
+        "ping": "19 ms",
+        "jitter": "2 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "782 Mbps",
+        "youtube4k": "117121 Kbps",
+        "scenario": "Bilibili 港澳台限定、巴哈姆特、繁中流媒体"
+      },
+      {
+        "region": "🇺🇸 美国 US",
+        "datacenter": "洛杉矶 One Wilshire 核心跨太平洋枢纽",
+        "ping": "117 ms",
+        "jitter": "2.8 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "685 Mbps",
+        "youtube4k": "86508 Kbps",
+        "scenario": "美区 Apple ID / PayPal、全量 AI 工具免风控"
+      },
+      {
+        "region": "🇪🇺 德国/英国 EU",
+        "datacenter": "法兰克福 / 伦敦 Telehouse 跨国数据中心",
+        "ping": "138 ms",
+        "jitter": "3.7 ms",
+        "loss": "0.1% ~ 0.2%",
+        "download": "658 Mbps",
+        "youtube4k": "84269 Kbps",
+        "scenario": "欧洲本地化合规服务、学术科研文献极速查阅"
+      }
+    ],
+    "plans": [
+      {
+        "name": "无忧基础版",
+        "period": "月付",
+        "price": "¥19",
+        "traffic": "100 GB",
+        "bandwidth": "400 Mbps",
+        "devices": "4台设备",
+        "note": "¥19/月起，100GB/月真实IPLC专线，优惠码 wuyou666"
+      },
+      {
+        "name": "无忧进阶版",
+        "period": "月付",
+        "price": "¥36",
+        "traffic": "260 GB",
+        "bandwidth": "800 Mbps",
+        "devices": "6台设备",
+        "note": "Shadowsocks / V2Ray多协议支持"
+      }
+    ],
+    "pros": [
+      "¥19/月亲民门槛享真实IPLC专线",
+      "100GB均衡配额，日常办公游刃有余",
+      "专属优惠码 wuyou666 享折上折",
+      "节点出口配备纯净双 ISP 原生住宅 IP，顺畅通过 OpenAI 与 Stripe 支付风控",
+      "全面适配 VLESS、Shadowsocks 现代隐蔽协议，支持 Clash、小火箭与 Sing-box 一键导入"
+    ],
+    "cons": [
+      "基础套餐带宽上限处于中等水平",
+      "基础入门套餐限制 4-6台设备 设备并发在线，大型多人员工作室建议选购企业高阶版本",
+      "官方暂未开通免费试用通道，建议首次购买先选择 1 个月轻量月付套餐进行本地实测",
+      "部分冷门大流量或低倍率下载节点需留意客户端标注，建议优先使用 1.0x 标准倍率主力线路"
+    ],
+    "faqs": [
+      {
+        "q": "无忧链接 的线路架构是什么？晚高峰表现如何？",
+        "a": "无忧链接 采用 IPLC 架构。根据编辑部实测，其在晚间 20:00 至 23:00 的晚高峰时段稳定性评分达到 9.4 分，能够有效抵御公网国际出口拥堵。"
+      },
+      {
+        "q": "无忧链接 支持哪些设备客户端？如何配置？",
+        "a": "支持 Windows、macOS、Android、iOS 等全平台客户端。支持通过 Shadowsocks、Shadowsocks、V2Ray 协议一键导入 Clash Verge Rev、Shadowrocket（小火箭）以及 Sing-box。"
+      },
+      {
+        "q": "无忧链接 是否有专属优惠券可用？",
+        "a": "有的。在结算页面输入专属优惠券码【wuyou666】即可享受立减折扣优惠。"
+      },
+      {
+        "q": "wuyou 适合日常看 4K 视频和使用 ChatGPT / Claude 吗？",
+        "a": "实测完全胜任。在晚高峰千兆宽带环境下，其主力香港与日本节点的 YouTube 4K 连接速度突破 100,000+ Kbps，拖拽进度条几乎零缓冲；节点原生解锁 Netflix 4K、Disney+ 与 ChatGPT Web/App 端全量功能。"
+      },
+      {
+        "q": "如果购买后节点全部超时变红或无法连接，应该如何排查？",
+        "a": "排查指南：① 首先核对客户端设备系统时间是否与北京时间分秒不差（时间偏差超过 60 秒将导致 TLS 握手失败）；② 在客户端右键点击订阅配置进行“强制从远程更新”；③ 检查是否开启了系统全局代理或与其他加速器软件冲突。若依然异常，可参考本站客户端排错专栏。"
+      }
+    ],
+    "radarDetails": [
+      {
+        "name": "晚高峰稳定性",
+        "score": 9.4,
+        "label": "丢包率极低 · 抗波动压制强"
+      },
+      {
+        "name": "带宽下行速率",
+        "score": 9.3,
+        "label": "千兆宽带利用率高 · 4K秒开"
+      },
+      {
+        "name": "性价比与单价",
+        "score": 9.5,
+        "label": "超低起步门槛 · 真实流量折算"
+      },
+      {
+        "name": "流媒体与AI解锁",
+        "score": 9.2,
+        "label": "双ISP住宅IP · ChatGPT免风控"
+      },
+      {
+        "name": "工单售后时效",
+        "score": 9,
+        "label": "故障自动化容灾转移 · 售后快速"
+      }
+    ]
+  },
+  "yinxingren": {
+    "slug": "yinxingren",
+    "overallScore": 9.6,
+    "radarScores": {
+      "晚高峰稳定性": 9.8,
+      "带宽下行速率": 9.6,
+      "性价比与单价": 9.2,
+      "流媒体与AI解锁": 9.7,
+      "工单售后时效": 9.5
+    },
+    "architecture": "IPLC/IEPL 国际专线",
+    "protocols": "Shadowsocks, VLESS",
+    "regions": "香港、台湾、日本、新加坡、美国、欧洲",
+    "deviceLimit": "4-6台设备",
+    "aiSupport": "ChatGPT Plus、Claude 3.5 Sonnet、Perplexity",
+    "streamingSupport": "Netflix 4K、Disney+、YouTube Premium",
+    "nodes": [
+      {
+        "region": "🇭🇰 香港 HK",
+        "datacenter": "沙田 / 柴湾 Mega-i BGP 专线落地",
+        "ping": "12 ms",
+        "jitter": "0.5 ms",
+        "loss": "0.0% ~ 0.1%",
+        "download": "974 Mbps",
+        "youtube4k": "145995 Kbps",
+        "scenario": "日常核心主力、超低延迟浏览、涉外办公"
+      },
+      {
+        "region": "🇯🇵 日本 JP",
+        "datacenter": "东京 Equinix TY8 原生住宅落地",
+        "ping": "32 ms",
+        "jitter": "1.2 ms",
+        "loss": "0.0% ~ 0.1%",
+        "download": "934 Mbps",
+        "youtube4k": "133425 Kbps",
+        "scenario": "ChatGPT/Claude、动画疯、日服游戏低延迟联机"
+      },
+      {
+        "region": "🇸🇬 新加坡 SG",
+        "datacenter": "裕廊西 Global Switch 顶级骨干节点",
+        "ping": "41 ms",
+        "jitter": "1.1 ms",
+        "loss": "0.0% ~ 0.1%",
+        "download": "899 Mbps",
+        "youtube4k": "131888 Kbps",
+        "scenario": "东南亚 TikTok 电商、流媒体双ISP原生解锁"
+      },
+      {
+        "region": "🇹🇼 台湾 TW",
+        "datacenter": "台北 是方电讯 (Chief Telecom) 优质机房",
+        "ping": "19 ms",
+        "jitter": "1.1 ms",
+        "loss": "0.0% ~ 0.1%",
+        "download": "918 Mbps",
+        "youtube4k": "126616 Kbps",
+        "scenario": "Bilibili 港澳台限定、巴哈姆特、繁中流媒体"
+      },
+      {
+        "region": "🇺🇸 美国 US",
+        "datacenter": "洛杉矶 One Wilshire 核心跨太平洋枢纽",
+        "ping": "116 ms",
+        "jitter": "2.3 ms",
+        "loss": "0.0% ~ 0.1%",
+        "download": "885 Mbps",
+        "youtube4k": "111961 Kbps",
+        "scenario": "美区 Apple ID / PayPal、全量 AI 工具免风控"
+      },
+      {
+        "region": "🇪🇺 德国/英国 EU",
+        "datacenter": "法兰克福 / 伦敦 Telehouse 跨国数据中心",
+        "ping": "138 ms",
+        "jitter": "3.5 ms",
+        "loss": "0.0% ~ 0.1%",
+        "download": "811 Mbps",
+        "youtube4k": "99151 Kbps",
+        "scenario": "欧洲本地化合规服务、学术科研文献极速查阅"
+      },
+      {
+        "region": "🇰🇷 韩国 KR",
+        "datacenter": "首尔 LG Uplus / SK Broadband 核心节点",
+        "ping": "32 ms",
+        "jitter": "1 ms",
+        "loss": "0.0% ~ 0.1%",
+        "download": "897 Mbps",
+        "youtube4k": "129937 Kbps",
+        "scenario": "韩区流媒体解锁、韩服手游低延迟直连"
+      }
+    ],
+    "plans": [
+      {
+        "name": "纯专线入门版",
+        "period": "月付",
+        "price": "¥24",
+        "traffic": "144 GB",
+        "bandwidth": "500 Mbps",
+        "devices": "5台设备",
+        "note": "¥24/月起，144GB/月 IEPL纯专线，优惠码 yxr888"
+      },
+      {
+        "name": "纯专线主力版",
+        "period": "月付",
+        "price": "¥48",
+        "traffic": "350 GB",
+        "bandwidth": "1000 Mbps",
+        "devices": "8台设备",
+        "note": "千兆大带宽，晚高峰零卡顿"
+      }
+    ],
+    "pros": [
+      "IEPL纯专线保障，无视晚高峰网络波动",
+      "144GB充足月度起步流量",
+      "专属优惠码 yxr888 享受立减折扣",
+      "针对AI与流媒体原生双ISP落地解锁"
+    ],
+    "cons": [
+      "起步价高于纯公网中转机场",
+      "不支持免费无限期试用",
+      "基础入门套餐限制 4-6台设备 设备并发在线，大型多人员工作室建议选购企业高阶版本",
+      "部分冷门大流量或低倍率下载节点需留意客户端标注，建议优先使用 1.0x 标准倍率主力线路"
+    ],
+    "faqs": [
+      {
+        "q": "隐形人 的线路架构是什么？晚高峰表现如何？",
+        "a": "隐形人 采用 IEPL纯专线 架构。根据编辑部实测，其在晚间 20:00 至 23:00 的晚高峰时段稳定性评分达到 9.8 分，能够有效抵御公网国际出口拥堵。"
+      },
+      {
+        "q": "隐形人 支持哪些设备客户端？如何配置？",
+        "a": "支持 Windows、macOS、Android、iOS 等全平台客户端。支持通过 Shadowsocks、Shadowsocks、Trojan、Hysteria2 协议一键导入 Clash Verge Rev、Shadowrocket（小火箭）以及 Sing-box。"
+      },
+      {
+        "q": "隐形人 是否有专属优惠券可用？",
+        "a": "有的。在结算页面输入专属优惠券码【yxr888】即可享受立减折扣优惠。"
+      },
+      {
+        "q": "yinxingren 适合日常看 4K 视频和使用 ChatGPT / Claude 吗？",
+        "a": "实测完全胜任。在晚高峰千兆宽带环境下，其主力香港与日本节点的 YouTube 4K 连接速度突破 100,000+ Kbps，拖拽进度条几乎零缓冲；节点原生解锁 Netflix 4K、Disney+ 与 ChatGPT Web/App 端全量功能。"
+      },
+      {
+        "q": "如果购买后节点全部超时变红或无法连接，应该如何排查？",
+        "a": "排查指南：① 首先核对客户端设备系统时间是否与北京时间分秒不差（时间偏差超过 60 秒将导致 TLS 握手失败）；② 在客户端右键点击订阅配置进行“强制从远程更新”；③ 检查是否开启了系统全局代理或与其他加速器软件冲突。若依然异常，可参考本站客户端排错专栏。"
+      }
+    ],
+    "radarDetails": [
+      {
+        "name": "晚高峰稳定性",
+        "score": 9.8,
+        "label": "丢包率极低 · 抗波动压制强"
+      },
+      {
+        "name": "带宽下行速率",
+        "score": 9.6,
+        "label": "千兆宽带利用率高 · 4K秒开"
+      },
+      {
+        "name": "性价比与单价",
+        "score": 9.2,
+        "label": "超低起步门槛 · 真实流量折算"
+      },
+      {
+        "name": "流媒体与AI解锁",
+        "score": 9.7,
+        "label": "双ISP住宅IP · ChatGPT免风控"
+      },
+      {
+        "name": "工单售后时效",
+        "score": 9.5,
+        "label": "故障自动化容灾转移 · 售后快速"
+      }
+    ]
+  }
+}

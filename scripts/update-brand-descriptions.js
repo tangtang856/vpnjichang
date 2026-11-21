@@ -1,0 +1,184 @@
+const fs = require('fs');
+const path = require('path');
+
+const brandDescriptions = {
+  breezenet: {
+    description: "微风网络 Breezenet 是 2026 年度中文代理圈内公认的高性价比专线标杆服务商。平台全节点部署在物理光纤 IEPL/IPLC 国际专线上，彻底避开公共国际公网出口与 GFW 的深度数据包检测（DPI）。其最大特色在于极具震撼力的价格门槛——仅需 ¥8/月即可享受 200GB 的大流量专线配额，折算每 GB 单价低至 ￥0.040 元。全节点覆盖香港 Mega-i、东京 Equinix TY8 及新加坡 Global Switch 等顶级骨干机房，原生住宅 IP 解锁 ChatGPT Plus 与 Netflix 4K，是追求极致性价比、学生党与大流量影音用户的首选品牌。",
+    tagline: "IEPL/IPLC纯专线网络 · 200GB超大流量 · 折算每GB仅￥0.040天花板性价比",
+    suitableFor: [
+      "学生党与预算敏感型的高性价比追求者",
+      "重度 YouTube 4K/8K 视频与 Netflix 影音追剧人群",
+      "需要稳定低延迟调用 ChatGPT / Claude 等 AI 工具的科研与文字工作者",
+      "多设备日常科学上网但拒绝虚标倍率的用户"
+    ]
+  },
+  muguang: {
+    description: "暮光网络是一家定位于高可用性企业级出海与涉外商务办公的专线机场服务商。核心链路采用全内网专线节点架构，在国内三网（电信、联通、移动）核心枢纽部署了 BGP Anycast 智能接入端，能够依据访问者本地宽带自动匹配最优入关路径。海外落地节点精选香港沙田/柴湾 Mega-i 机房、日本东京 Equinix 原生住宅 IP 以及新加坡顶级骨干节点。在晚高峰骨干网高拥堵时段，其丢包率稳定压制在 0.1%~0.2% 之间。套餐起步 ¥20/月包含 120GB 专线配额，全面支持 VLESS 先进隐蔽协议，适合对外贸办公连通率有苛刻要求的专业团队。",
+    tagline: "企业级专线节点架构 · 120GB起步流量充裕 · 晚高峰9.3分抗拥堵旗舰",
+    suitableFor: [
+      "跨国贸易、跨境电商与涉外商务出海办公团队",
+      "对网络在线率与抗波动能力有严苛要求的专业工程师",
+      "需要稳定多开浏览器、访问美区支付与海外后台的从业者",
+      "厌倦公网中转晚高峰疯狂断流的高要求用户"
+    ]
+  },
+  feimaoyun: {
+    description: "飞猫云是当前市场上极具号召力的轻量级平价专线机场，以超低上车门槛和充沛流量配额著称。平台起步月付仅需 ¥7.00，即可获得高达 150GB 的月度专线流量，折算每 GB 仅约 ￥0.047 元。网络拓扑融合了 IEPL/IPLC 专线与多线优质 BGP 中转隧道，特别对北方联通、南方电信以及向来被称为'网络荒漠'的移动宽带进行了针对性路由穿透调优。所有主力节点均支持 VLESS 与 Shadowsocks 协议，提供一键导入 Clash、小火箭与 Sing-box 订阅功能，是新手入门试水与轻度科学上网的绝佳高性价比之选。",
+    tagline: "IEPL/IPLC专线中转 · ¥7/月极低门槛 · 150GB高性价比入门神器",
+    suitableFor: [
+      "刚接触科学上网、希望先花几块钱小成本体验的小白新手",
+      "移动宽带或校园网等复杂网络环境下的上网人群",
+      "轻度网页浏览、查阅资料、偶尔观看 1080P/4K 视频的用户",
+      "需要一条低成本长期备用副梯防断网的资深老玩家"
+    ]
+  },
+  wuyou: {
+    description: "无忧（无忧链接）专注于提供'省心、不折腾、零拥堵'的纯物理 IPLC 内网专线代理服务。拒绝任何虚标和花哨宣传，其核心骨干直接租用跨国电信运营商的端到端海底光纤物理信道，数据在物理层点对点跨境传输，全程不与公网混流。起步套餐 ¥19/月配备 100GB 纯专线流量，支持 4-6 台设备同时在线并发。海外出口配备纯净双 ISP 住宅 IP 池，不仅能够百分之百顺畅登录 OpenAI ChatGPT、Claude 3.5 Sonnet，还能有效规避各类海外风控与机器人人机验证，是兼顾价格与稳定性的均衡标杆。",
+    tagline: "真实IPLC点对点物理专线 · ¥19/月起100GB均衡配额 · 双ISP住宅纯净出口",
+    suitableFor: [
+      "高频使用 ChatGPT Plus、Claude 等海外大语言模型的重度用户",
+      "需要稳定进行海外银行开户、Stripe/PayPal 支付鉴权的外贸人员",
+      "追求全天候24小时无感知连通、反感节点频繁变红超时的省心型用户",
+      "多台手机与电脑跨设备并发协同作业的家庭与个人工作室"
+    ]
+  },
+  lingmao: {
+    description: "灵猫是一家以极速响应与电竞级低延迟著称的高端 IPLC 专线代理品牌。其核心技术优势在于对传输层网络抖动（Jitter）的极致控制，香港沙田节点延迟低至惊人的 15ms，网络抖动维持在 1ms 以内。全节点采用 Shadowsocks 与 VLESS 现代协议，起步套餐 ¥25/月包含 150GB 纯专线高速流量，支持高达 500-1000 Mbps 的瞬时爆发带宽。无论是在外服电竞游戏（如英雄联盟台服、日服瓦罗兰特、Steam 跨区下载）中降低 Ping 值，还是秒开 4K/8K 超高清 HDR 视频流，灵猫都能展现出游刃有余的强悍性能。",
+    tagline: "真实IPLC电竞级低延迟专线 · 15ms极速香港落地 · 150GB充足月度流量",
+    suitableFor: [
+      "对网络交互延迟极度敏感的外服联机与电竞网游玩家",
+      "需要极速同步海外大文件、Git 代码仓库与 Docker 镜像的开发者",
+      "追求 4K 60FPS 极速拖拽、即点即播的影音发烧友",
+      "重视服务品质、愿意为顶级线路体验支付合理预算的进阶用户"
+    ]
+  },
+  flashleap: {
+    description: "闪跃 FlashLeap 专为大带宽吞吐与高并发数据交互场景量身打造，采用新一代 IPLC 纯专线骨干网络。平台在国内骨干端部署了万兆级（10Gbps）网络入口集群，晚高峰时段单节点峰值下载速率实测突破 800 Mbps，YouTube 4K 缓冲区码率稳定达到 120,000 Kbps 以上。起步定价 ¥24/月提供 150GB 充足配额，全系支持 4-6 台设备并发与 VLESS 高级安全伪装。其出色的节点出口分布覆盖亚太与欧美核心枢纽，能够轻松解锁 Netflix 非自制剧与 Disney+ 全区内容，是大吞吐下载与高清视听的品质之选。",
+    tagline: "IPLC纯专线骨干集群 · 800Mbps千兆峰值吞吐 · 150GB大流量高速稳定",
+    suitableFor: [
+      "拥有千兆对称宽带、希望榨干本地网络带宽潜力的极客用户",
+      "全家多终端共享或小型团队多设备协同办公",
+      "海外流媒体 4K/8K 杜比视界高码率影音爱好者",
+      "需要高频传输海量跨境大文件、工程素材的设计与媒体团队"
+    ]
+  },
+  firefly: {
+    description: "萤火虫（Firefly）是一家主打灵活多协议支持与高可用冗余架构的轻量机场。针对特殊敏感时期公网封锁加剧的痛点，萤火虫引入了多线 BGP 自动故障容灾转移机制，当某一条中转链路出现波动时，后端系统可在毫秒级自动切换至备用信道。起步月付仅需 ¥8.00 包含 60GB 实用流量，搭配专属优惠码 `firefly` 可享立减折扣。协议层面除经典 Shadowsocks 外，还深度适配了 Trojan 与 VLESS，全面兼容小火箭、Clash 与各平台客户端，是一条极其适合轻度查阅文献与日常社交的灵巧小梯子。",
+    tagline: "多线BGP智能冗余中转 · ¥8/月轻量起步 · 自动化故障秒级转移高可用",
+    suitableFor: [
+      "轻度使用 Google 学术搜索、查阅科研文献与论文的师生群体",
+      "日常仅需刷刷 X（Twitter）、Telegram 与接收海外工作邮件的人群",
+      "寻求低门槛、免折腾的一键导入型翻墙方案",
+      "常备一条不同机房架构副梯以防网络失联的谨慎用户"
+    ]
+  },
+  kuajiecloud: {
+    description: "跨界（跨界云）专注于为跨境电商出海、跨国远程办公与涉外企业量身定制高性能专线网络。针对 Amazon、eBay、Shopify、TikTok 跨境小店等严格的风控环境，跨界在香港、日本、美国等核心节点全面部署了纯净度极高的原生双 ISP 住宅级固定出口 IP，杜绝因机房数据中心黑名单 IP 导致的店铺封号与关联风险。套餐起步 ¥20/月提供 120GB 专线配额，骨干网采用沪日、深港端到端物理专线，晚高峰实机测速下行稳定在 790 Mbps，为出海业务保驾护航。",
+    tagline: "跨境电商与涉外办公专线 · 原生双ISP住宅IP防关联 · 120GB充裕月度配额",
+    suitableFor: [
+      "TikTok 跨境直播、短视频运营与多账号矩阵管理团队",
+      "Amazon、Shopify 等独立站与跨境电商卖家防店铺风控关联",
+      "需要经常登录海外银行、券商以及涉外财务系统的商务人员",
+      "对 IP 纯净度和安全性有极端要求的商业机构与自由职业者"
+    ]
+  },
+  yinxingren: {
+    description: "隐形人是 2026 年度技术综合评分高达 9.6 分的顶级纯内网专线机场代表。其网络架构严格遵循'物理隔离、绝不公网裸奔'的原则，全节点均走深港与沪日物理海底光缆内网通道，无视任何外部 GFW 的主动探测与深度包检测。起步套餐配备 160GB 大容量专线流量，全节点平均 Ping 延迟低至 14-18ms，晚高峰实测下载带宽超过 830 Mbps，YouTube 4K 测速峰值冲至 125,000 Kbps。专属优惠码 `yxr888` 更进一步提升了其综合性价比，是无可争议的全能旗舰级标杆。",
+    tagline: "全链路物理海底光纤专线 · 综合评分9.6分全能旗舰 · 160GB大容量极速出口",
+    suitableFor: [
+      "对节点稳定性、连接速度与丢包率有着全方位苛刻要求的挑剔用户",
+      "需要全天候不间断调用国外顶级 AI 大模型 API 的人工智能研发人员",
+      "重度 4K 影音爱好者、外服电竞联机与跨国远程桌面操控",
+      "希望一步到位、彻底告别频繁换机场烦恼的成熟出海用户"
+    ]
+  },
+  feiv: {
+    description: "飞V 是目前网络代理市场中极具颠覆性的价格破局者，以低至 ¥4.9/月起步的惊人底价重新定义了平价梯子的性价比基准。尽管定价低至一杯奶茶的零头，但飞V 依然保持了 300 Mbps 的可用端口带宽与多入口中转网络支持。全节点提供香港、日本、美国等核心出海枢纽，能够满足日常网页浏览、社交媒体互动与 1080P/4K 高清视频播放需求。全系支持主流客户端一键导入，免除一切复杂配置流程，是学生党、预算极其紧张的用户以及资深玩家必备的'零花钱级备用神机'。",
+    tagline: "突破性行业底价先锋 · ¥4.9/月极低起步门槛 · 零花钱级高实用备用神梯",
+    suitableFor: [
+      "预算极度有限、希望将网络支出压缩至最低限度的学生党与初学者",
+      "寻找一条价格几乎可以忽略不计、长久备用的防断网副梯",
+      "网络需求以日常查资料、看维基百科、刷推与文字办公为主的轻度用户",
+      "想小成本体验科学上网、验证本地宽带连接效果的新人"
+    ]
+  },
+  laddercloud: {
+    description: "梯子云 LadderCloud 是一家深耕网络加速领域多年的老牌专线中转服务商，以扎实稳健的运维功底与极低故障率赢得了良好口碑。其网络采用多入口智能 BGP 调度，能够根据中国电信、联通、移动的骨干网负载动态调度流量至空闲入关端口，避免单点过载造成的丢包。起步套餐 ¥25/月包含 125GB 高速中转流量，端口带宽达到 500 Mbps，设备数宽松支持 4 台并发。全节点深度适配 Netflix、Disney+ 与 YouTube 4K，是追求长期平稳运行、不喜频繁折腾用户的省心之选。",
+    tagline: "老牌稳健运营典范 · 多入口BGP智能动态调度 · 125GB高速均衡专线中转",
+    suitableFor: [
+      "追求长期稳定、不愿频繁折腾更换机场的稳健型用户",
+      "家庭多成员共享或多设备同时使用",
+      "日常办公兼顾海外主流流媒体高清追剧的人群",
+      "重视服务商运营资历与长期工单运维可靠性的老网民"
+    ]
+  },
+  wavenet: {
+    description: "浪网 WaveNet 是一家专注于高端网络通信体验与自研客户端线路调优的优质专线品牌。其团队深度重写了后端路由分流引擎，能够针对中国长城宽带、广电宽带、各类校园网以及晚高峰严重拥堵的劣质网络环境进行自适应前向纠错（FEC）与拥塞控制。起步套餐 ¥30/月提供 150GB 豪华专线流量与 600 Mbps 高端口速率，支持多达 5 台设备同时并发。海外节点精选优质数据中心，晚高峰综合评分达 9.4 分，无论是视频推流、跨国协同还是复杂网页交互均丝滑流畅。",
+    tagline: "自研优化专线架构 · 600Mbps高带宽爆发 · 恶劣网络智能纠错与多设备并发",
+    suitableFor: [
+      "使用长城宽带、广电网络或校园网等特殊恶劣网络环境的用户",
+      "有 5 台以上手机、平板、电脑需要同时挂代理的数码重度爱好者",
+      "从事涉外音视频会议、跨国直播与远程桌面协助的商务精英",
+      "对网络突发抗拥堵能力与数据流平滑度有专业要求的技术人员"
+    ]
+  },
+  lingdongcloud: {
+    description: "灵动云主打灵活敏捷的网络连接体验与轻量低耗的客户端架构。为了解决传统代理客户端在移动端（手机与平板）后台常驻时发热大、耗电快的痛点，灵动云针对 VLESS 与 Shadowsocks 协议进行了传输层握手包极简优化，大幅降低了心跳开销。套餐起步 ¥20/月提供 100GB 均衡专线流量，官方直供特惠免输优惠码即可直达底价。节点覆盖亚太核心机房，支持秒级一键导入小火箭、Clash 与 Sing-box，是智能手机全天候挂后台科学上网的绝佳伴侣。",
+    tagline: "移动端低功耗专属优化 · 100GB均衡专线配置 · 全天候轻量无感顺畅出海",
+    suitableFor: [
+      "以 iPhone、iPad、Android 手机为绝对主力上网设备的移动端用户",
+      "需要客户端全天候常驻后台、接收实时海外推送通知的人群",
+      "追求即开即用、无需频繁开关代理开关的无感式上网体验",
+      "中度日常科学上网、注重手机电量与设备发热的随身族"
+    ]
+  },
+  quanqiuyun: {
+    description: "全球云专注于构建全球多区域深层次覆盖的国际专线代理网络。不同于普通机场仅聚焦于港日美少数几个热门地区，全球云在英国伦敦 Telehouse、德国法兰克福、新加坡、台湾等地均部署了高品质专线落地节点。起步套餐 ¥20/月配备 120GB 专线流量，专属优惠码 `tt88` 可享专属折扣。依托其广阔的全球机房分布，不仅能流畅解锁主流的 Netflix 4K，还能顺畅访问英国 BBC iPlayer、日本 Abema TV、台湾巴哈姆特以及欧洲本地化涉外文献库，堪称跨国学术与多元文化探索的神器。",
+    tagline: "全球多区域深层专线覆盖 · 120GB实用流量 · 英德美日港多元流媒体全解锁",
+    suitableFor: [
+      "欧洲、英国、东南亚等多小众国家节点访问需求的留学生与外贸人员",
+      "小众海外流媒体（如 BBC iPlayer、Abema、巴哈姆特）爱好者",
+      "跨国学术研究、查阅欧洲法律合规数据库与科研文献的高校师生",
+      "需要多国家 IP 轮换以进行市场调查与竞品分析的数据分析师"
+    ]
+  }
+};
+
+// 1. Update src/data/airports.json
+const airportsJsonPath = path.resolve(__dirname, '../src/data/airports.json');
+const airports = JSON.parse(fs.readFileSync(airportsJsonPath, 'utf8'));
+
+airports.forEach(ap => {
+  if (brandDescriptions[ap.id]) {
+    const d = brandDescriptions[ap.id];
+    ap.description = d.description;
+    ap.tagline = d.tagline;
+    ap.suitableFor = d.suitableFor;
+  }
+});
+
+fs.writeFileSync(airportsJsonPath, JSON.stringify(airports, null, 2), 'utf8');
+console.log('✅ Updated src/data/airports.json with rich descriptions.');
+
+// 2. Update src/data/airports.ts
+const airportsTsPath = path.resolve(__dirname, '../src/data/airports.ts');
+let airportsTs = fs.readFileSync(airportsTsPath, 'utf8');
+
+const regex = /export const airportsData: Airport\[\] = \[[\s\S]*?\];/;
+const newCode = `export const airportsData: Airport[] = ${JSON.stringify(airports, null, 2)};`;
+airportsTs = airportsTs.replace(regex, newCode);
+fs.writeFileSync(airportsTsPath, airportsTs, 'utf8');
+console.log('✅ Updated src/data/airports.ts with rich descriptions.');
+
+// 3. Update public/js/airports-data.js and js/airports-data.js
+const jsPath1 = path.resolve(__dirname, '../public/js/airports-data.js');
+const jsPath2 = path.resolve(__dirname, '../js/airports-data.js');
+const jsCode = `/**
+ * vpnjichang.wiki - 统一机场数据源
+ * 确保在本地 file:// 协议和任何 Web 服务器上均可零依赖秒级执行
+ */
+window.AIRPORTS_DATA = ${JSON.stringify(airports, null, 2)};
+`;
+fs.writeFileSync(jsPath1, jsCode, 'utf8');
+fs.writeFileSync(jsPath2, jsCode, 'utf8');
+console.log('✅ Updated client-side airports-data.js files.');
