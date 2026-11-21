@@ -2,8 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Sidebar from '../components/Sidebar.astro';
 
-const title = '联系我们 · 勘误反馈与商务沟通 - vpnjichang.wiki';
-const description = '联系 vpnjichang.wiki 评测团队。接受数据勘误、商家线路入驻实测申请与学术技术交流。';
+const title = '联系我们 · 官方商务合作与送测勘误渠道 - vpnjichang.wiki';
+const description = '联系 vpnjichang.wiki 评测团队。支持 Telegram 即时在线联络与 Gmail 官方商务合作。接受机场送测入驻、折扣优惠码上架、数据勘误与学术技术交流。';
 
 const breadcrumbs = [
   { name: '首页', url: '/' },
@@ -20,32 +20,92 @@ const breadcrumbs = [
     <div class="article-container">
       <div class="article-main">
         <header class="article-header">
-          <span class="section-tag">Contact Us</span>
-          <h1 class="section-title">联系我们与反馈渠道</h1>
+          <span class="section-tag">Contact & Business</span>
+          <h1 class="section-title">官方商务合作与咨询联络渠道</h1>
           <div class="article-meta">
-            <span>官方联系邮箱: contact@vpnjichang.wiki</span>
-            <span>响应时效: 1-2 个工作日</span>
+            <span>官方 TG: @xintangtang</span>
+            <span>官方 Gmail: xintangtang888@gmail.com</span>
+            <span>响应时效: 即时响应 / 24小时内必复</span>
           </div>
         </header>
-        <div class="article-content">
-          <h2>一、数据勘误与技术反馈</h2>
-          <p>
-            我们力求本站所有价格、流量与节点参数的精准性。如果您发现某家机场的资费发生调整、节点倍率变动或网络出现长期大面积故障，欢迎第一时间向我们发送邮件勘误。
-          </p>
 
-          <h2>二、服务商送测与入驻须知</h2>
-          <p>如果您是机场运营方并希望参与我们的榜单实测，请在来信中提供：</p>
+        <div class="article-content">
+          <!-- 官方双通道卡片 -->
+          <div class="contact-channels-grid" style="margin: 20px 0 30px;">
+            <!-- Telegram 卡片 -->
+            <div class="contact-channel-card" style="background:#ffffff; border: 2px solid #93c5fd; box-shadow: 0 4px 14px rgba(37,99,235,0.08);">
+              <div class="contact-channel-top">
+                <div class="contact-channel-meta">
+                  <div class="contact-channel-icon icon-tg">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="contact-channel-name" style="font-size: 1.08rem;">Telegram 商务与客服直通车</div>
+                    <div style="font-size: 0.82rem; color: #64748b;">即时在线沟通 · 推荐优先联络</div>
+                  </div>
+                </div>
+                <span class="contact-channel-badge badge-tg" style="font-size: 0.82rem; padding: 3px 10px;">推荐首选</span>
+              </div>
+              <div class="contact-channel-value" style="font-size: 1.15rem;">
+                <span style="color: #0284c7;">@xintangtang</span>
+                <span style="font-size: 0.8rem; color: #64748b; font-weight: normal;">TG Handle</span>
+              </div>
+              <div class="contact-actions-row">
+                <a href="https://t.me/xintangtang" target="_blank" rel="noopener nofollow" class="btn-contact-action btn-action-primary-tg" style="padding: 10px 18px;">
+                  <span>🚀 立即启动 Telegram 对话</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Gmail 卡片 -->
+            <div class="contact-channel-card" style="background:#ffffff; border: 2px solid #fed7aa; box-shadow: 0 4px 14px rgba(234,67,53,0.08);">
+              <div class="contact-channel-top">
+                <div class="contact-channel-meta">
+                  <div class="contact-channel-icon icon-gmail">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="contact-channel-name" style="font-size: 1.08rem;">Gmail 官方联络与工单邮箱</div>
+                    <div style="font-size: 0.82rem; color: #64748b;">工单存档与商务合同 · 24小时内回复</div>
+                  </div>
+                </div>
+                <span class="contact-channel-badge badge-gmail" style="font-size: 0.82rem; padding: 3px 10px;">官方邮箱</span>
+              </div>
+              <div class="contact-channel-value" style="font-size: 1.15rem;">
+                <span style="color: #ea4335;">xintangtang888@gmail.com</span>
+                <span style="font-size: 0.8rem; color: #64748b; font-weight: normal;">Gmail Address</span>
+              </div>
+              <div class="contact-actions-row">
+                <a href="mailto:xintangtang888@gmail.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%2F%E5%92%A8%E8%AF%A2%E5%8F%8D%E9%A6%88" class="btn-contact-action btn-action-primary-gmail" style="padding: 10px 18px;">
+                  <span>✉️ 立即发送邮件 (Mailto)</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <h2>一、服务商送测与入驻须知</h2>
+          <p>
+            如果您是优质代理/机场服务商的团队运营方，并希望在 vpnjichang.wiki 上架评测报告、横向对比表格或申请首页精选推荐，请在来信或 TG 沟通中提供：
+          </p>
           <ul>
-            <li>品牌官方域名与正式运营时长（需稳定运营 1 年以上）；</li>
-            <li>国内入口 BGP 架构与跨境专线机房证明；</li>
-            <li>供实验室自动化探针测试的测试订阅；</li>
-            <li>注意：本站绝不接受任何形式的“付费买排名”行为，所有上榜品牌必须接受统一的标准压测。</li>
+            <li><strong>品牌背景与运营资质：</strong>品牌官方域名、主体运营团队及稳定运营时长（通常需稳定运行 1 年以上，杜绝跑路风险）；</li>
+            <li><strong>物理线路拓扑证明：</strong>国内入口 BGP 架构、跨境专线（IPLC/IEPL）协议类型及机房冗余出口说明；</li>
+            <li><strong>自动化压测测试订阅：</strong>供评测实验室进行 7×24 小时晚高峰自动化脚本测速、丢包率记录与流媒体解锁审计；</li>
+            <li><strong>读者专属折扣福利：</strong>建议附带本站读者专属的优惠码或直降促销政策（如 85 折/9 折专享码）。</li>
           </ul>
 
-          <h2>三、联系方式</h2>
+          <h2>二、数据勘误与实时反馈</h2>
           <p>
-            <strong>官方邮箱：</strong><code>contact@vpnjichang.wiki</code><br />
-            <strong>GitHub 仓库：</strong><a href="https://github.com/tangtang856/vpnjichang" target="_blank" rel="noopener">tangtang856/vpnjichang</a>
+            我们力求本站所有价格、流量配额、节点参数与解锁能力的客观准确性。如果您在日常使用中发现某家品牌的套餐资费调整、倍率变动、新增线路或出现故障，欢迎随时通过上述渠道告知，我们将在核实后 24 小时内更新修正全站数据。
+          </p>
+
+          <h2>三、商务合作保密与公正承诺</h2>
+          <p>
+            本站秉持第三方独立客观的评测立场，绝不接受任何形式的“付费虚假好评”或“付费洗白黑历史”。同时，我们对所有商务洽谈内容、合作细节与送测资料严格执行保密准则，绝不向任何第三方公开透露。
           </p>
         </div>
       </div>
