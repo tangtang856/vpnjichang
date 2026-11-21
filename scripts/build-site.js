@@ -12,7 +12,7 @@ const ROOT_DIR = path.resolve(__dirname, '..');
 const airportsData = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'src/data/airports.json'), 'utf8'));
 
 // 通用页面头信息生成函数
-function renderHead({ title, description, canonical, depth, schemaJson }) {
+function renderHead({ title, description, canonical, depth, schemaJson, keywords }) {
   const relCss = depth === 0 ? 'css/style.css' : '../css/style.css';
   const relFav = depth === 0 ? 'images/favicon.svg' : '../images/favicon.svg';
 
@@ -23,7 +23,7 @@ function renderHead({ title, description, canonical, depth, schemaJson }) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${title}</title>
   <meta name="description" content="${description}">
-  <link rel="canonical" href="${canonical}">
+  ${keywords ? `<meta name="keywords" content="${keywords}">\n  ` : ''}<link rel="canonical" href="${canonical}">
   <meta name="robots" content="index, follow">
   
   <!-- Open Graph / 社交卡片 -->
