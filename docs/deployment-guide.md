@@ -19,7 +19,7 @@
 2. 在左侧菜单点击 **Workers & Pages** -> 点击 **Create application** -> 选择 **Pages** 选项卡。
 3. 点击 **Connect to Git**，授权并选中您的 GitHub 远程仓库：
    ```text
-   tangtang856/vpnjichang.wiki
+   tangtang856/vpnjichang
    ```
 4. 点击 **Begin setup**。
 

@@ -3,7 +3,7 @@
 - **验收时间**：2026-03-15
 - **测试环境**：Windows 11 / Node.js v20.18.0 / 原生纯静态 HTML+CSS 架构
 - **正式域名**：`https://vpnjichang.wiki`
-- **GitHub 仓库**：`https://github.com/tangtang856/vpnjichang.wiki`
+- **GitHub 仓库**：`https://github.com/tangtang856/vpnjichang`
 - **主攻核心关键词**：`机场推荐` `机场节点` `性价比机场` `梯子推荐` `vpn` `vpn机场` `vpn节点` `vpn推荐`
 - **收录核心品牌库**：14 家真实品牌（全部提取自 `jiediantuijian.shop` 真实资费并绑定专属推广 AFF 链接）
 - **审计页面总数**：68 个 HTML 页面（67 个正式生产页面 + 1 个 404 错误页面）
