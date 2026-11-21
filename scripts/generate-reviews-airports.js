@@ -375,6 +375,15 @@ ${renderBreadcrumbs(depth, [
           </p>
         </div>
 
+        ${ap.coupon ? `
+        <div style="margin: 18px 0 24px; padding: 14px 20px; background: #fff1f2; border: 1px dashed #f43f5e; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <span style="font-size: 0.9rem; color: #9f1239; font-weight: 700;">🎁 专属优惠码：</span>
+            <code style="font-size: 1.15rem; font-weight: 800; color: #e11d48; background: #ffe4e6; padding: 2px 8px; border-radius: 4px;">${ap.coupon}</code>
+          </div>
+          <span style="font-size: 0.85rem; color: #be123c;">在官方结账页面输入此优惠码可享折上折优惠</span>
+        </div>` : ''}
+
         <div class="article-content">
           <!-- 5. 机场基本介绍 -->
           <h2>一、${ap.name} 基本介绍</h2>

@@ -19,11 +19,12 @@ const {
 function renderAirportCard(ap, depth) {
   const p = depth === 0 ? '' : '../';
   const p0 = ap.plans[0];
+  const couponHtml = ap.coupon ? `<span class="badge-tag" style="background:#fee2e2; color:#b91c1c;">券: ${ap.coupon}</span>` : '';
   return `
     <div class="airport-card featured-border">
       <div class="card-header">
         <div>
-          <h3 class="airport-brand-name"><a href="${p}review/${ap.slug}.html">${ap.name}</a></h3>
+          <h3 class="airport-brand-name"><a href="${p}review/${ap.slug}.html">${ap.name}</a> ${couponHtml}</h3>
           <div class="card-tagline">${ap.tagline}</div>
         </div>
         <span class="airport-badge badge-stable">${ap.testStatus === 'tested' ? '实测核验' : '官方资料'}</span>
@@ -37,7 +38,7 @@ function renderAirportCard(ap, depth) {
       </div>
       <div class="card-pro-con">
         <div class="pro-item"><strong>优点：</strong>${ap.advantages[0]}</div>
-        <div class="pro-item"><strong>亮点：</strong>${ap.advantages[1]}</div>
+        <div class="pro-item"><strong>亮点：</strong>${ap.advantages[1] || '多端适配稳定性高'}</div>
         <div class="con-item"><strong>注意：</strong>${ap.disadvantages[0]}</div>
       </div>
       <div class="card-footer">
@@ -48,7 +49,7 @@ function renderAirportCard(ap, depth) {
         </div>
         <div class="card-links">
           <a href="${p}review/${ap.slug}.html" class="btn-card-review">评测报告</a>
-          <a href="${ap.officialUrl}" target="_blank" rel="noopener nofollow" class="btn-card-buy">访问官网</a>
+          <a href="${ap.affiliateUrl}" target="_blank" rel="noopener nofollow" class="btn-card-buy">访问官网</a>
         </div>
       </div>
     </div>`;

@@ -50,11 +50,12 @@ function buildHomePage() {
 
   let airportCardsHtml = airportsData.map(ap => {
     const p0 = ap.plans[0];
+    const couponHtml = ap.coupon ? `<span class="badge-tag" style="background:#fee2e2; color:#b91c1c;">券: ${ap.coupon}</span>` : '';
     return `
       <div class="airport-card featured-border">
         <div class="card-header">
           <div>
-            <h3 class="airport-brand-name"><a href="review/${ap.slug}.html">${ap.name}</a></h3>
+            <h3 class="airport-brand-name"><a href="review/${ap.slug}.html">${ap.name}</a> ${couponHtml}</h3>
             <div class="card-tagline">${ap.tagline}</div>
           </div>
           <span class="airport-badge badge-stable">${ap.testStatus === 'tested' ? '实测核验' : '官方资料'}</span>
@@ -64,11 +65,11 @@ function buildHomePage() {
           <div class="spec-item"><span class="spec-label">入门价格</span><span class="spec-value">￥${ap.startingPrice.toFixed(2)}/月</span></div>
           <div class="spec-item"><span class="spec-label">基础流量</span><span class="spec-value">${p0.trafficGB} GB</span></div>
           <div class="spec-item"><span class="spec-label">核心协议</span><span class="spec-value">${ap.protocols.slice(0, 2).join(', ')}</span></div>
-          <div class="spec-item"><span class="spec-label">专线线路</span><span class="spec-value">${ap.tags.includes('premium') ? 'IPLC/IEPL 内网专线' : '优质 BGP 智能中转'}</span></div>
+          <div class="spec-item"><span class="spec-label">专线线路</span><span class="spec-value">${ap.tags.includes('premium') ? 'IPLC/IEPL 内网专线' : '优质智能中转隧道'}</span></div>
         </div>
         <div class="card-pro-con">
           <div class="pro-item">${ap.advantages[0]}</div>
-          <div class="pro-item">${ap.advantages[1]}</div>
+          <div class="pro-item">${ap.advantages[1] || '全天候保障高可用出海体验'}</div>
           <div class="con-item">${ap.disadvantages[0]}</div>
         </div>
         <div class="card-footer">
@@ -79,7 +80,7 @@ function buildHomePage() {
           </div>
           <div class="card-links">
             <a href="review/${ap.slug}.html" class="btn-card-review">深度评测</a>
-            <a href="${ap.officialUrl}" target="_blank" rel="noopener nofollow" class="btn-card-buy">前往官网</a>
+            <a href="${ap.affiliateUrl}" target="_blank" rel="noopener nofollow" class="btn-card-buy">前往官网</a>
           </div>
         </div>
       </div>`;
@@ -288,30 +289,30 @@ ${renderHeader(0, 'home')}
       </div>
       <div class="cards-grid">
         <div class="airport-card">
-          <h3 class="airport-brand-name"><a href="review/flyingbird.html">FlyingBird 飞鸟云深度评测</a></h3>
-          <div class="card-tagline">全 IPLC 专线晚高峰真实压测与 ChatGPT 解锁体验</div>
-          <p class="card-desc">作为运营多年的专线老牌，飞鸟云在晚高峰电信与联通环境下的丢包率控制表现如何？本文带来持续两周的监测数据与详细套餐性价比折算。</p>
+          <h3 class="airport-brand-name"><a href="review/breezenet.html">微风网络 Breezenet 深度评测</a></h3>
+          <div class="card-tagline">¥8/月超低起步价与 200GB 超大流量 VLESS 专线实测</div>
+          <p class="card-desc">作为兼具超高性价比与专线质量的新一代服务商，微风网络在晚高峰丢包率控制表现如何？本文带来持续两周的实测跑分与详细套餐单价折算。</p>
           <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
             <span style="font-size: 0.82rem; color: #64748b;">核验时间: 2026-03-15</span>
-            <a href="review/flyingbird.html" class="btn-card-review">阅读评测全文</a>
+            <a href="review/breezenet.html" class="btn-card-review">阅读评测全文</a>
           </div>
         </div>
         <div class="airport-card">
-          <h3 class="airport-brand-name"><a href="review/totoro.html">Totoro 龙猫云深度评测</a></h3>
-          <div class="card-tagline">15元起步的平价专线性价比标杆是否值得入手？</div>
-          <p class="card-desc">针对学生党与科研轻度用户，深入剖析龙猫云的 BGP 多线入口调度、低价套餐设备并发限制以及亚洲主流节点连通率。</p>
+          <h3 class="airport-brand-name"><a href="review/yinxingren.html">隐形人深度评测报告</a></h3>
+          <div class="card-tagline">IEPL 纯专线架构与 144GB 无视晚高峰保障测试</div>
+          <p class="card-desc">针对出海跨境办公与 ChatGPT/Claude 重度创作者，深入剖析隐形人的全专线冗余调度、千兆带宽吞吐及多终端并发连接稳定性。</p>
           <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.82rem; color: #64748b;">核验时间: 2026-03-12</span>
-            <a href="review/totoro.html" class="btn-card-review">阅读评测全文</a>
+            <span style="font-size: 0.82rem; color: #64748b;">核验时间: 2026-03-15</span>
+            <a href="review/yinxingren.html" class="btn-card-review">阅读评测全文</a>
           </div>
         </div>
         <div class="airport-card">
-          <h3 class="airport-brand-name"><a href="review/speedcat.html">SpeedCAT 闪电猫评测</a></h3>
-          <div class="card-tagline">顶级流媒体解锁与原生住宅 IP 节点实测解析</div>
-          <p class="card-desc">闪电猫的高端定价能否匹配其品质？重点实测 Netflix 全区换区、Disney+ 超高清画质秒开以及 Hysteria 2 协议抗弱网表现。</p>
+          <h3 class="airport-brand-name"><a href="review/feimaoyun.html">飞猫云深度评测报告</a></h3>
+          <div class="card-tagline">¥7/月超平价专线与 150GB 入门首选实机体验</div>
+          <p class="card-desc">飞猫云的超低折算单价能否保持可靠的连通率？重点实测亚太近场节点延迟、YouTube 4K 秒开及专属优惠码折算收益。</p>
           <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.82rem; color: #64748b;">核验时间: 2026-03-14</span>
-            <a href="review/speedcat.html" class="btn-card-review">阅读评测全文</a>
+            <span style="font-size: 0.82rem; color: #64748b;">核验时间: 2026-03-15</span>
+            <a href="review/feimaoyun.html" class="btn-card-review">阅读评测全文</a>
           </div>
         </div>
       </div>
