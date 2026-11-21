@@ -1,0 +1,73 @@
+---
+export interface PageRef {
+  title: string;
+  url: string;
+  category?: string;
+}
+
+interface Props {
+  prev?: PageRef | null;
+  next?: PageRef | null;
+  type?: 'blog' | 'guide' | 'review' | 'glossary';
+  indexUrl?: string;
+}
+
+const {
+  prev,
+  next,
+  type = 'blog',
+  indexUrl = '/blog/index.html'
+} = Astro.props;
+
+const typeNames: Record<string, string> = {
+  blog: '文章',
+  guide: '教程',
+  review: '评测',
+  glossary: '词条'
+};
+const typeName = typeNames[type] || '文章';
+---
+
+<nav class="article-pagination" aria-label={`${typeName}翻页导航`}>
+  <div class="pagination-col pagination-prev">
+    {prev ? (
+      <a href={prev.url} class="pagination-card" title={prev.title}>
+        <div class="pagination-meta">
+          <span class="pagination-arrow">&larr;</span>
+          <span class="pagination-label">上一篇{typeName}</span>
+          {prev.category && <span class="pagination-tag">{prev.category}</span>}
+        </div>
+        <div class="pagination-heading">{prev.title}</div>
+      </a>
+    ) : (
+      <a href={indexUrl} class="pagination-card pagination-fallback" title={`浏览更多${typeName}`}>
+        <div class="pagination-meta">
+          <span class="pagination-arrow">&larr;</span>
+          <span class="pagination-label">已是第一篇</span>
+        </div>
+        <div class="pagination-heading">返回{typeName}列表导航</div>
+      </a>
+    )}
+  </div>
+
+  <div class="pagination-col pagination-next">
+    {next ? (
+      <a href={next.url} class="pagination-card text-right" title={next.title}>
+        <div class="pagination-meta justify-end">
+          {next.category && <span class="pagination-tag">{next.category}</span>}
+          <span class="pagination-label">下一篇{typeName}</span>
+          <span class="pagination-arrow">&rarr;</span>
+        </div>
+        <div class="pagination-heading">{next.title}</div>
+      </a>
+    ) : (
+      <a href={indexUrl} class="pagination-card text-right pagination-fallback" title={`浏览更多${typeName}`}>
+        <div class="pagination-meta justify-end">
+          <span class="pagination-label">已是最新篇</span>
+          <span class="pagination-arrow">&rarr;</span>
+        </div>
+        <div class="pagination-heading">浏览全部{typeName}目录</div>
+      </a>
+    )}
+  </div>
+</nav>

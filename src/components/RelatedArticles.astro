@@ -1,0 +1,47 @@
+---
+export interface RelatedItem {
+  title: string;
+  url: string;
+  category?: string;
+  date?: string;
+  summary?: string;
+}
+
+interface Props {
+  title?: string;
+  items: RelatedItem[];
+  moreUrl?: string;
+  moreText?: string;
+}
+
+const {
+  title = "📚 猜你还想看 · 相关深度阅读",
+  items,
+  moreUrl = "/blog/index.html",
+  moreText = "查看全部文章 &rarr;"
+} = Astro.props;
+---
+
+{items && items.length > 0 && (
+  <section class="related-section">
+    <div class="related-section-header">
+      <h3 class="related-section-title">{title}</h3>
+      {moreUrl && (
+        <a href={moreUrl} class="related-more-link" set:html={moreText} />
+      )}
+    </div>
+    <div class="related-grid">
+      {items.map(item => (
+        <a href={item.url} class="related-card" title={item.title}>
+          <div class="related-card-meta">
+            {item.category && <span class="related-badge">{item.category}</span>}
+            {item.date && <span class="related-date">{item.date}</span>}
+          </div>
+          <h4 class="related-card-title">{item.title}</h4>
+          {item.summary && <p class="related-card-desc">{item.summary}</p>}
+          <span class="related-card-link">阅读全文 &rarr;</span>
+        </a>
+      ))}
+    </div>
+  </section>
+)}

@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Sidebar from '../../components/Sidebar.astro';
+import PaginationNav, { type PageRef } from '../../components/PaginationNav.astro';
+import SiteInternalLinks from '../../components/SiteInternalLinks.astro';
 import { glossaryTopics } from '../../data/topics';
 
 export function getStaticPaths() {
@@ -90,13 +92,30 @@ export function getStaticPaths() {
     }
   ];
 
-  return glossaryTopics.map(t => {
+  return glossaryTopics.map((t, index) => {
     const detail = glossaryDetails.find(d => d.slug === t.slug);
+    const prev = index > 0 ? glossaryTopics[index - 1] : glossaryTopics[glossaryTopics.length - 1];
+    const next = index < glossaryTopics.length - 1 ? glossaryTopics[index + 1] : glossaryTopics[0];
+
+    const prevRef: PageRef = {
+      title: prev.h1.split(' · ')[0],
+      url: `/glossary/${prev.slug}.html`,
+      category: '网络百科'
+    };
+
+    const nextRef: PageRef = {
+      title: next.h1.split(' · ')[0],
+      url: `/glossary/${next.slug}.html`,
+      category: '网络百科'
+    };
+
     return {
       params: { slug: t.slug },
       props: {
         topic: t,
-        content: detail ? detail.content : ''
+        content: detail ? detail.content : '',
+        prevRef,
+        nextRef
       }
     };
   });
@@ -105,9 +124,11 @@ export function getStaticPaths() {
 interface Props {
   topic: (typeof glossaryTopics)[0];
   content: string;
+  prevRef: PageRef;
+  nextRef: PageRef;
 }
 
-const { topic, content } = Astro.props;
+const { topic, content, prevRef, nextRef } = Astro.props;
 
 const breadcrumbs = [
   { name: '首页', url: '/' },
@@ -162,6 +183,16 @@ const schema = {
               <a href="/ranking/overall.html" class="btn-secondary">综合排行榜</a>
             </div>
           </div>
+          <!-- 上一个 / 下一个词条导航 -->
+          <PaginationNav
+            prev={prevRef}
+            next={nextRef}
+            type="glossary"
+            indexUrl="/glossary/index.html"
+          />
+
+          <!-- 全站核心资源互联直达 -->
+          <SiteInternalLinks />
         </div>
       </article>
       <Sidebar />

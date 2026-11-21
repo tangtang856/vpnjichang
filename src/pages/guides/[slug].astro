@@ -2,16 +2,62 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Sidebar from '../../components/Sidebar.astro';
+import PaginationNav from '../../components/PaginationNav.astro';
+import RelatedArticles, { type RelatedItem } from '../../components/RelatedArticles.astro';
+import SiteInternalLinks from '../../components/SiteInternalLinks.astro';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides');
-  return guides.map(entry => ({
-    params: { slug: entry.data.slug },
-    props: { entry }
-  }));
+  // 按平台与 slug 排序，确保顺序稳定一致
+  const sortedGuides = guides.sort((a, b) => a.data.platform.localeCompare(b.data.platform) || a.data.slug.localeCompare(b.data.slug));
+
+  return sortedGuides.map((entry, index) => {
+    const prev = index > 0 ? sortedGuides[index - 1] : null;
+    const next = index < sortedGuides.length - 1 ? sortedGuides[index + 1] : null;
+
+    // 智能筛选 3 篇相关教程
+    let related = sortedGuides
+      .filter(g => g.data.slug !== entry.data.slug && g.data.platform === entry.data.platform)
+      .slice(0, 3);
+
+    if (related.length < 3) {
+      const others = sortedGuides.filter(g => g.data.slug !== entry.data.slug && !related.some(r => r.data.slug === g.data.slug));
+      related = related.concat(others.slice(0, 3 - related.length));
+    }
+
+    const prevRef = prev ? {
+      title: prev.data.h1.split(' · ')[0].split('：')[0] || prev.data.title,
+      url: `/guides/${prev.data.slug}.html`,
+      category: prev.data.platform
+    } : null;
+
+    const nextRef = next ? {
+      title: next.data.h1.split(' · ')[0].split('：')[0] || next.data.title,
+      url: `/guides/${next.data.slug}.html`,
+      category: next.data.platform
+    } : null;
+
+    const relatedItems: RelatedItem[] = related.map(r => ({
+      title: r.data.h1,
+      url: `/guides/${r.data.slug}.html`,
+      category: r.data.platform,
+      date: '实测推荐',
+      summary: r.data.summary
+    }));
+
+    return {
+      params: { slug: entry.data.slug },
+      props: {
+        entry,
+        prevRef,
+        nextRef,
+        relatedItems
+      }
+    };
+  });
 }
 
-const { entry } = Astro.props;
+const { entry, prevRef, nextRef, relatedItems } = Astro.props;
 const { Content } = await render(entry);
 const { data } = entry;
 
@@ -88,18 +134,24 @@ const schema = {
             </div>
           )}
 
-          <div style="margin-top: 40px; padding: 24px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
-            <h3 style="margin-top: 0; font-size: 1.15rem; color: #1e293b;">🚀 延伸阅读与选购推荐</h3>
-            <p style="font-size: 0.92rem; color: #64748b; margin-bottom: 16px;">
-              配置好客户端后，您可以参考我们的选购排行榜或专题推荐，挑选稳定抗封锁的高质量机场节点：
-            </p>
-            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-              <a href="/recommend/budget.html" class="btn-primary" style="font-size: 0.85rem;">性价比机场推荐</a>
-              <a href="/recommend/premium.html" class="btn-secondary" style="font-size: 0.85rem;">IPLC 高端专线</a>
-              <a href="/ranking/overall.html" class="btn-secondary" style="font-size: 0.85rem;">机场综合排行榜</a>
-              <a href="/compare.html" class="btn-secondary" style="font-size: 0.85rem;">机场横向对比工具</a>
-            </div>
-          </div>
+          <!-- 上一篇 / 下一篇 教程导航 -->
+          <PaginationNav
+            prev={prevRef}
+            next={nextRef}
+            type="guide"
+            indexUrl="/guides/index.html"
+          />
+
+          <!-- 推荐相关实操教程 -->
+          <RelatedArticles
+            title="📱 推荐相关客户端实操教程"
+            items={relatedItems}
+            moreUrl="/guides/index.html"
+            moreText="浏览全部 30 篇配置指南 &rarr;"
+          />
+
+          <!-- 全站核心资源互联直达 -->
+          <SiteInternalLinks />
         </div>
       </article>
       <Sidebar />

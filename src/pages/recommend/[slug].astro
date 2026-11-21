@@ -2,16 +2,34 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Sidebar from '../../components/Sidebar.astro';
 import AirportCard from '../../components/AirportCard.astro';
+import PaginationNav, { type PageRef } from '../../components/PaginationNav.astro';
+import SiteInternalLinks from '../../components/SiteInternalLinks.astro';
 import { recommendTopics, type TopicItem } from '../../data/topics';
 import { airportsData } from '../../data/airports';
 
 export function getStaticPaths() {
-  return recommendTopics.map(topic => {
+  return recommendTopics.map((topic, index) => {
     let filteredAirports = airportsData.filter(a => a.tags && a.tags.includes(topic.filterTag));
     if (filteredAirports.length === 0) filteredAirports = airportsData.slice(0, 6);
+
+    const prev = index > 0 ? recommendTopics[index - 1] : recommendTopics[recommendTopics.length - 1];
+    const next = index < recommendTopics.length - 1 ? recommendTopics[index + 1] : recommendTopics[0];
+
+    const prevRef: PageRef = {
+      title: prev.h1.split('与')[0].split('·')[0],
+      url: `/recommend/${prev.slug}.html`,
+      category: '推荐专题'
+    };
+
+    const nextRef: PageRef = {
+      title: next.h1.split('与')[0].split('·')[0],
+      url: `/recommend/${next.slug}.html`,
+      category: '推荐专题'
+    };
+
     return {
       params: { slug: topic.slug },
-      props: { topic, airports: filteredAirports }
+      props: { topic, airports: filteredAirports, prevRef, nextRef }
     };
   });
 }
@@ -19,9 +37,11 @@ export function getStaticPaths() {
 interface Props {
   topic: TopicItem;
   airports: typeof airportsData;
+  prevRef: PageRef;
+  nextRef: PageRef;
 }
 
-const { topic, airports } = Astro.props;
+const { topic, airports, prevRef, nextRef } = Astro.props;
 
 const breadcrumbs = [
   { name: '首页', url: '/' },
@@ -92,6 +112,17 @@ const schema = {
               <li><strong>配置备用节点：</strong>核心办公人员建议常备一条支持不限时按量计费的备用节点，保障网络永不失联。</li>
             </ol>
           </div>
+
+          <!-- 上一个 / 下一个精选专题导航 -->
+          <PaginationNav
+            prev={prevRef}
+            next={nextRef}
+            type="blog"
+            indexUrl="/recommend/index.html"
+          />
+
+          <!-- 全站核心资源互联直达 -->
+          <SiteInternalLinks />
         </div>
       </div>
       <Sidebar />

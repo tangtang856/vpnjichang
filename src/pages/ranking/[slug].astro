@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Sidebar from '../../components/Sidebar.astro';
+import PaginationNav, { type PageRef } from '../../components/PaginationNav.astro';
+import SiteInternalLinks from '../../components/SiteInternalLinks.astro';
 import { rankingTopics, type TopicItem } from '../../data/topics';
 import { airportsData } from '../../data/airports';
 
 export function getStaticPaths() {
-  return rankingTopics.map(topic => {
+  return rankingTopics.map((topic, index) => {
     let sortedAirports = [...airportsData];
     if (topic.slug === 'overall') {
       sortedAirports.sort((a, b) => (a.rankings?.overall || 99) - (b.rankings?.overall || 99));
@@ -16,9 +18,25 @@ export function getStaticPaths() {
     } else if (topic.slug === 'stable') {
       sortedAirports.sort((a, b) => (a.rankings?.stable || 99) - (b.rankings?.stable || 99));
     }
+
+    const prev = index > 0 ? rankingTopics[index - 1] : rankingTopics[rankingTopics.length - 1];
+    const next = index < rankingTopics.length - 1 ? rankingTopics[index + 1] : rankingTopics[0];
+
+    const prevRef: PageRef = {
+      title: prev.h1.split('与')[0].split('·')[0],
+      url: `/ranking/${prev.slug}.html`,
+      category: '排行榜单'
+    };
+
+    const nextRef: PageRef = {
+      title: next.h1.split('与')[0].split('·')[0],
+      url: `/ranking/${next.slug}.html`,
+      category: '排行榜单'
+    };
+
     return {
       params: { slug: topic.slug },
-      props: { topic, airports: sortedAirports }
+      props: { topic, airports: sortedAirports, prevRef, nextRef }
     };
   });
 }
@@ -26,9 +44,11 @@ export function getStaticPaths() {
 interface Props {
   topic: TopicItem;
   airports: typeof airportsData;
+  prevRef: PageRef;
+  nextRef: PageRef;
 }
 
-const { topic, airports } = Astro.props;
+const { topic, airports, prevRef, nextRef } = Astro.props;
 
 const breadcrumbs = [
   { name: '首页', url: '/' },
@@ -135,6 +155,17 @@ const schema = {
               </div>
             </div>
           ))}
+
+          <!-- 上一个 / 下一个排行榜单导航 -->
+          <PaginationNav
+            prev={prevRef}
+            next={nextRef}
+            type="blog"
+            indexUrl="/ranking/index.html"
+          />
+
+          <!-- 全站核心资源互联直达 -->
+          <SiteInternalLinks />
         </div>
       </div>
       <Sidebar />

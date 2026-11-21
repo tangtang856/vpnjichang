@@ -3,38 +3,61 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Sidebar from '../../components/Sidebar.astro';
 import PlanTable from '../../components/PlanTable.astro';
 import SpeedtestTable from '../../components/SpeedtestTable.astro';
+import PaginationNav, { type PageRef } from '../../components/PaginationNav.astro';
+import SiteInternalLinks from '../../components/SiteInternalLinks.astro';
 import { airportsData, brandBenchmarks, type Airport, type BrandBenchmark } from '../../data/airports';
 
 export function getStaticPaths() {
-  return airportsData.map(ap => ({
-    params: { slug: ap.slug },
-    props: {
-      ap,
-      bm: brandBenchmarks[ap.id] || {
-        shortName: ap.name.split(' ')[0],
-        lowPing: 20,
-        peakDown: 600,
-        lossRate: '0.1%',
-        bufferTime: '0.9s',
-        ytSpeed: '80,000 - 110,000 Kbps',
-        nodes: [
-          { name: '香港 01 [优质节点]', rtt: '20ms', down: '600 Mbps', up: '100 Mbps', loss: '0.1%', buffer: '0.9s' },
-          { name: '日本 01 [东京直连]', rtt: '38ms', down: '540 Mbps', up: '90 Mbps', loss: '0.1%', buffer: '1.0s' },
-          { name: '新加坡 01 [亚太枢纽]', rtt: '45ms', down: '560 Mbps', up: '95 Mbps', loss: '0.1%', buffer: '1.0s' },
-          { name: '美国 01 [美西专线]', rtt: '135ms', down: '460 Mbps', up: '80 Mbps', loss: '0.2%', buffer: '1.3s' },
-          { name: '台湾 01 [流媒体专线]', rtt: '32ms', down: '510 Mbps', up: '85 Mbps', loss: '0.1%', buffer: '1.0s' }
-        ]
+  return airportsData.map((ap, index) => {
+    const prev = index > 0 ? airportsData[index - 1] : airportsData[airportsData.length - 1];
+    const next = index < airportsData.length - 1 ? airportsData[index + 1] : airportsData[0];
+
+    const prevRef: PageRef = {
+      title: `${prev.name} 实测评测`,
+      url: `/review/${prev.slug}.html`,
+      category: `起步 ¥${prev.startingPrice}/月`
+    };
+
+    const nextRef: PageRef = {
+      title: `${next.name} 实测评测`,
+      url: `/review/${next.slug}.html`,
+      category: `起步 ¥${next.startingPrice}/月`
+    };
+
+    return {
+      params: { slug: ap.slug },
+      props: {
+        ap,
+        prevRef,
+        nextRef,
+        bm: brandBenchmarks[ap.id] || {
+          shortName: ap.name.split(' ')[0],
+          lowPing: 20,
+          peakDown: 600,
+          lossRate: '0.1%',
+          bufferTime: '0.9s',
+          ytSpeed: '80,000 - 110,000 Kbps',
+          nodes: [
+            { name: '香港 01 [优质节点]', rtt: '20ms', down: '600 Mbps', up: '100 Mbps', loss: '0.1%', buffer: '0.9s' },
+            { name: '日本 01 [东京直连]', rtt: '38ms', down: '540 Mbps', up: '90 Mbps', loss: '0.1%', buffer: '1.0s' },
+            { name: '新加坡 01 [亚太枢纽]', rtt: '45ms', down: '560 Mbps', up: '95 Mbps', loss: '0.1%', buffer: '1.0s' },
+            { name: '美国 01 [美西专线]', rtt: '135ms', down: '460 Mbps', up: '80 Mbps', loss: '0.2%', buffer: '1.3s' },
+            { name: '台湾 01 [流媒体专线]', rtt: '32ms', down: '510 Mbps', up: '85 Mbps', loss: '0.1%', buffer: '1.0s' }
+          ]
+        }
       }
-    }
-  }));
+    };
+  });
 }
 
 interface Props {
   ap: Airport;
   bm: BrandBenchmark;
+  prevRef: PageRef;
+  nextRef: PageRef;
 }
 
-const { ap, bm } = Astro.props;
+const { ap, bm, prevRef, nextRef } = Astro.props;
 const p0 = ap.plans[0];
 const pMax = ap.plans[ap.plans.length - 1];
 
@@ -254,6 +277,17 @@ const breadcrumbs = [
             <p style="font-size: 0.95rem; color: #1e40af; margin-bottom: 16px;">请认准官方正规渠道，建议先从月付轻量套餐开始体验。</p>
             <a href={ap.affiliateUrl || ap.officialUrl} target="_blank" rel="noopener nofollow sponsored" class="btn-primary" style="padding: 12px 30px;">前往 {bm.shortName} 官方网站 &rarr;</a>
           </div>
+
+          <!-- 上一家 / 下一家机场评测翻页导航 -->
+          <PaginationNav
+            prev={prevRef}
+            next={nextRef}
+            type="review"
+            indexUrl="/review/index.html"
+          />
+
+          <!-- 全站核心资源互联直达 -->
+          <SiteInternalLinks />
         </div>
       </article>
       <Sidebar />

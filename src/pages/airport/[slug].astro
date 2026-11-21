@@ -2,24 +2,47 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Sidebar from '../../components/Sidebar.astro';
 import PlanTable from '../../components/PlanTable.astro';
+import PaginationNav, { type PageRef } from '../../components/PaginationNav.astro';
+import SiteInternalLinks from '../../components/SiteInternalLinks.astro';
 import { airportsData, brandBenchmarks, type Airport, type BrandBenchmark } from '../../data/airports';
 
 export function getStaticPaths() {
-  return airportsData.map(ap => ({
-    params: { slug: ap.slug },
-    props: {
-      ap,
-      bm: brandBenchmarks[ap.id] || { shortName: ap.name.split(' ')[0], lowPing: 20, peakDown: 600, lossRate: '0.1%' }
-    }
-  }));
+  return airportsData.map((ap, index) => {
+    const prev = index > 0 ? airportsData[index - 1] : airportsData[airportsData.length - 1];
+    const next = index < airportsData.length - 1 ? airportsData[index + 1] : airportsData[0];
+
+    const prevRef: PageRef = {
+      title: `${prev.name} 资费档案`,
+      url: `/airport/${prev.slug}.html`,
+      category: `起步 ¥${prev.startingPrice}/月`
+    };
+
+    const nextRef: PageRef = {
+      title: `${next.name} 资费档案`,
+      url: `/airport/${next.slug}.html`,
+      category: `起步 ¥${next.startingPrice}/月`
+    };
+
+    return {
+      params: { slug: ap.slug },
+      props: {
+        ap,
+        prevRef,
+        nextRef,
+        bm: brandBenchmarks[ap.id] || { shortName: ap.name.split(' ')[0], lowPing: 20, peakDown: 600, lossRate: '0.1%' }
+      }
+    };
+  });
 }
 
 interface Props {
   ap: Airport;
   bm: BrandBenchmark;
+  prevRef: PageRef;
+  nextRef: PageRef;
 }
 
-const { ap, bm } = Astro.props;
+const { ap, bm, prevRef, nextRef } = Astro.props;
 const p0 = ap.plans[0];
 const pMax = ap.plans[ap.plans.length - 1];
 
@@ -132,6 +155,17 @@ const breadcrumbs = [
             </div>
             <a href={`/review/${ap.slug}.html`} class="btn-primary">阅读深度评测报告 &rarr;</a>
           </div>
+
+          <!-- 上一家 / 下一家机场参数翻页导航 -->
+          <PaginationNav
+            prev={prevRef}
+            next={nextRef}
+            type="review"
+            indexUrl="/airport/index.html"
+          />
+
+          <!-- 全站核心资源互联直达 -->
+          <SiteInternalLinks />
         </div>
       </div>
       <Sidebar />

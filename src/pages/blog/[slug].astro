@@ -2,16 +2,64 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Sidebar from '../../components/Sidebar.astro';
+import PaginationNav from '../../components/PaginationNav.astro';
+import RelatedArticles, { type RelatedItem } from '../../components/RelatedArticles.astro';
+import SiteInternalLinks from '../../components/SiteInternalLinks.astro';
 
 export async function getStaticPaths() {
   const blogs = await getCollection('blog');
-  return blogs.map(entry => ({
-    params: { slug: entry.data.slug },
-    props: { entry }
-  }));
+  // 按日期降序排列，同日期按 slug 排序，确保顺序 100% 稳定一致
+  const sortedBlogs = blogs.sort((a, b) => b.data.date.localeCompare(a.data.date) || a.data.slug.localeCompare(b.data.slug));
+
+  return sortedBlogs.map((entry, index) => {
+    // 上一篇（较新文章）与 下一篇（较早文章）
+    const prev = index > 0 ? sortedBlogs[index - 1] : null;
+    const next = index < sortedBlogs.length - 1 ? sortedBlogs[index + 1] : null;
+
+    // 智能筛选 3 篇同分类或高度相关的文章
+    let related = sortedBlogs
+      .filter(b => b.data.slug !== entry.data.slug && b.data.category === entry.data.category)
+      .slice(0, 3);
+
+    // 若同分类不足 3 篇，用其他文章补充
+    if (related.length < 3) {
+      const others = sortedBlogs.filter(b => b.data.slug !== entry.data.slug && !related.some(r => r.data.slug === b.data.slug));
+      related = related.concat(others.slice(0, 3 - related.length));
+    }
+
+    const prevRef = prev ? {
+      title: prev.data.h1.split(' · ')[0].split('：')[0] || prev.data.title,
+      url: `/blog/${prev.data.slug}.html`,
+      category: prev.data.category
+    } : null;
+
+    const nextRef = next ? {
+      title: next.data.h1.split(' · ')[0].split('：')[0] || next.data.title,
+      url: `/blog/${next.data.slug}.html`,
+      category: next.data.category
+    } : null;
+
+    const relatedItems: RelatedItem[] = related.map(r => ({
+      title: r.data.h1,
+      url: `/blog/${r.data.slug}.html`,
+      category: r.data.category,
+      date: r.data.date,
+      summary: r.data.summary
+    }));
+
+    return {
+      params: { slug: entry.data.slug },
+      props: {
+        entry,
+        prevRef,
+        nextRef,
+        relatedItems
+      }
+    };
+  });
 }
 
-const { entry } = Astro.props;
+const { entry, prevRef, nextRef, relatedItems } = Astro.props;
 const { Content } = await render(entry);
 const { data } = entry;
 
@@ -89,18 +137,24 @@ const schema = {
             </div>
           )}
 
-          <div style="margin-top: 40px; padding: 24px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
-            <h3 style="margin-top: 0; font-size: 1.15rem; color: #1e293b;">📌 相关专题与选型参考</h3>
-            <p style="font-size: 0.92rem; color: #64748b; margin-bottom: 16px;">
-              深入了解技术原理后，建议结合实际应用场景查看我们的机场实测榜单与专题推荐：
-            </p>
-            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-              <a href="/recommend/ai.html" class="btn-primary" style="font-size: 0.85rem;">AI 大模型专用专线</a>
-              <a href="/recommend/streaming.html" class="btn-secondary" style="font-size: 0.85rem;">4K 流媒体解锁推荐</a>
-              <a href="/recommend/budget.html" class="btn-secondary" style="font-size: 0.85rem;">高性价比平价机场</a>
-              <a href="/ranking/overall.html" class="btn-secondary" style="font-size: 0.85rem;">2026 综合排行榜</a>
-            </div>
-          </div>
+          <!-- 上一篇 / 下一篇 翻页导航 -->
+          <PaginationNav
+            prev={prevRef}
+            next={nextRef}
+            type="blog"
+            indexUrl="/blog/index.html"
+          />
+
+          <!-- 猜你还想看 · 相关深度阅读 -->
+          <RelatedArticles
+            title="📚 猜你还想看 · 相关深度精选"
+            items={relatedItems}
+            moreUrl="/blog/index.html"
+            moreText="浏览全部 100 篇深度博文 &rarr;"
+          />
+
+          <!-- 全站核心资源互联直达 -->
+          <SiteInternalLinks />
         </div>
       </article>
       <Sidebar />
