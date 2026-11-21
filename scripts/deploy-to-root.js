@@ -55,7 +55,8 @@ function convertToRelativePaths(htmlContent, filePath, baseDir) {
   const rootPages = [
     'compare.html', 'about.html', 'contact.html',
     'editorial-policy.html', 'privacy-policy.html',
-    'disclaimer.html', '404.html', 'sitemap.xml', 'robots.txt'
+    'disclaimer.html', '404.html', 'sitemap.xml',
+    'sitemap-index.xml', 'sitemap-0.xml', 'robots.txt'
   ];
   rootPages.forEach((page) => {
     const regex = new RegExp(`href=["']\\/${page.replace('.', '\\.')}["']`, 'g');

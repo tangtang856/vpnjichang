@@ -110,18 +110,18 @@ const schema = {
         <h2 class="section-title">2026 综合实力排行榜（实测数据）</h2>
         <p class="section-desc">基于晚高峰测速、物理专线架构、单位流量性价比与售后响应的综合量化评级。</p>
       </div>
-      <div style="overflow-x: auto; margin-bottom: 24px;">
-        <table class="ranking-table" style="min-width: 650px;">
+      <div style="overflow-x: auto; margin-bottom: 24px; border: 1px solid var(--border-color); border-radius: 12px; background: #ffffff; box-shadow: var(--shadow-sm);">
+        <table class="ranking-table" style="min-width: 880px; width: 100%;">
           <thead>
             <tr>
-              <th>排名</th>
-              <th>品牌名称</th>
-              <th>起步价格</th>
-              <th>入门流量</th>
-              <th>每GB单价</th>
-              <th>网络线路类型</th>
-              <th>适合人群</th>
-              <th>评测详情</th>
+              <th style="width: 50px; text-align: center;">排名</th>
+              <th style="min-width: 140px;">品牌名称</th>
+              <th style="text-align: right; min-width: 90px;">起步价格</th>
+              <th style="text-align: right; min-width: 80px;">入门流量</th>
+              <th style="text-align: right; min-width: 90px;">每GB单价</th>
+              <th style="min-width: 120px;">网络线路类型</th>
+              <th style="min-width: 220px;">适合人群</th>
+              <th style="width: 120px; text-align: center;">评测详情</th>
             </tr>
           </thead>
           <tbody>
@@ -129,14 +129,16 @@ const schema = {
               const p0 = ap.plans[0];
               return (
                 <tr>
-                  <td><span class={`rank-badge ${idx < 3 ? 'rank-' + (idx + 1) : 'rank-other'}`}>{idx + 1}</span></td>
-                  <td><strong><a href={`/review/${ap.slug}.html`}>{ap.name}</a></strong></td>
-                  <td><strong style="color: #2563eb;">￥{ap.startingPrice.toFixed(2)}</strong></td>
-                  <td>{p0.trafficGB} GB</td>
-                  <td>约 ￥{p0.pricePerGB.toFixed(3)}</td>
-                  <td>{ap.tags.includes('premium') ? 'IPLC/IEPL 国际专线' : '优质多线 BGP 中转'}</td>
-                  <td><span style="font-size:0.85rem; color:#475569;">{ap.suitableFor[0] || '通用翻墙'}</span></td>
-                  <td><a href={`/review/${ap.slug}.html`} class="btn-card-review" style="padding: 4px 10px; font-size: 0.8rem;">查看评测</a></td>
+                  <td style="text-align: center; white-space: nowrap;"><span class={`rank-badge ${idx < 3 ? 'rank-' + (idx + 1) : 'rank-other'}`}>{idx + 1}</span></td>
+                  <td style="white-space: nowrap;"><strong><a href={`/review/${ap.slug}.html`}>{ap.name}</a></strong></td>
+                  <td style="text-align: right; white-space: nowrap;"><strong style="color: #2563eb; font-family: var(--font-mono); font-size: 0.98rem;">￥{ap.startingPrice.toFixed(2)}</strong></td>
+                  <td style="text-align: right; white-space: nowrap; font-family: var(--font-mono);">{p0.trafficGB} GB</td>
+                  <td style="text-align: right; white-space: nowrap; font-family: var(--font-mono); color: #475569; font-size: 0.88rem;">约 ￥{p0.pricePerGB.toFixed(3)}</td>
+                  <td style="white-space: nowrap;"><span class="badge" style="background:#f1f5f9; color:#334155; font-size:0.78rem; font-weight:600; padding: 3px 8px; border-radius: 4px;">{ap.tags.includes('premium') ? 'IPLC 纯专线' : '多线 BGP 中转'}</span></td>
+                  <td style="font-size:0.85rem; color:#475569; line-height: 1.5;">{ap.suitableFor[0] || '通用翻墙'}</td>
+                  <td style="text-align: center; white-space: nowrap;">
+                    <a href={`/review/${ap.slug}.html`} class="btn-card-review" style="padding: 6px 14px; font-size: 0.82rem; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center;">查看评测</a>
+                  </td>
                 </tr>
               );
             })}

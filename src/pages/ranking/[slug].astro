@@ -104,17 +104,17 @@ const schema = {
           </ul>
 
           <h2>二、2026 年度上榜梯队详细对比</h2>
-          <div style="overflow-x: auto; margin-bottom: 24px;">
-            <table class="ranking-table" style="min-width: 650px;">
+          <div style="overflow-x: auto; margin-bottom: 24px; border: 1px solid var(--border-color); border-radius: 12px; background: #ffffff; box-shadow: var(--shadow-sm);">
+            <table class="ranking-table" style="min-width: 880px; width: 100%;">
               <thead>
                 <tr>
-                  <th>名次</th>
-                  <th>品牌名称</th>
-                  <th>起步价格</th>
-                  <th>入门配额</th>
-                  <th>每GB单价</th>
-                  <th>网络线路架构</th>
-                  <th>详情入口</th>
+                  <th style="width: 50px; text-align: center;">名次</th>
+                  <th style="min-width: 140px;">品牌名称</th>
+                  <th style="text-align: right; min-width: 90px;">起步价格</th>
+                  <th style="text-align: right; min-width: 80px;">入门配额</th>
+                  <th style="text-align: right; min-width: 90px;">每GB单价</th>
+                  <th style="min-width: 120px;">网络线路架构</th>
+                  <th style="width: 120px; text-align: center;">详情入口</th>
                 </tr>
               </thead>
               <tbody>
@@ -122,14 +122,14 @@ const schema = {
                   const p0 = ap.plans[0];
                   return (
                     <tr>
-                      <td><span class={`rank-badge ${idx < 3 ? 'rank-' + (idx + 1) : 'rank-other'}`}>{idx + 1}</span></td>
-                      <td><strong><a href={`/review/${ap.slug}.html`}>{ap.name}</a></strong></td>
-                      <td><strong style="color: #2563eb;">￥{ap.startingPrice.toFixed(2)}</strong></td>
-                      <td>{p0.trafficGB} GB</td>
-                      <td>约 ￥{p0.pricePerGB.toFixed(3)}</td>
-                      <td>{ap.tags.includes('premium') ? 'IPLC/IEPL 国际专线' : '多线 BGP 智能中转'}</td>
-                      <td>
-                        <a href={`/review/${ap.slug}.html`} class="btn-card-review" style="padding: 3px 10px; font-size: 0.8rem;">评测详情</a>
+                      <td style="text-align: center; white-space: nowrap;"><span class={`rank-badge ${idx < 3 ? 'rank-' + (idx + 1) : 'rank-other'}`}>{idx + 1}</span></td>
+                      <td style="white-space: nowrap;"><strong><a href={`/review/${ap.slug}.html`}>{ap.name}</a></strong></td>
+                      <td style="text-align: right; white-space: nowrap;"><strong style="color: #2563eb; font-family: var(--font-mono); font-size: 0.98rem;">￥{ap.startingPrice.toFixed(2)}</strong></td>
+                      <td style="text-align: right; white-space: nowrap; font-family: var(--font-mono);">{p0.trafficGB} GB</td>
+                      <td style="text-align: right; white-space: nowrap; font-family: var(--font-mono); color: #475569; font-size: 0.88rem;">约 ￥{p0.pricePerGB.toFixed(3)}</td>
+                      <td style="white-space: nowrap;"><span class="badge" style="background:#f1f5f9; color:#334155; font-size:0.78rem; font-weight:600; padding: 3px 8px; border-radius: 4px;">{ap.tags.includes('premium') ? 'IPLC 纯专线' : '多线 BGP 中转'}</span></td>
+                      <td style="text-align: center; white-space: nowrap;">
+                        <a href={`/review/${ap.slug}.html`} class="btn-card-review" style="padding: 6px 14px; font-size: 0.82rem; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center;">评测详情</a>
                       </td>
                     </tr>
                   );

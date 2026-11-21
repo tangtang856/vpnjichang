@@ -15,7 +15,7 @@ function scanHtmlFiles(dir) {
   const items = fs.readdirSync(dir, { withFileTypes: true });
   for (const item of items) {
     if (item.isDirectory()) {
-      if (['node_modules', '.git', 'scripts', 'docs', 'src'].includes(item.name)) continue;
+      if (['node_modules', '.git', 'scripts', 'docs', 'src', 'dist', '.astro'].includes(item.name)) continue;
       scanHtmlFiles(path.join(dir, item.name));
     } else if (item.isFile() && item.name.endsWith('.html')) {
       checkFileLinks(path.join(dir, item.name));
@@ -35,7 +35,7 @@ function checkFileLinks(filePath) {
   while ((match = regex.exec(content)) !== null) {
     let link = match[1].trim();
 
-    // 跳过外部链接、锚点、空链接、javascript
+    // 跳过外部链接、锚点、空链接、javascript、前端模板字符串变量
     if (
       link.startsWith('http://') ||
       link.startsWith('https://') ||
@@ -44,6 +44,7 @@ function checkFileLinks(filePath) {
       link.startsWith('tel:') ||
       link.startsWith('#') ||
       link.startsWith('javascript:') ||
+      link.includes('${') ||
       link === ''
     ) {
       continue;
