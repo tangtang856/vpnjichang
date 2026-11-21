@@ -1,0 +1,13 @@
+# robots.txt for vpnjichang.wiki
+User-agent: *
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# 阻断不存在的草稿或内部临时文件夹
+Disallow: /src/
+Disallow: /scripts/
+Disallow: /404.html
+
+Sitemap: https://vpnjichang.wiki/sitemap.xml

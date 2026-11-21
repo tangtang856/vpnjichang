@@ -1,0 +1,27 @@
+{
+  "name": "vpnjichang-wiki",
+  "version": "1.0.0",
+  "description": "vpnjichang.wiki - 中文机场评测导航与科学翻墙资讯门户",
+  "main": "index.html",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "audit:seo": "node scripts/audit-seo.js",
+    "audit:links": "node scripts/check-links.js",
+    "audit:content": "node scripts/validate-content.js",
+    "audit": "node scripts/audit-seo.js && node scripts/check-links.js && node scripts/validate-content.js",
+    "test": "npm run audit",
+    "indexnow": "node scripts/indexnow.js"
+  },
+  "keywords": [
+    "机场推荐",
+    "机场节点",
+    "性价比机场",
+    "梯子推荐",
+    "vpn",
+    "vpn机场",
+    "vpn节点",
+    "vpn推荐"
+  ],
+  "author": "vpnjichang.wiki",
+  "license": "MIT"
+}

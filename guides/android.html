@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Android安卓手机Clash Meta与Surfboard节点配置教程 · 翻墙教程 - vpnjichang.wiki</title>
+  <meta name="description" content="专为小米、华为、OPPO、vivo 及三星等安卓手机用户撰写的翻墙教程。详述 Clash Meta for Android (CMFA) 与 Surfboard 客户端下载、后台保活设置。">
+  <link rel="canonical" href="https://vpnjichang.wiki/guides/android.html">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / 社交卡片 -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Android安卓手机Clash Meta与Surfboard节点配置教程 · 翻墙教程 - vpnjichang.wiki">
+  <meta property="og:description" content="专为小米、华为、OPPO、vivo 及三星等安卓手机用户撰写的翻墙教程。详述 Clash Meta for Android (CMFA) 与 Surfboard 客户端下载、后台保活设置。">
+  <meta property="og:url" content="https://vpnjichang.wiki/guides/android.html">
+  <meta property="og:site_name" content="vpnjichang.wiki - 中文机场评测导航">
+  <meta property="og:locale" content="zh_CN">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Android安卓手机Clash Meta与Surfboard节点配置教程 · 翻墙教程 - vpnjichang.wiki">
+  <meta name="twitter:description" content="专为小米、华为、OPPO、vivo 及三星等安卓手机用户撰写的翻墙教程。详述 Clash Meta for Android (CMFA) 与 Surfboard 客户端下载、后台保活设置。">
+  
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Android 安卓手机客户端配置与节点导入全流程教程",
+  "description": "专为小米、华为、OPPO、vivo 及三星等安卓手机用户撰写的翻墙教程。详述 Clash Meta for Android (CMFA) 与 Surfboard 客户端下载、后台保活设置。",
+  "inLanguage": "zh-CN",
+  "datePublished": "2026-03-01",
+  "dateModified": "2026-03-15",
+  "author": {
+    "@type": "Organization",
+    "name": "vpnjichang.wiki 技术编辑部"
+  }
+}
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo" title="vpnjichang.wiki - 机场推荐导航">
+        <span class="logo-badge">VPN</span>
+        <span>JICHANG<small style="font-weight:400; color:#64748b; font-size: 0.85rem;">.wiki</small></span>
+      </a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="../index.html" class="">首页</a></li>
+        <li class="nav-item"><a href="../recommend/index.html" class="">机场推荐</a></li>
+        <li class="nav-item"><a href="../ranking/index.html" class="">机场排行</a></li>
+        <li class="nav-item"><a href="../review/index.html" class="">机场评测</a></li>
+        <li class="nav-item"><a href="../compare.html" class="">机场对比</a></li>
+        <li class="nav-item"><a href="../guides/index.html" class="active">使用教程</a></li>
+        <li class="nav-item"><a href="../blog/index.html" class="">博客文章</a></li>
+        <li class="nav-item"><a href="../glossary/index.html" class="">知识百科</a></li>
+      </ul>
+      <div class="header-actions">
+        <a href="../compare.html" class="btn-nav-compare">⚡ 横向对比</a>
+        <button class="mobile-toggle" aria-label="切换移动端导航菜单" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+<nav class="breadcrumbs" aria-label="面包屑导航"><div class="container"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="../index.html" itemprop="item"><span itemprop="name">首页</span></a><meta itemprop="position" content="1" /></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="index.html" itemprop="item"><span itemprop="name">教程中心</span></a><meta itemprop="position" content="2" /></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name" aria-current="page">Android 安卓手机客户端配置与节点导入全流程教程</span><meta itemprop="position" content="3" /></li></ol></div></nav>
+
+  <main class="container">
+    <div class="article-container">
+      <article class="article-main">
+        <header class="article-header">
+          <span class="section-tag">Client Tutorial</span>
+          <h1 class="section-title" style="font-size: 2.1rem; margin: 8px 0;">Android 安卓手机客户端配置与节点导入全流程教程</h1>
+          <div class="article-meta">
+            <span>最后更新: 2026-03-15</span>
+            <span>阅读时长: 约 8 分钟</span>
+            <span>适用系统: ANDROID</span>
+          </div>
+        </header>
+
+        <div class="article-conclusion-box">
+          <div class="conclusion-title">核心指导摘要</div>
+          <p style="margin: 0; color: #166534; font-size: 0.95rem;">安卓手机因厂商系统后台省电策略各异，常出现后台掉线问题。本教程指导您完成客户端配置，并彻底搞定后台保活与耗电优化。</p>
+        </div>
+
+        <div class="article-content">
+          
+        <h2>一、安卓主流客户端对比与选择</h2>
+        <ul>
+          <li><strong>Clash Meta for Android (CMFA)：</strong>目前功能最完备的安卓代理客户端。原生支持 Mihomo 内核，全面兼容各种新协议与智能分流分应用代理。</li>
+          <li><strong>Surfboard：</strong>界面精致类 Surge 风格，支持标准 Surge 格式配置与极低功耗待机，非常适合追求流畅界面的用户。</li>
+        </ul>
+
+        <h2>二、配置导入全流程</h2>
+        <ol>
+          <li>在安卓手机浏览器中打开您的机场后台，点击<strong>“一键导入 Clash for Android”</strong>，手机系统通常会自动唤醒客户端并加载配置。</li>
+          <li>如果无法一键唤醒，可复制后台的<strong>“通用订阅链接”</strong>；打开 Clash Meta 软件，点击 <strong>配置 -> 新配置 -> URL 导入</strong>，粘贴链接并保存。</li>
+          <li>点击主界面巨大的 <strong>启动</strong> 按钮。首次启动系统会弹出“网络连接请求 / VPN 权限申请”，点击<strong>“确定 / 允许”</strong>。</li>
+          <li>进入 <strong>代理</strong> 列表，点击右上角闪电图标进行批量测速，选择延迟较低的绿色节点（如香港或日本）即可畅享海外网络。</li>
+        </ol>
+
+        <h2>三、安卓核心关键设置：后台保活与分应用代理</h2>
+        <p>很多安卓用户反馈息屏一段时间后梯子就断开了，这是手机系统的杀后台机制所致。请务必完成以下调整：</p>
+        <ul>
+          <li><strong>应用锁锁定：</strong>进入安卓多任务后台管理界面，长按 Clash Meta 卡片，点击“小锁”图标锁定后台。</li>
+          <li><strong>电池优化白名单：</strong>进入系统设置 -> 应用管理 -> Clash Meta -> 省电策略，修改为<strong>“无限制 / 允许后台高耗电运行”</strong>。</li>
+          <li><strong>分应用代理 (Split Tunneling)：</strong>如果不想让国内银行 App 或微信走代理，在客户端设置中开启<strong>“分应用代理”</strong>，勾选仅需要翻墙的软件（如 Chrome、YouTube、Telegram、Twitter）。</li>
+        </ul>
+
+          <div style="margin-top: 40px; padding: 24px; background: var(--bg-alt); border-radius: 8px; border: 1px solid var(--border-color);">
+            <h3 style="margin-top: 0;">下一步：寻找稳定高速的优质机场节点？</h3>
+            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 16px;">
+              教程配置完成后，您需要将可用的节点订阅导入软件中。浏览我们的严选推荐列表，按预算与需求挑选适合您的服务商。
+            </p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="../recommend/index.html" class="btn-primary">查看精选机场推荐</a>
+              <a href="../ranking/overall.html" class="btn-secondary">查看 2026 综合排行榜</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      
+    <aside class="sidebar-sticky">
+      <div class="sidebar-box">
+        <h4>⚡ 快速导航与工具</h4>
+        <ul class="sidebar-links">
+          <li><a href="../compare.html"><span>横向对比工具</span> <span>&rarr;</span></a></li>
+          <li><a href="../ranking/overall.html"><span>综合实力排行榜</span> <span>&rarr;</span></a></li>
+          <li><a href="../ranking/value.html"><span>性价比排行榜</span> <span>&rarr;</span></a></li>
+          <li><a href="../recommend/budget.html"><span>低预算平价专题</span> <span>&rarr;</span></a></li>
+          <li><a href="../recommend/premium.html"><span>高端专线推荐</span> <span>&rarr;</span></a></li>
+          <li><a href="../recommend/ai.html"><span>ChatGPT / Claude 专线</span> <span>&rarr;</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-box">
+        <h4>📚 必备客户端教程</h4>
+        <ul class="sidebar-links">
+          <li><a href="../guides/windows.html"><span>Windows 电脑配置</span> <span>&rarr;</span></a></li>
+          <li><a href="../guides/android.html"><span>Android 安卓配置</span> <span>&rarr;</span></a></li>
+          <li><a href="../guides/ios.html"><span>iOS 小火箭配置</span> <span>&rarr;</span></a></li>
+          <li><a href="../guides/macos.html"><span>macOS 苹果电脑配置</span> <span>&rarr;</span></a></li>
+          <li><a href="../guides/clash-tutorial.html"><span>Clash 报错排查</span> <span>&rarr;</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-box" style="background-color: #f0fdf4; border-color: #bbf7d0;">
+        <h4 style="color: #166534;">🛡️ 客观中立承诺</h4>
+        <p style="font-size: 0.84rem; color: #166534; line-height: 1.5;">
+          本站所有评测均基于实际网络测试环境，真实呈现优缺点，拒绝夸大宣传与虚构测速。
+        </p>
+      </div>
+    </aside>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="margin-bottom: 8px;">
+            <span class="logo-badge">VPN</span>
+            <span>JICHANG<small style="font-weight:400; color:#64748b; font-size: 0.85rem;">.wiki</small></span>
+          </div>
+          <p>vpnjichang.wiki 专注于客观、独立、可复核的中文网络代理（机场）、梯子节点与 VPN 服务评测。我们坚持真实数据，拒绝虚假刷单与无脑吹捧，帮助用户找到最适合的高性价比稳定科学翻墙工具。</p>
+        </div>
+        <div class="footer-col">
+          <h5>核心专题导航</h5>
+          <ul>
+            <li><a href="../recommend/budget.html">性价比低预算机场</a></li>
+            <li><a href="../recommend/premium.html">高端稳定专线机场</a></li>
+            <li><a href="../recommend/beginner.html">新手入门机场精选</a></li>
+            <li><a href="../recommend/ai.html">ChatGPT / Claude 专线</a></li>
+            <li><a href="../ranking/overall.html">综合实力排行榜</a></li>
+            <li><a href="../compare.html">机场横向对比工具</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>教程与百科</h5>
+          <ul>
+            <li><a href="../guides/windows.html">Windows 客户端教程</a></li>
+            <li><a href="../guides/android.html">Android 客户端配置</a></li>
+            <li><a href="../guides/ios.html">iOS 小火箭使用指南</a></li>
+            <li><a href="../guides/macos.html">macOS 电脑翻墙指南</a></li>
+            <li><a href="../glossary/iplc-iepl.html">什么是 IPLC/IEPL 专线</a></li>
+            <li><a href="../blog/airport-vs-vpn-difference.html">机场与传统 VPN 区别</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>合规与信誉</h5>
+          <ul>
+            <li><a href="../about.html">关于我们</a></li>
+            <li><a href="../editorial-policy.html">编辑政策与评测标准</a></li>
+            <li><a href="../contact.html">联系与反馈</a></li>
+            <li><a href="../privacy-policy.html">隐私政策</a></li>
+            <li><a href="../disclaimer.html">免责声明与服务协议</a></li>
+            <li><a href="../sitemap.xml">站点地图 (XML Sitemap)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 vpnjichang.wiki. All rights reserved. 遵循中立客观的评测准则。</div>
+        <div>
+          <a href="../editorial-policy.html">评测标准</a>
+          <a href="../disclaimer.html">免责声明</a>
+          <a href="../sitemap.xml">XML 网站地图</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+</body>
+</html>
