@@ -390,14 +390,14 @@ ${renderHeader(0, 'home')}
             <p>揭秘点对点内网光纤专线原理，为什么专线不受敏感期和 GFW 封锁影响？</p>
           </div>
         </a>
-        <a href="glossary/clash-sing-box.html" class="topic-card">
+        <a href="glossary/clash-meta.html" class="topic-card">
           <div class="topic-icon">⚡</div>
           <div class="topic-info">
             <h3>Clash Meta 与 Sing-box 区别</h3>
             <p>两大主流代理内核架构对比，内存占用、性能吞吐与规则配置差异。</p>
           </div>
         </a>
-        <a href="glossary/shadowsocks-vless.html" class="topic-card">
+        <a href="glossary/protocol-evolution.html" class="topic-card">
           <div class="topic-icon">🔒</div>
           <div class="topic-info">
             <h3>Shadowsocks、VMess 与 VLESS 演进</h3>
@@ -455,11 +455,11 @@ ${renderHeader(0, 'home')}
           </div>
         </div>
         <div class="airport-card">
-          <h3 class="airport-brand-name"><a href="blog/airport-running-risk-prevention.html">机场频繁跑路？5个避坑原则降低翻车风险</a></h3>
+          <h3 class="airport-brand-name"><a href="blog/how-to-spot-scam-airports.html">如何识别劣质跑路机场与虚假宣传套路？</a></h3>
           <div class="card-tagline">资深玩家总结的资金安全与备用防失联铁律</div>
           <p class="card-desc">盘点近年来机场突然关停跑路的典型征兆。教你如何识破“假专线真直连”与“大促销割韭菜”套路。</p>
           <div style="margin-top:auto; font-size:0.85rem; color:#64748b;">
-            <a href="blog/airport-running-risk-prevention.html">阅读指南全文 &rarr;</a>
+            <a href="blog/how-to-spot-scam-airports.html">阅读指南全文 &rarr;</a>
           </div>
         </div>
       </div>

@@ -83,11 +83,11 @@
         <h2>一、防火长城的核心拦截手段</h2>
         <p>防火长城（Great Firewall，简称 GFW）经过二十余年的技术迭代，构筑了多层联动的过滤体系：</p>
         <ol>
-          <li><strong>DNS 污染（域名投毒）：</strong>当境内客户端向本地 DNS 服务器查询受限网站（如 google.com）时，GFW 的旁路监控设备会先于境外真实服务器抢先返回一个虚假的、不存在的 IP 地址，导致用户无法建立连接。</li>
-          <li><strong>IP 黑名单丢弃：</strong>对于已确认提供代理服务或政治敏感的海外服务器 IP，直接在国际出口路由器的路由表（BGP）中下发黑洞路由，发往该 IP 的所有数据包直接静默丢弃。</li>
-          <li><strong>TCP RST 异常重置：</strong>监控到明文 HTTP 通信中包含敏感关键字时，向通信双方伪造发送带有 RST 标志的 TCP 数据包，强制中断当前的连接会话。</li>
-          <li><strong>SNI 审查与阻断：</strong>在 TLS 加密握手的 Client Hello 阶段，客户端发送的服务器域名（SNI）通常是明文的。GFW 会据此域名决定是否在握手瞬间掐断连接。</li>
-          <li><strong>主动探测 (Active Probing)：</strong>当系统怀疑某台境外 IP 在运行 Shadowsocks 代理时，GFW 会主动从境内发起特定特征的嗅探连接，若境外服务器正常回应验证，该端口会被立即封锁。</li>
+          <li><strong>DNS 污染（域名投毒）：</strong>当境内客户端向本地 DNS 服务器查询受限网站（如 google.com）时，GFW 的旁路审查设备会抢先伪造一个错误的虚假 IP 地址并返回给客户端，导致访问失败。</li>
+          <li><strong>IP 黑名单丢弃：</strong>直接将已知的违规海外服务器 IP 注入核心路由器的黑名单路由表中，向这些 IP 发送的所有数据包都会在骨干网被直接丢弃（Null Route）。</li>
+          <li><strong>TCP RST 异常重置：</strong>当监控到明文 HTTP 通信或未加密流量中包含敏感关键词时，防火墙会伪造两端的 TCP RST（Reset）包强行切断连接。</li>
+          <li><strong>SNI 明文探测与阻断：</strong>在 TLS 握手时，传统的 Client Hello 会携带明文的目标域名（Server Name Indication）。审查系统通过读取 SNI 即可精确阻断特定网站的 HTTPS 握手。</li>
+          <li><strong>机器学习主动探测：</strong>当发现某个未知境外 IP 在运行 Shadowsocks 代理时，GFW 会主动从境内发起特定特征的嗅探连接，若境外服务器正常回应验证，该端口会被立即封锁。</li>
         </ol>
 
           <div style="margin-top: 40px; padding: 24px; background: var(--bg-alt); border-radius: 8px; border: 1px solid var(--border-color);">

@@ -31,11 +31,21 @@
   "headline": "iOS 苹果手机客户端配置与节点导入全流程教程",
   "description": "专为 iPhone 和 iPad 用户准备的科学上网指南。详解美区 Apple ID 获取、Shadowrocket（小火箭）安装、扫码添加节点及大陆白名单规则配置。",
   "inLanguage": "zh-CN",
+  "mainEntityOfPage": "https://vpnjichang.wiki/guides/ios.html",
   "datePublished": "2026-03-01",
   "dateModified": "2026-03-15",
   "author": {
     "@type": "Organization",
-    "name": "vpnjichang.wiki 技术编辑部"
+    "name": "vpnjichang.wiki 技术评测团队",
+    "url": "https://vpnjichang.wiki"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "vpnjichang.wiki",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vpnjichang.wiki/images/logo.png"
+    }
   }
 }
   </script>
@@ -65,58 +75,74 @@
       </div>
     </div>
   </header>
-<nav class="breadcrumbs" aria-label="面包屑导航"><div class="container"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="../index.html" itemprop="item"><span itemprop="name">首页</span></a><meta itemprop="position" content="1" /></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="index.html" itemprop="item"><span itemprop="name">教程中心</span></a><meta itemprop="position" content="2" /></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name" aria-current="page">iOS 苹果手机客户端配置与节点导入全流程教程</span><meta itemprop="position" content="3" /></li></ol></div></nav>
+<nav class="breadcrumbs" aria-label="面包屑导航"><div class="container"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="../index.html" itemprop="item"><span itemprop="name">首页</span></a><meta itemprop="position" content="1" /></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="index.html" itemprop="item"><span itemprop="name">使用教程</span></a><meta itemprop="position" content="2" /></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name" aria-current="page">iOS 苹果手机客户端配置与节点导入全流程教程</span><meta itemprop="position" content="3" /></li></ol></div></nav>
 
   <main class="container">
     <div class="article-container">
       <article class="article-main">
         <header class="article-header">
-          <span class="section-tag">Client Tutorial</span>
-          <h1 class="section-title" style="font-size: 2.1rem; margin: 8px 0;">iOS 苹果手机客户端配置与节点导入全流程教程</h1>
+          <div style="display:flex; gap: 8px; align-items:center; margin-bottom: 8px;">
+            <span class="badge" style="background:#e0e7ff; color:#3730a3; font-weight:600; font-size:0.8rem; padding: 3px 10px; border-radius: 4px;">iOS</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">更新日期: 2026-03-15</span>
+          </div>
+          <h1 class="section-title" style="font-size: 2.1rem; margin: 8px 0; line-height: 1.3;">iOS 苹果手机客户端配置与节点导入全流程教程</h1>
           <div class="article-meta">
-            <span>最后更新: 2026-03-15</span>
-            <span>阅读时长: 约 8 分钟</span>
-            <span>适用系统: IOS</span>
+            <span>作者: vpnjichang.wiki 客户端技术组</span>
+            <span>审核状态: 已验证通过</span>
           </div>
         </header>
 
         <div class="article-conclusion-box">
-          <div class="conclusion-title">核心指导摘要</div>
-          <p style="margin: 0; color: #166534; font-size: 0.95rem;">由于苹果 App Store 中国区下架了所有代理工具，iOS 用户需使用海外 Apple ID。本文手把手教您如何获取软件并快速导入节点。</p>
+          <div class="conclusion-title">本篇核心要点</div>
+          <p style="margin: 0; color: #166534; font-size: 0.95rem; line-height: 1.6;">由于国区 App Store 政策限制，iOS 用户需使用海外 Apple ID 下载代理软件。本文手把手教您如何获取小火箭并快速导入节点。</p>
         </div>
 
         <div class="article-content">
           
-        <h2>一、前置准备：获取海外（美区）Apple ID</h2>
-        <p>由于政策原因，中国大陆区 App Store 无法搜索到科学上网客户端。您需要先准备一个非国区 Apple ID（通常推荐美区）：</p>
-        <ul>
-          <li><strong>自行注册美区账号：</strong>准备一个未注册过 Apple 的新邮箱，在苹果官网直接注册，地区选择美国，付款方式选择“None（无）”。</li>
-          <li><strong>购买礼品卡兑换：</strong>Shadowrocket 在美区售价为 $2.99。可在支付宝将定位切换至旧金山购买 App Store 美区礼品卡充值兑换，切勿使用来源不明的黑卡账号。</li>
-        </ul>
+      <section style="margin-bottom: 32px;">
+        <h2 style="font-size: 1.4rem; color: var(--text-color); margin-top: 24px; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border-color);">一、前置准备：获取海外 Apple ID 并下载软件</h2>
+        <div style="line-height: 1.8; color: #334155; font-size: 1rem;">
+          iOS 平台最受欢迎的代理工具是 <strong>Shadowrocket（俗称小火箭）</strong>，售价为 $2.99；进阶用户还可选择 Loon 或 Surge。由于中国大陆区 App Store 下架了所有代理软件，您需要准备一个<strong>非国区（通常为美区）Apple ID</strong>。打开 App Store 退出当前账号，登录美区账号搜索“Shadowrocket”，认准开发者为 <code>Shadow Launch Technology</code> 的正版应用。
+        </div>
+      </section>
+    
+      <section style="margin-bottom: 32px;">
+        <h2 style="font-size: 1.4rem; color: var(--text-color); margin-top: 24px; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border-color);">二、一键导入订阅与扫码添加节点</h2>
+        <div style="line-height: 1.8; color: #334155; font-size: 1rem;">
+          打开手机 Safari 浏览器登录机场后台，点击“一键导入 Shadowrocket”，网页将自动跳转打开小火箭并完成节点解析。如果机场提供订阅二维码，打开小火箭点击左上角<strong>扫描图标</strong>直接扫码即可秒速添加。也可以在首页点击右上角 <strong>+</strong> 号，类型选择 <strong>Subscribe</strong>，在 URL 栏粘贴机场提供的通用订阅链接。
+        </div>
+      </section>
+    
+      <section style="margin-bottom: 32px;">
+        <h2 style="font-size: 1.4rem; color: var(--text-color); margin-top: 24px; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border-color);">三、全局路由与规则分流设置</h2>
+        <div style="line-height: 1.8; color: #334155; font-size: 1rem;">
+          在小火箭主界面中间找到<strong>“全局路由”</strong>，务必将其设为 <strong>配置 (Config)</strong>。配置模式内置了智能分流规则：访问国内网站自动直连不走节点，不浪费流量且延迟极低；访问被阻断的海外网站才走代理加速。初次点击主开关时，系统会弹出“添加 VPN 配置”授权提示，使用 Face ID / Touch ID 验证确认即可。
+        </div>
+      </section>
+    
+          
+      <div style="margin-top: 40px; padding: 24px; background: var(--bg-alt); border-radius: 8px; border: 1px solid var(--border-color);">
+        <h3 style="margin-top: 0; color: var(--text-color); font-size: 1.25rem;">💡 常见问题与排错答疑 (FAQ)</h3>
+        
+          <div style="margin-bottom: 16px;">
+            <strong style="color: #0f172a; font-size: 0.98rem;">问：小火箭如何更新节点列表？</strong>
+            <p style="margin: 6px 0 0 0; color: #475569; font-size: 0.92rem; line-height: 1.6;">答：在主界面找到您的订阅配置名称，向右滑动点击“更新”，或者按住屏幕下拉，软件会自动从服务器拉取最新的健康节点。</p>
+          </div>
+        
+      </div>
+    
 
-        <h2>二、Shadowrocket（小火箭）安装与订阅导入</h2>
-        <ol>
-          <li>打开 iPhone 自带的 App Store，点击右上角头像<strong>退出当前国区账号</strong>，登录您的美区 Apple ID。</li>
-          <li>搜索 <strong>Shadowrocket</strong>（注意认准开发者为 Shadow Launch Technology 的正版应用，图标为黄色底色白色小火箭）。</li>
-          <li>下载安装完成后，打开机场后台，点击<strong>“一键导入 Shadowrocket”</strong>，网页将自动跳转并添加所有节点。</li>
-          <li>若需手动添加：在软件右上角点击 <strong>+</strong> 号，类型选择 <strong>Subscribe</strong>，URL 栏粘贴订阅链接，点击右上角完成。</li>
-        </ol>
-
-        <h2>三、路由模式与全局路由建议</h2>
-        <p>在 Shadowrocket 主界面底部：</p>
-        <ul>
-          <li><strong>全局路由必须选择“配置 (Config)”：</strong>这样软件会根据内置分流规则，让国内网站直连，国外受限网站自动走代理，节省宝贵流量并提升访问速度。</li>
-          <li>点击最上方的连接开关，首次使用系统会弹出 <strong>“添加 VPN 配置”</strong> 弹窗，使用 Face ID / Touch ID 验证确认即可连接成功。</li>
-        </ul>
-
-          <div style="margin-top: 40px; padding: 24px; background: var(--bg-alt); border-radius: 8px; border: 1px solid var(--border-color);">
-            <h3 style="margin-top: 0;">下一步：寻找稳定高速的优质机场节点？</h3>
-            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 16px;">
-              教程配置完成后，您需要将可用的节点订阅导入软件中。浏览我们的严选推荐列表，按预算与需求挑选适合您的服务商。
+          <!-- 延伸实操推荐导航 -->
+          <div style="margin-top: 40px; padding: 24px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+            <h3 style="margin-top: 0; font-size: 1.15rem; color: #1e293b;">🚀 延伸阅读与选购推荐</h3>
+            <p style="font-size: 0.92rem; color: #64748b; margin-bottom: 16px;">
+              配置好客户端后，您可以参考我们的选购排行榜或专题推荐，挑选稳定抗封锁的高质量机场节点：
             </p>
-            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-              <a href="../recommend/index.html" class="btn-primary">查看精选机场推荐</a>
-              <a href="../ranking/overall.html" class="btn-secondary">查看 2026 综合排行榜</a>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <a href="../recommend/budget.html" class="btn-primary" style="font-size: 0.85rem;">性价比机场推荐</a>
+              <a href="../recommend/premium.html" class="btn-secondary" style="font-size: 0.85rem;">IPLC 高端专线</a>
+              <a href="../ranking/overall.html" class="btn-secondary" style="font-size: 0.85rem;">机场综合排行榜</a>
+              <a href="../compare.html" class="btn-secondary" style="font-size: 0.85rem;">机场横向对比工具</a>
             </div>
           </div>
         </div>
