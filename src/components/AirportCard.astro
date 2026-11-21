@@ -17,10 +17,15 @@ const pMax = airport.plans[airport.plans.length - 1];
     <span class="airport-badge badge-stable">{airport.testStatus === 'tested' ? '已核验' : '官方资料'}</span>
   </div>
   <div class="card-tagline">{airport.tagline}</div>
-  {airport.coupon && (
+  {airport.coupon ? (
     <div style="margin: 4px 0 8px; display: flex; align-items: center; gap: 6px;">
       <span style="font-size: 0.72rem; background: #ffe4e6; color: #e11d48; padding: 1px 6px; border-radius: 4px; font-weight: 700;">券</span>
-      <span style="font-size: 0.8rem; color: #be123c; font-weight: 600;">优惠码: <code style="font-weight: 800; color: #e11d48; background: #fff1f2; padding: 1px 5px; border-radius: 3px;">{airport.coupon}</code></span>
+      <span style="font-size: 0.8rem; color: #be123c; font-weight: 600;">专属优惠码: <code style="font-weight: 800; color: #e11d48; background: #fff1f2; padding: 1px 5px; border-radius: 3px;">{airport.coupon}</code></span>
+    </div>
+  ) : (
+    <div style="margin: 4px 0 8px; display: flex; align-items: center; gap: 6px;">
+      <span style="font-size: 0.72rem; background: #dcfce7; color: #15803d; padding: 1px 6px; border-radius: 4px; font-weight: 700;">特惠</span>
+      <span style="font-size: 0.8rem; color: #166534; font-weight: 600;">官方直供底价 · 专属通道免码直享</span>
     </div>
   )}
   <p class="card-desc">{airport.description}</p>

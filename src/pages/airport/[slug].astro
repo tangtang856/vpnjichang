@@ -78,13 +78,21 @@ const breadcrumbs = [
           <p style="margin: 0; color: #166534; font-size: 0.95rem;">{ap.tagline}。{ap.description}</p>
         </div>
 
-        {ap.coupon && (
+        {ap.coupon ? (
           <div style="margin: 18px 0 24px; padding: 14px 20px; background: #fff1f2; border: 1px dashed #f43f5e; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
             <div>
               <span style="font-size: 0.9rem; color: #9f1239; font-weight: 700;">🎁 专属优惠码：</span>
               <code style="font-size: 1.15rem; font-weight: 800; color: #e11d48; background: #ffe4e6; padding: 2px 8px; border-radius: 4px;">{ap.coupon}</code>
             </div>
             <span style="font-size: 0.85rem; color: #be123c;">在官方结账页面输入此优惠码可享立减优惠</span>
+          </div>
+        ) : (
+          <div style="margin: 18px 0 24px; padding: 14px 20px; background: #f0fdf4; border: 1px dashed #22c55e; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <span style="font-size: 0.9rem; color: #166534; font-weight: 700;">⚡ 官方真实特惠：</span>
+              <span style="font-size: 0.95rem; font-weight: 700; color: #15803d;">当前套餐已是官方直供特惠价</span>
+            </div>
+            <span style="font-size: 0.85rem; color: #166534;">通过本站专属通道进入直接享受最新优惠，无需输入优惠码</span>
           </div>
         )}
 

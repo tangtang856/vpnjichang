@@ -113,13 +113,21 @@ const breadcrumbs = [
           </p>
         </div>
 
-        {ap.coupon && (
+        {ap.coupon ? (
           <div style="margin: 18px 0 24px; padding: 14px 20px; background: #fff1f2; border: 1px dashed #f43f5e; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
             <div>
               <span style="font-size: 0.9rem; color: #9f1239; font-weight: 700;">🎁 专属优惠码：</span>
               <code style="font-size: 1.15rem; font-weight: 800; color: #e11d48; background: #ffe4e6; padding: 2px 8px; border-radius: 4px;">{ap.coupon}</code>
             </div>
-            <span style="font-size: 0.85rem; color: #be123c;">在官方结账页面输入此优惠码可享折上折优惠</span>
+            <span style="font-size: 0.85rem; color: #be123c;">在官方结账页面输入此优惠码可享立减折扣优惠</span>
+          </div>
+        ) : (
+          <div style="margin: 18px 0 24px; padding: 14px 20px; background: #f0fdf4; border: 1px dashed #22c55e; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <span style="font-size: 0.9rem; color: #166534; font-weight: 700;">⚡ 官方真实优惠：</span>
+              <span style="font-size: 0.95rem; font-weight: 700; color: #15803d;">当前套餐已是官方直供特惠价</span>
+            </div>
+            <span style="font-size: 0.85rem; color: #166534;">通过本站专属通道进入直接享受最新优惠，无需输入优惠码</span>
           </div>
         )}
 
@@ -206,6 +214,16 @@ const breadcrumbs = [
             <button class="faq-question">如果节点全部变红或提示超时该怎么办？<span>+</span></button>
             <div class="faq-answer">
               <p>首先检查客户端系统时间是否与北京时间分秒同步（时间偏差超 60 秒会导致握手失败）；其次在客户端手动更新订阅；如果仍超时，请参考我们的 <a href="/guides/clash-tutorial.html">Clash 报错排查全指南</a>。</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">{ap.name} 是否有专属优惠券可用？<span>+</span></button>
+            <div class="faq-answer">
+              {ap.coupon ? (
+                <p>有的。在官方结算页面输入专属优惠券码【<strong>{ap.coupon}</strong>】即可享受立减折扣优惠。</p>
+              ) : (
+                <p>当前套餐已是官方直供优惠价，直接通过本站专属通道进入即可享受最新优惠，无需输入优惠码。</p>
+              )}
             </div>
           </div>
 

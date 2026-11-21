@@ -157,7 +157,8 @@ export const airportsData: Airport[] = [
       "beginner",
       "ai",
       "streaming"
-    ]
+    ],
+    "promotionText": "专属优惠码 weifeng90 享立减折扣"
   },
   {
     "id": "muguang",
@@ -167,7 +168,7 @@ export const airportsData: Airport[] = [
     "description": "暮光网络是一家专业的高性能网络代理服务商，提供高速稳定的专线中转与跨境节点，支持主流客户端一键导入配置，全天候保障流畅出海体验。",
     "officialUrl": "https://varnexa.twilightaff.com/#/?code=8EtJCnBT",
     "affiliateUrl": "https://varnexa.twilightaff.com/#/?code=8EtJCnBT",
-    "coupon": "mm88",
+    "coupon": "",
     "ratingScore": 9.3,
     "startingPrice": 20,
     "currency": "CNY",
@@ -180,7 +181,7 @@ export const airportsData: Airport[] = [
         "pricePerGB": 0.1667,
         "speed": "500 Mbps",
         "devices": "4台设备",
-        "billingNote": "¥20/月起，120GB/月专线节点，专属优惠码 mm88"
+        "billingNote": "¥20/月起，120GB/月专线节点，官方直供优惠"
       },
       {
         "name": "海量进阶月付",
@@ -251,7 +252,8 @@ export const airportsData: Airport[] = [
       "value",
       "ai",
       "streaming"
-    ]
+    ],
+    "promotionText": "官方直供特惠价，通过本站专属通道进入即享最新优惠，免输优惠码"
   },
   {
     "id": "feimaoyun",
@@ -348,7 +350,8 @@ export const airportsData: Airport[] = [
       "beginner",
       "ai",
       "streaming"
-    ]
+    ],
+    "promotionText": "专属优惠码 flycat888 享立减折扣"
   },
   {
     "id": "wuyou",
@@ -442,7 +445,8 @@ export const airportsData: Airport[] = [
       "value",
       "ai",
       "streaming"
-    ]
+    ],
+    "promotionText": "专属优惠码 wuyou666 享立减折扣"
   },
   {
     "id": "lingmao",
@@ -452,7 +456,7 @@ export const airportsData: Airport[] = [
     "description": "灵猫是一家专业的高性能网络代理服务商，提供高速稳定的专线中转与跨境节点，支持主流客户端一键导入配置，全天候保障流畅出海体验。",
     "officialUrl": "https://vip02.civetaff.com/#/?code=SXY8qyrG",
     "affiliateUrl": "https://vip02.civetaff.com/#/?code=SXY8qyrG",
-    "coupon": "lmao888",
+    "coupon": "",
     "ratingScore": 9.3,
     "startingPrice": 25,
     "currency": "CNY",
@@ -465,7 +469,7 @@ export const airportsData: Airport[] = [
         "pricePerGB": 0.1667,
         "speed": "500 Mbps",
         "devices": "4台设备",
-        "billingNote": "¥25/月起，150GB/月真实IPLC专线，专属优惠码 lmao888"
+        "billingNote": "¥25/月起，150GB/月真实IPLC专线，官方直供优惠"
       },
       {
         "name": "旗舰大流量版",
@@ -536,7 +540,8 @@ export const airportsData: Airport[] = [
       "value",
       "ai",
       "streaming"
-    ]
+    ],
+    "promotionText": "官方直供特惠价，通过本站专属通道进入即享最新优惠，免输优惠码"
   },
   {
     "id": "flashleap",
@@ -630,7 +635,8 @@ export const airportsData: Airport[] = [
       "value",
       "ai",
       "streaming"
-    ]
+    ],
+    "promotionText": "专属优惠码 shanyue 享立减折扣"
   },
   {
     "id": "firefly",
@@ -723,7 +729,8 @@ export const airportsData: Airport[] = [
       "beginner",
       "ai",
       "streaming"
-    ]
+    ],
+    "promotionText": "专属优惠码 firefly 享立减折扣"
   },
   {
     "id": "kuajiecloud",
@@ -733,7 +740,7 @@ export const airportsData: Airport[] = [
     "description": "跨界是一家专业的高性能网络代理服务商，提供高速稳定的专线中转与跨境节点，支持主流客户端一键导入配置，全天候保障流畅出海体验。",
     "officialUrl": "https://vip02.kuajieaff.com/#/?code=CpJKZicY",
     "affiliateUrl": "https://vip02.kuajieaff.com/#/?code=CpJKZicY",
-    "coupon": "kuajie",
+    "coupon": "",
     "ratingScore": 9.3,
     "startingPrice": 20,
     "currency": "CNY",
@@ -746,7 +753,7 @@ export const airportsData: Airport[] = [
         "pricePerGB": 0.1667,
         "speed": "500 Mbps",
         "devices": "4台设备",
-        "billingNote": "¥20/月起，120GB/月全专线架构，专属优惠码 kuajie"
+        "billingNote": "¥20/月起，120GB/月全专线架构，官方直供优惠"
       },
       {
         "name": "全专线旗舰版",
@@ -817,7 +824,8 @@ export const airportsData: Airport[] = [
       "value",
       "ai",
       "streaming"
-    ]
+    ],
+    "promotionText": "官方直供特惠价，通过本站专属通道进入即享最新优惠，免输优惠码"
   },
   {
     "id": "yinxingren",
@@ -912,7 +920,8 @@ export const airportsData: Airport[] = [
       "value",
       "ai",
       "streaming"
-    ]
+    ],
+    "promotionText": "专属优惠码 yxr888 享立减折扣"
   },
   {
     "id": "feiv",
@@ -922,7 +931,7 @@ export const airportsData: Airport[] = [
     "description": "飞V是一家专业的高性能网络代理服务商，提供高速稳定的专线中转与跨境节点，支持主流客户端一键导入配置，全天候保障流畅出海体验。",
     "officialUrl": "https://varnexa.flyvaff.com/#/?code=Ks7qO8qe",
     "affiliateUrl": "https://varnexa.flyvaff.com/#/?code=Ks7qO8qe",
-    "coupon": "fly20",
+    "coupon": "",
     "ratingScore": 9.1,
     "startingPrice": 4.9,
     "currency": "CNY",
@@ -935,7 +944,7 @@ export const airportsData: Airport[] = [
         "pricePerGB": 0.049,
         "speed": "300 Mbps",
         "devices": "3台设备",
-        "billingNote": "¥4.9/月起，突破性极低起步价，专属优惠码 fly20"
+        "billingNote": "¥4.9/月起，突破性极低起步价，官方直供特惠"
       },
       {
         "name": "不限时海量版",
@@ -1005,7 +1014,8 @@ export const airportsData: Airport[] = [
       "beginner",
       "ai",
       "streaming"
-    ]
+    ],
+    "promotionText": "官方直供底价，低至 ¥4.9/月起突破性特惠，免输优惠码"
   },
   {
     "id": "laddercloud",
@@ -1015,7 +1025,7 @@ export const airportsData: Airport[] = [
     "description": "梯子云 LadderCloud是一家专业的高性能网络代理服务商，提供高速稳定的专线中转与跨境节点，支持主流客户端一键导入配置，全天候保障流畅出海体验。",
     "officialUrl": "https://varnexa.ladderaff.com/#/?code=eC6eLAbq",
     "affiliateUrl": "https://varnexa.ladderaff.com/#/?code=eC6eLAbq",
-    "coupon": "tiziyun",
+    "coupon": "",
     "ratingScore": 9.2,
     "startingPrice": 25,
     "currency": "CNY",
@@ -1028,7 +1038,7 @@ export const airportsData: Airport[] = [
         "pricePerGB": 0.2,
         "speed": "500 Mbps",
         "devices": "4台设备",
-        "billingNote": "¥25/月起，125GB高速���转，专属优惠码 tiziyun"
+        "billingNote": "¥25/月起，125GB高速中转，官方直供优惠"
       },
       {
         "name": "海量专线版",
@@ -1098,7 +1108,8 @@ export const airportsData: Airport[] = [
       "stable",
       "ai",
       "streaming"
-    ]
+    ],
+    "promotionText": "官方直供特惠价，通过本站专属通道进入即享最新优惠，免输优惠码"
   },
   {
     "id": "wavenet",
@@ -1108,7 +1119,7 @@ export const airportsData: Airport[] = [
     "description": "浪网 WaveNet是一家专业的高性能网络代理服务商，提供高速稳定的专线中转与跨境节点，支持主流客户端一键导入配置，全天候保障流畅出海体验。",
     "officialUrl": "https://varnexa.wavenetaff.com/#/?code=8fwQQBdy",
     "affiliateUrl": "https://varnexa.wavenetaff.com/#/?code=8fwQQBdy",
-    "coupon": "lw888",
+    "coupon": "",
     "ratingScore": 9.4,
     "startingPrice": 30,
     "currency": "CNY",
@@ -1121,7 +1132,7 @@ export const airportsData: Airport[] = [
         "pricePerGB": 0.2,
         "speed": "600 Mbps",
         "devices": "5台设备",
-        "billingNote": "¥30/月起，150GB/月自研客户端优化线路，专属优惠码 lw888"
+        "billingNote": "¥30/月起，150GB/月自研客户端优化线路，官方直供优惠"
       },
       {
         "name": "自研旗舰版",
@@ -1190,7 +1201,8 @@ export const airportsData: Airport[] = [
       "value",
       "ai",
       "streaming"
-    ]
+    ],
+    "promotionText": "官方直供特惠价，通过本站专属通道进入即享最新优惠，免输优惠码"
   },
   {
     "id": "lingdongcloud",
@@ -1200,7 +1212,7 @@ export const airportsData: Airport[] = [
     "description": "灵动云是一家专业的高性能网络代理服务商，提供高速稳定的专线中转与跨境节点，支持主流客户端一键导入配置，全天候保障流畅出海体验。",
     "officialUrl": "https://varnexa.lingdongaff.com/#/?code=kd4yTgUr",
     "affiliateUrl": "https://varnexa.lingdongaff.com/#/?code=kd4yTgUr",
-    "coupon": "ld888",
+    "coupon": "",
     "ratingScore": 9.2,
     "startingPrice": 20,
     "currency": "CNY",
@@ -1213,7 +1225,7 @@ export const airportsData: Airport[] = [
         "pricePerGB": 0.2,
         "speed": "400 Mbps",
         "devices": "4台设备",
-        "billingNote": "¥20/月起，100GB/月起均衡配置，专属优惠码 ld888"
+        "billingNote": "¥20/月起，100GB/月起均衡配置，官方直供优惠"
       },
       {
         "name": "畅享月付版",
@@ -1281,7 +1293,8 @@ export const airportsData: Airport[] = [
     "tags": [
       "ai",
       "streaming"
-    ]
+    ],
+    "promotionText": "官方直供特惠价，通过本站专属通道进入即享最新优惠，免输优惠码"
   },
   {
     "id": "quanqiuyun",
@@ -1372,7 +1385,8 @@ export const airportsData: Airport[] = [
     "tags": [
       "ai",
       "streaming"
-    ]
+    ],
+    "promotionText": "专属优惠码 tt88 享立减折扣"
   }
 ];
 
